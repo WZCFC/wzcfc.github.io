@@ -1,0 +1,26 @@
+/* Only the two compact case entries on the project index. */
+.project-notebook .project-case-teaser { --teaser-accent: #23829a; border-top-color: var(--teaser-accent); }
+.project-notebook .project-case-teaser.teaser-dream { --teaser-accent: #b93643; }
+.project-case-teaser .teaser-copy { min-width: 0; }
+.project-case-teaser .notebook-label { color: var(--teaser-accent); }
+.project-case-teaser .teaser-hook { font-size: clamp(1.08rem, 1.8vw, 1.3rem); }
+.project-case-teaser .teaser-role { color: #485446; font-size: .9rem; }
+.project-notebook .project-case-teaser .project-case-cta {
+  min-height: 56px; min-width: min(100%, 260px); margin-top: 14px;
+  padding: 14px 22px; font-size: 1rem; color: #152110;
+  background: #87dc22; border: 2px solid #172117;
+  box-shadow: 4px 5px 0 #172117; transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.project-notebook .project-case-teaser .project-case-cta:hover { transform: translate(-2px, -2px); box-shadow: 6px 7px 0 #172117; }
+.project-notebook .project-case-teaser .project-case-cta:active { transform: translate(3px, 4px); box-shadow: 1px 1px 0 #172117; }
+.project-notebook .project-case-teaser .project-case-cta:focus-visible { outline: 3px solid #006a91; outline-offset: 7px; }
+.project-case-teaser .project-runtime-shot { margin: 0; align-self: center; }
+.project-case-teaser .project-runtime-shot a { display: block; }
+.project-notebook .project-case-teaser .project-runtime-shot img { width: 100%; height: auto; max-height: none; aspect-ratio: auto; object-fit: contain; }
+@media (max-width: 760px) {
+  .project-notebook .project-case-teaser { grid-template-columns: 1fr; gap: 28px; }
+  .project-notebook .project-case-teaser .project-case-cta { width: 100%; min-width: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-notebook .project-case-teaser .project-case-cta { transition: none; }
+}

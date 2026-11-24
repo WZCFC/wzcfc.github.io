@@ -1,0 +1,19 @@
+
+
+/* FRONTEND PRIORITY 20260930 — UX */
+body[data-page="home"] .landing-actions .action-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  border-color: rgba(239, 225, 189, .68);
+  color: #efe1bd;
+  background: rgba(7, 9, 8, .72);
+}
+body[data-page="home"] .landing-actions .action-secondary:hover {
+  border-color: #b7f13b;
+  color: #b7f13b;
+}
+body[data-page="home"] .landing-actions .action-secondary:focus-visible {
+  outline: 3px solid #b7f13b;
+  outline-offset: 3px;
+}

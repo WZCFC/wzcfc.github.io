@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="《梦蚀》设计案例：从医院探索中的一次眩晕，到身体记录的确认、保存与提交，说明表里世界、信息引导和音效反馈的设计判断与阶段复盘。">
+  <title>梦蚀｜从一次眩晕开始，让身体信息进入行动 · DESIGN RIG</title>
+  <script type="module" crossorigin src="/assets/modulepreload-polyfill-P2Xu9kJm.js"></script>
+  <script type="module" crossorigin src="/assets/main-D6G2PHvr.js"></script>
+  <script type="module" crossorigin src="/assets/project-case-BSAjDtLF.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-vMvouqLi.css">
+  <link rel="stylesheet" crossorigin href="/assets/project-case-CUCSfP1Y.css">
+</head>
+<body class="module-body theme-red project-notebook project-case-page case-dream" data-page="dream-erosion" data-case-study="true">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" data-header>
+    <a class="site-brand" href="/" aria-label="返回作品集首页"><span class="bug-mark" aria-hidden="true"><i></i><i></i></span><span><strong>DESIGN RIG</strong><small>PROJECT LAB / 梦蚀</small></span></a>
+    <nav class="site-nav" id="site-nav" aria-label="作品集模块"><a class="is-current" href="/projects.html">项目实验室</a><a href="/systems.html">项目研究 / 游戏经历</a><a href="/field.html">团队与现场</a><a href="/resume.html">简历档案</a></nav>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span aria-hidden="true">☰</span><span>模块</span></button>
+  </header>
+  <main id="main" class="module-main case-main">
+    <article class="paper-sheet case-story">
+      <header class="case-opening">
+        <a class="back-link" href="/projects.html#dream">← 返回项目实验室</a>
+        <p class="case-kicker">梦蚀 / 2D 叙事动作游戏</p>
+        <h1>从一次眩晕开始，<br>让身体信息进入<br>玩家的行动。</h1>
+        <p class="case-intro">叶夏天知道自己生病、暂时不能上学，却还不知道病情全貌。我希望玩家陪她确认安排、经历检查、整理不适，再带着这些尚未被解释的感受走进里世界。</p>
+        <p class="case-byline"><strong>我的职责</strong> 主策划 / 项目管理 / 音效设计</p>
+        <dl class="case-facts">
+          <div><dt>阶段</dt><dd>可运行 · 开发中</dd></div>
+          <div><dt>类型</dt><dd>叙事动作 / 表里世界</dd></div>
+          <div><dt>工作重点</dt><dd>医院流程、身体记录、行动反馈</dd></div>
+        </dl>
+        <figure class="story-figure case-cover">
+          <button type="button" class="case-image-button" data-case-enlarge data-full-src="/assets/cases-20261005/dream-ward.png" aria-label="放大《梦蚀》2026年10月5日本地 Godot 病房实机"><img src="/assets/cases-20261005/dream-ward.webp" width="1600" height="1001" fetchpriority="high" decoding="async" alt="叶夏天站在医院病床旁，左上角当前任务提示检查床边的背包"></button>
+          <figcaption>2026.10.05 本地 Godot v0.1 实机 · 病房与当前任务。先让玩家知道眼前可以做什么。点击可查看原图。</figcaption>
+        </figure>
+      </header>
+
+      <nav class="case-toc" aria-label="《梦蚀》案例目录"><a href="#hospital-flow">医院探索</a><a href="#body-record">身体记录</a><a href="#two-worlds">表里衔接</a><a href="#sound-feedback">音效反馈</a><a href="#stage-result">结果与复盘</a></nav>
+
+      <section class="case-section" id="hospital-flow" aria-labelledby="hospital-title">
+        <div class="case-prose">
+          <p class="case-kicker">01 / 医院探索</p>
+          <h2 id="hospital-title">每到一个地方，<br>都多知道一件事。</h2>
+          <p>医院有楼层、材料、工作人员和检查流程。我的设计问题是：怎样让玩家知道下一步去哪，同时保留主角对自身处境的有限理解？我把第一章的行动串在病房、采血区和 MRI 区之间，让材料、身体变化与场景交互逐步提供信息。</p>
+        </div>
+        <ol class="case-flow" aria-label="医院章节的设计流程">
+          <li><span>01</span><strong>6F · 确认安排</strong><p>打开背包，阅读住院单与检查单，知道要去哪里。</p></li>
+          <li><span>02</span><strong>走廊 → 2F · 经历变化</strong><p>途中出现眩晕，再完成登记与采血，留下需要整理的不适。</p></li>
+          <li><span>03</span><strong>回到病床 · 整理记录</strong><p>在安静的停顿中打开手机，确认经历，决定是否提交。</p></li>
+          <li><span>04</span><strong>B1 · 接受检查</strong><p>报到、准备 MRI，由现实检查过程衔接里世界。</p></li>
+        </ol>
+        <div class="case-prose">
+          <h3>主线材料与生活细节，承担不同作用。</h3>
+          <p>医院流程用住院单和检查单推进；日记、演出票等物件留作可选信息。前者回答“接下来要做什么”，后者补充“她原本怎样生活”。这个取舍让任务保持清楚，也给愿意停下来观察的玩家留下空间。</p>
+        </div>
+      </section>
+
+      <section class="case-section" id="body-record" aria-labelledby="record-title">
+        <div class="case-prose">
+          <p class="case-kicker">02 / OSEC 身体记录</p>
+          <h2 id="record-title">“我有点晕”，<br>可以怎样说得更清楚？</h2>
+          <p>OSEC 是主角手机中的身体记录 App。我用走廊中的一次眩晕作为最小例子：先让事件发生，再整理时间、情境、感受和动作。玩家接触到的是自己刚刚经历过的内容，能够理解每条记录从哪里来。</p>
+        </div>
+        <div class="case-fact-strip" aria-label="走廊眩晕的四条事实">
+          <article><small>时间</small><strong>9 月 13 日上午</strong><p>这次不适发生在什么时候。</p></article>
+          <article><small>情境</small><strong>从 6F 病房前往电梯时</strong><p>当时正在做什么。</p></article>
+          <article><small>感受</small><strong>步行后短暂眩晕</strong><p>主角实际感到的变化。</p></article>
+          <article><small>动作</small><strong>扶墙停下</strong><p>身体变化怎样影响行动。</p></article>
+        </div>
+        <aside class="case-note">上方是依据设计与 Godot 记录内容整理的说明图；9 月 13 日是剧情日期。</aside>
+        <div class="case-prose">
+          <h3>把决定留给玩家：确认之后，保存还是提交？</h3>
+          <p>记录先等待本人确认，再进入保存或提交。两种选择表达不同意愿；先保留记录，也可以继续医院流程。OSEC 整理已知事实与待问问题，解释与后续回应交给医护。</p>
+        </div>
+        <div class="case-comparison">
+          <article><h3>保存但不提交</h3><p>把确认过的经历留在手机里，供自己回看。</p></article>
+          <article><h3>提交</h3><p>把确认过的经历送入后续反馈流程，并清楚显示等待状态。</p></article>
+        </div>
+        <div class="case-prose"><p>这个设计把一次“获得信息”拆成经历、理解与表达。真正需要玩家决定的，是哪些事实可以确认，以及是否把它们告诉别人。</p></div>
+      </section>
+
+      <section class="case-section" id="two-worlds" aria-labelledby="world-title">
+        <div class="case-prose">
+          <p class="case-kicker">03 / 表里世界</p>
+          <h2 id="world-title">从身体经历出发，<br>让两个世界有理由相接。</h2>
+          <p>表世界通过检查、等待和身体变化建立现实处境；里世界用有机地形、移动与战斗转译这些感受。两者的连接点需要发生在角色身上，因此我把手机的信息整理与现实场景的行动分开。</p>
+        </div>
+        <div class="case-comparison">
+          <article><h3>手机保留已知信息</h3><p>记录、确认、保存和提交，帮助玩家带着信息继续行动。</p></article>
+          <article><h3>医院推动真实进程</h3><p>找到科室、沟通、报到与准备，由检查过程触发表里过渡。</p></article>
+        </div>
+        <div class="case-prose"><p>这样的分工让玩家仍需亲自走进医院空间。里世界的黑童话则保留人物与环境中的矛盾，给后续重读留下余地。当前 Godot 路线已调整为 MRI 后直接进入里世界 1，早期序章教学属于此前的路线设计。</p></div>
+      </section>
+
+      <section class="case-section" id="sound-feedback" aria-labelledby="sound-title">
+        <div class="case-prose">
+          <p class="case-kicker">04 / 让动作被听见</p>
+          <h2 id="sound-title">挥出了武器，<br>也要听见有没有命中。</h2>
+          <p>我在 FL Studio 中完成六项核心音效的采样、剪切、处理与导出，覆盖里世界行走、闪避、攻击命中、攻击落空、小怪死亡和使用药瓶。设计重点是让声音对应不同的动作结果。</p>
+        </div>
+        <div class="case-comparison">
+          <article><h3>命中 / 落空</h3><p>区分已经发动攻击与攻击产生有效结果。</p></article>
+          <article><h3>行走 / 闪避</h3><p>让持续移动和一次短促位移拥有不同反馈。</p></article>
+          <article><h3>死亡 / 用药</h3><p>提示战斗目标结束，以及恢复行为发生。</p></article>
+        </div>
+        <div class="case-prose"><p>六项交付已进入 Godot 运行资源和对应事件调用。其中攻击音效依据命中结果选择播放，让声音承担玩家判断行动结果的一部分。</p></div>
+      </section>
+
+      <section class="case-section case-outcome" id="stage-result" aria-labelledby="result-title">
+        <div class="case-prose">
+          <p class="case-kicker">05 / 阶段结果与复盘</p>
+          <h2 id="result-title">下一步，先把这段经历<br>完整交到玩家手里。</h2>
+          <p>项目从 Unity 转到 Godot，又经历了工程接管与重建。当前有可运行的 Godot 阶段版本；本次本地运行确认了从开场进入病房、移动、打开背包和阅读检查单。对照当前工程，身体记录也已包含确认、保存与提交逻辑。</p>
+          <p>完整章节体验仍待进一步验证，OSEC 的后续医护反馈与战斗数值联动仍待完成。这些是继续迭代要解决的内容。</p>
+          <h3>把完成标准收回到一段连续体验。</h3>
+          <p>这次经历暴露了引擎选择、工程交接和范围管理的代价。我的下一步会先锁定“病房确认安排 → 经历眩晕 → 整理记录 → MRI → 里世界”的短流程，观察玩家能否说清自己知道了什么、下一步为何这样做，再决定扩充哪些内容。</p>
+        </div>
+        <details class="case-details"><summary>这次复盘留下的制作要求</summary><p>迁移前先做最小验证，并保留可回退版本；交接时用实际能运行的内容确认进度；每次扩充前，先由一名未参与开发的人走完现有流程。这些要求用于下一阶段收敛，也把策划目标和工程交付放到同一个检查点。</p></details>
+      </section>
+
+      <nav class="case-next" aria-label="继续阅读"><a href="/projects.html#dream">← 项目实验室</a><a href="/contral.html">阅读 Contral 案例 →</a><a href="/resume.html#resume-dream">回到简历中的《梦蚀》 →</a></nav>
+    </article>
+  </main>
+  <footer class="site-footer"><p>DESIGN RIG / 梦蚀</p><a href="/projects.html">项目实验室</a></footer>
+</body>
+</html>

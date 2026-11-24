@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>EVE Case · 第一幕｜DESIGN RIG</title>
+  <script type="module" crossorigin src="../../assets/modulepreload-polyfill-P2Xu9kJm.js"></script>
+  <script type="module" crossorigin src="../../assets/prototype-R2pyQCOu.js"></script>
+  <link rel="stylesheet" crossorigin href="../../assets/prototype-nycLwMVI.css">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body data-case-page="departure">
+  <aside class="case-rail" aria-label="作品集位置">
+    <a class="rail-brand" href="../../index.html">DESIGN RIG</a>
+    <nav aria-label="作品集模块"><a href="../../index.html">首页</a><a href="../../projects.html">项目实验室</a><a href="../../systems.html" aria-current="location">项目研究 / 游戏经历</a><span class="rail-current">↳ EVE</span><a href="../../field.html">团队与现场</a><a href="../../resume.html">简历档案</a></nav>
+    <span class="rail-foot">EVE CASE STUDY</span>
+  </aside>
+  <header class="prototype-header">
+    <a class="skip-link" href="#act-1">跳到第一幕</a>
+    <div class="case-location"><a href="../../systems.html#eve">← 项目研究 / 游戏经历</a><span aria-hidden="true">/</span><span>EVE</span></div>
+<nav class="progress" aria-label="第一幕场景">
+      <span id="scene-position">第一幕 · 1 / 5</span>
+      <button type="button" data-go="1" aria-label="场景 1" aria-current="step">1</button>
+      <button type="button" data-go="2" aria-label="场景 2，未解锁" disabled>2</button>
+      <button type="button" data-go="3" aria-label="场景 3，未解锁" disabled>3</button>
+      <button type="button" data-go="4" aria-label="场景 4，未解锁" disabled>4</button>
+      <button type="button" data-go="5" aria-label="场景 5，未解锁" disabled>5</button>
+    </nav>
+    <div id="interface-status-panel" class="interface-status-panel" hidden>
+      <p id="interface-status-message" role="status"></p>
+      <div><button class="text-action" id="interface-preview" data-go="9" type="button" hidden>查看章节说明 →</button><button class="text-action" id="close-interface-status" type="button">关闭提示</button></div>
+    </div>
+  </header>
+
+  <main id="act-1">
+    <noscript><p class="script-notice">第一幕通过操作逐步展开。请启用 JavaScript 后继续；当前只展示开场。<a href="../../systems.html">返回项目研究 / 游戏经历</a></p></noscript>
+    <section class="scene scene-purchase" id="scene-1" data-scene="1" aria-labelledby="scene-1-title">
+      <div class="scene-grid">
+        <div class="scene-copy">
+          <p class="eyebrow">一笔普通购买</p>
+          <h1 id="scene-1-title" tabindex="-1">你想买一艘船。</h1>
+          <p class="lead">在 <span class="eve-context" data-open="false"><button class="eve-trigger" id="eve-trigger" type="button" aria-describedby="eve-tooltip" aria-expanded="false">EVE Online</button><span class="eve-tooltip" id="eve-tooltip" role="tooltip">这是一款科幻多人在线游戏，大量舰船与装备由玩家采集、制造并进入玩家市场。</span></span> 的市场里，这看起来只是一笔普通的购买。</p>
+        </div>
+        <article class="market-card" aria-label="舰船购买">
+          <div class="market-ship" role="img" aria-label="市场舰船示意"></div>
+          <div class="market-order"><p class="eyebrow">玩家市场</p><h2>你选中的舰船</h2><p>由其他玩家制造、出售。</p><button type="button" class="primary-action" id="purchase-trigger">买下这艘船 →</button><p id="purchase-note" role="status">购买后，去空间站整装。</p></div>
+        </article>
+      </div>
+      <div class="supply-strip" aria-label="这艘船来到市场前的玩家关系">
+        <p>来到你面前之前，这艘船已经经过多位玩家的手。</p>
+        <ol><li><span aria-hidden="true">◇</span><strong>采集</strong><small>玩家获取资源</small></li><li><span aria-hidden="true">⌘</span><strong>制造</strong><small>玩家把资源做成舰船</small></li><li><span aria-hidden="true">⇄</span><strong>市场</strong><small>玩家出售产出</small></li><li class="supply-you"><span aria-hidden="true">↳</span><strong>你</strong><small id="buyer-state">准备买下它</small></li></ol>
+      </div>
+    </section>
+
+    <template id="scene-template-2">
+    <section class="scene scene-loss" id="scene-2" data-scene="2" aria-labelledby="scene-2-title">
+      <div class="departure-heading">
+        <p class="eyebrow">02 / 空间站</p>
+        <h2 id="scene-2-title">船买好了。准备出航。</h2>
+        <p class="lead">以一次使用弹药的任务出航为例，先按舰船会永久损毁的情境观察。装好装备，再带上物资。</p>
+      </div>
+      <div class="departure-layout">
+        <div class="ship-stage" id="ship-stage" data-ship-state="ready" aria-label="停在空间站的舰船">
+          <svg class="ship" viewBox="0 0 360 180" role="img" aria-label="同一艘舰船的线框示意">
+            <path class="ship-body" d="M43 98 154 49l151 42-78 19-45 35-42-35Z"/>
+            <path class="ship-detail" d="m154 49 28 96m-42-35 87 0M81 82l42 17-32 14m179-31-43 28"/>
+          </svg>
+          <div id="fitted-labels" hidden><span>武器与防护装备 · 已装上</span><span>本次所需弹药 · 已带好</span></div>
+          <div class="wreck-mark" aria-hidden="true"><span></span><span></span></div>
+          <p class="ship-status">舰船状态：<strong data-status>等待整装</strong></p>
+        </div>
+        <div class="departure-copy">
+          <div id="preparation">
+            <h3>先把船准备好。</h3>
+            <ul class="preparation-list"><li><strong>装上装备</strong><span>让这艘船能够执行本次战斗目标。</span></li><li><strong>带好弹药</strong><span>这次以使用弹药的武器为例。</span></li></ul>
+            <button class="primary-action" id="fit-trigger" type="button">装好装备，带上弹药 →</button>
+          </div>
+          <div id="departure-ready" hidden>
+            <h3>整装待发。</h3>
+            <p>现在，船、装备和物资一起随你出站。</p>
+            <button class="primary-action" id="depart-trigger" type="button">出站，执行这次战斗 →</button>
+          </div>
+        </div>
+      </div>
+      <div class="sortie-results" id="sortie-results" hidden aria-label="同一次任务出航的两种结果">
+        <article id="return-outcome" class="result-card result-return" hidden tabindex="-1">
+          <p class="event-label">结果 A / 完成任务并交付</p><h3>带船回来，拿到奖励。</h3>
+          <div class="result-ship" aria-label="这次返回的舰船仍可使用"><svg viewBox="0 0 360 180" aria-hidden="true"><path d="M43 98 154 49l151 42-78 19-45 35-42-35Z"/></svg><strong>舰船可继续使用</strong></div>
+          <dl class="result-ledger"><div><dt>保留</dt><dd>本次舰船、装上的装备和未用完的弹药随你返回。</dd></div><div><dt>损失 / 消耗</dt><dd>已发射的弹药、投入的时间；本例没有额外装备损失。</dd></div><div><dt>获得</dt><dd>完成并交付任务后的 ISK、LP 点数与对应声望奖励。</dd></div></dl>
+          <button class="primary-action" id="combat-trigger" type="button">对照另一种结果：船没能回来 →</button>
+        </article>
+        <article id="loss-outcome" class="result-card result-loss" hidden tabindex="-1">
+          <p class="event-label">结果 B / 舰船损毁，任务未交付</p><h3>船没了，这次失去了什么？</h3>
+          <div class="result-ship" aria-label="这次舰船永久损毁"><svg viewBox="0 0 360 180" aria-hidden="true"><path d="M43 98 154 49l151 42-78 19-45 35-42-35Z"/><path class="result-cross" d="m110 35 135 110m0-110L110 145"/></svg><strong>原舰船永久损毁</strong></div>
+          <dl class="result-ledger"><div><dt>保留</dt><dd>如有已经结算到钱包的收入，它不会随舰船一起消失。</dd></div><div><dt>损失 / 消耗</dt><dd>原舰船、已用弹药和投入的时间。装备与货舱物品可能被摧毁或掉入残骸；掉落不等于已经取回。</dd></div><div><dt>获得</dt><dd>爆船本身没有任务收益；本例未交付任务，完成奖励尚未获得。</dd></div></dl>
+        </article>
+      </div>
+      <div class="scene-footer"><button class="primary-action" data-next="5" type="button" hidden>船没了，你还想再买一艘吗？ ↓</button></div>
+      <button class="text-action" id="revisit-preparation" type="button" hidden>回看出航准备</button>
+    </section>
+    </template>
+
+    <template id="scene-template-5">
+    <section class="scene scene-close" id="scene-5" data-scene="5" aria-labelledby="scene-5-title">
+      <div class="closing-frame">
+        <h2 id="scene-5-title">你还想买下一艘吗？</h2>
+        <div class="answer-options" role="group" aria-label="此刻的补船意愿">
+          <button class="chip" type="button" data-answer="yes">我要买一条新的</button>
+          <button class="chip" type="button" data-answer="no">我不买了</button>
+          <button class="chip" type="button" data-answer="undecided">我还不知道我要不要买</button>
+        </div>
+      </div>
+    </section>
+    </template>
+
+  </main>
+  <footer class="reading-footer">
+    <p class="prototype-label">DESIGN RIG · EVE 系统研究</p>
+    <details class="reading-settings"><summary>阅读记录</summary><p id="storage-status">正在载入阅读记录。</p><button class="text-action" id="reset-progress" type="button">重新开始首次阅读</button></details>
+    <a href="../../systems.html#eve">返回项目研究 / 游戏经历</a>
+  </footer>
+  <p class="visually-hidden" id="reading-status" role="status" aria-live="polite"></p>
+</body>
+</html>

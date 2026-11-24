@@ -1,0 +1,7 @@
+.project-notebook .project-runtime-shot { min-width: 0; margin: .1rem 0 1.15rem; padding: .35rem; border: 1px solid #a79b76; background: #f4e9ca; box-shadow: 3px 4px 0 #82775766; }
+.project-notebook .project-runtime-shot a { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: #18221c; }
+.project-notebook .project-runtime-shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.project-notebook #ninja .project-runtime-shot img { object-position: 50% 45%; }
+.project-notebook .project-runtime-shot figcaption { margin: .45rem .15rem .05rem; color: #4b5b4d; font-size: .68rem; line-height: 1.5; }
+.project-notebook .project-runtime-shot a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.project-notebook .split-copy > .project-runtime-shot { margin-top: 1.25rem; }

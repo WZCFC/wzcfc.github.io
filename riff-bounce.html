@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Riff Bounce 48 小时原型转向案例：从自动跑酷与物理鼓机，收敛为可公开试玩的战斗成长循环。">
+    <title>Riff Bounce｜原型转向案例</title>  <script type="module" crossorigin src="./assets/modulepreload-polyfill-P2Xu9kJm.js"></script>
+  <script type="module" crossorigin src="./assets/main-rbEPVOnq.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-j8WO940M.css">
+  <link rel="stylesheet" crossorigin href="./assets/case-study-reframe-BohJq0cU.css">
+  <link rel="stylesheet" href="./assets/riff-shots-v01.css">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/assets/frontend-priority-20260930-images-89f08f79d51e.css">
+<script type="module" src="/assets/frontend-priority-20260930-images-82dfec270bfb.js"></script>
+</head>
+  <body class="module-body theme-blue riff-case-page" data-page="riff-bounce" data-case-study="true">
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <header class="site-header" data-header>
+      <a class="site-brand" href="./projects.html#riff-bounce" aria-label="返回项目实验室的 Riff Bounce 摘要">
+        <span class="bug-mark" aria-hidden="true"><i></i><i></i></span>
+        <span><strong>DESIGN RIG</strong><small>CASE FILE / 01B</small></span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="作品集模块">
+        <a class="is-current" href="./projects.html" aria-current="page">项目实验室</a>
+        <a href="./systems.html">项目研究 / 游戏经历</a>
+        <a href="./field.html">团队与现场</a>
+        <a href="./resume.html">简历档案</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span aria-hidden="true">☰</span><span>模块</span>
+      </button>
+    </header>
+
+    <main id="main" class="riff-case-main">
+      <section class="riff-case-hero" aria-labelledby="riff-title">
+        <div class="riff-hero-grid" aria-hidden="true"></div>
+        <div class="riff-hero-copy">
+          <nav class="case-breadcrumb" aria-label="当前位置"><a href="./projects.html">项目实验室</a><span aria-hidden="true"> / </span><span aria-current="page">Riff Bounce · 转向案例</span></nav>
+          <a class="back-link" href="./projects.html#riff-bounce">← 返回 Riff Bounce 项目摘要</a>
+          <p class="kicker"><span>CASE 01B</span> RAPID PROTOTYPE / PIVOT</p>
+          <h1 id="riff-title"><span>RIFF</span><br><mark>BOUNCE</mark></h1>
+          <p class="riff-hero-lede">原型逐渐依赖制谱、校准和编辑器，剩余时间却需要一个可玩的结果。我参与重划系统边界，把音乐驱动改为独立运行的战斗成长循环。</p>
+          <dl class="riff-hero-meta">
+            <div><dt>场景</dt><dd>TapTap 制造周末 · 聚光灯 48H · 北京场</dd></div>
+            <div><dt>我的职责</dt><dd>系统规则 / 音效 / 任务推进 / 取舍与最低交付判断</dd></div>
+            <div><dt>结果</dt><dd>第二方向形成公开试玩版本</dd></div>
+          </dl>
+          <div class="riff-hero-actions">
+            <a href="#origin">查看原始假设 <span aria-hidden="true">↓</span></a>
+            <a href="https://www.taptap.cn/app/888534" target="_blank" rel="noopener noreferrer">打开 TapTap 试玩页 <span aria-hidden="true">↗</span></a>
+          </div>
+          <figure class="riff-shot riff-menu-shot" id="playable-menu" data-riff-shot="menu">
+            <div class="riff-menu-frame"><img src="/images/riff-bounce/menu-current-build.png" alt="Riff Bounce 公开试玩版主菜单，显示游戏标题与菜单选项" width="1646" height="902" loading="eager"></div>
+            <figcaption>Riff Bounce 公开试玩版主菜单界面</figcaption>
+          </figure>
+        </div>
+        <aside class="riff-hero-verdict" aria-label="案例结论">
+          <span>THE DECISION</span>
+          <strong>先收敛玩法，再决定需要哪些工具。</strong>
+          <p>我与程序协商保留项，停止音乐驱动的扩张，把工期留给输入、判定与成长循环。</p>
+        </aside>
+      </section>
+
+      <nav class="riff-local-nav" aria-label="Riff Bounce 案例目录">
+        <a href="#origin"><span>01</span>原始假设</a>
+        <a href="#decision"><span>02</span>止损判断</a>
+        <a href="#rebuild"><span>03</span>重构交付</a>
+        <a href="#value"><span>04</span>能力价值</a>
+      </nav>
+
+      <section class="riff-origin" id="origin" aria-labelledby="origin-title">
+        <header class="riff-section-heading">
+          <p><span>01</span> ORIGINAL HYPOTHESIS</p>
+          <h2 id="origin-title">原型还没试清楚，制作工具已经长了出来。</h2>
+        </header>
+
+        <p class="case-lead">最初想把跑酷、碰撞鼓点与音乐生成关卡连在一起。后续七键版本逐渐依赖制谱、编辑器和偏移校准；在 48H 工期里，玩法探索和工具制作开始争夺同一份时间。</p><div class="prototype-reconstruction">
+          <div class="prototype-stage" aria-label="依据本人回忆重构的第一方向机制示意">
+            <div class="prototype-label"><span>MECHANISM RECONSTRUCTION</span><strong>依据本人回忆重构 · 非原始游戏画面</strong></div>
+            <div class="runner-zone">
+              <p><span>A / RUNNER</span>自动前进 · 跳跃 · 上下换绳</p>
+              <div class="runner-rope rope-one"></div>
+              <div class="runner-rope rope-two"></div>
+              <div class="runner-rope rope-three"></div>
+              <div class="runner-avatar" aria-hidden="true"><i></i></div>
+              <div class="runner-controls"><span>JUMP</span><span>SWITCH ↑↓</span></div>
+            </div>
+            <div class="prototype-intent">
+              <span>原型假设</span>
+              <strong>在同屏中探索操作与碰撞鼓点的关系</strong>
+              <small>原型假设：探索操作与碰撞鼓点的关系</small>
+            </div>
+            <div class="drum-zone">
+              <p><span>B / PHYSICS DRUM</span>碰到任意边 · 播放 FL Studio 鼓采样</p>
+              <div class="drum-polygon" aria-hidden="true">
+                <i class="drum-polygon-inner"></i>
+                <b class="drum-ball"></b>
+                <span class="hit hit-a">KICK</span>
+                <span class="hit hit-b">SNARE</span>
+                <span class="hit hit-c">HAT</span>
+              </div>
+            </div>
+              <div class="midi-ambition"><span>.MIDI</span><strong>设想：导入文件后自动生成关卡</strong></div>
+          </div>
+
+          <div class="origin-copy">
+            <p class="case-status">WHAT MADE IT INTERESTING</p>
+            <h3>把操作、声音与内容生成连在一起。</h3>
+            <ol>
+              <li><span>01</span><p><strong>玩家行为层</strong>角色持续移动，玩家用跳跃和换绳控制跑酷节奏。</p></li>
+              <li><span>02</span><p><strong>物理反馈层</strong>多边形内的鼓槌 / 小球碰撞边界，触发不同鼓采样。</p></li>
+              <li><span>03</span><p><strong>内容生产层</strong>进一步设想用 MIDI 把音乐数据转换为关卡。</p></li>
+            </ol>
+            <div class="origin-value"><span>事实范围</span><strong>这些内容支持“尝试连接这些环节的原型假设”；旧版联动、可玩程度和可见失败表现尚未确认。</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="riff-decision" id="decision" aria-labelledby="decision-title">
+        <header class="riff-section-heading is-dark">
+          <p><span>02</span> VALIDATION GATE</p>
+          <h2 id="decision-title">剩余工期里，最值得试清的是哪段玩法？</h2>
+        </header>
+
+        <div class="riff-lens" data-riff-lens>
+          <div class="riff-tab-list" role="tablist" aria-label="切换 Riff Bounce 的设计判断层">
+            <button id="riff-tab-hypothesis" type="button" role="tab" aria-selected="true" aria-controls="riff-panel-hypothesis" data-riff-tab="hypothesis">
+              <span>01</span><strong>创意价值</strong>
+            </button>
+            <button id="riff-tab-risk" type="button" role="tab" aria-selected="false" aria-controls="riff-panel-risk" tabindex="-1" data-riff-tab="risk">
+              <span>02</span><strong>验证阻塞</strong>
+            </button>
+            <button id="riff-tab-pivot" type="button" role="tab" aria-selected="false" aria-controls="riff-panel-pivot" tabindex="-1" data-riff-tab="pivot">
+              <span>03</span><strong>重设目标</strong>
+            </button>
+          </div>
+
+          <div class="riff-tab-panels">
+            <article id="riff-panel-hypothesis" role="tabpanel" aria-labelledby="riff-tab-hypothesis" data-riff-panel="hypothesis">
+              <p class="riff-panel-index">LENS / 01</p>
+              <h3>先隔离最有价值的反馈关系。</h3>
+              <p>最初设想把跑酷操作、碰撞鼓点和 MIDI 关卡生成联系起来。我的复盘是：应先用最小原型试清输入与声音的关系，再决定是否需要自动生成内容。</p>
+              <ul><li>操作反馈</li><li>声音反馈</li><li>内容生成设想</li></ul>
+            </article>
+            <article id="riff-panel-risk" role="tabpanel" aria-labelledby="riff-tab-risk" data-riff-panel="risk" hidden>
+              <p class="riff-panel-index">LENS / 02 · 复盘判断</p>
+              <h3>制谱与校准成为新的制作负担。</h3>
+              <p>后续七键版本隔离了旧跑酷和物理鼓机，却继续增加音频转录、编辑器、偏移校准和变速谱。调试对象越多，越难单独判断核心操作是否有趣。</p>
+              <ul><li>核心乐趣难隔离</li><li>调试对象过多</li><li>交付风险继续上升</li></ul>
+            </article>
+            <article id="riff-panel-pivot" role="tabpanel" aria-labelledby="riff-tab-pivot" data-riff-panel="pivot" hidden>
+              <p class="riff-panel-index">LENS / 03</p>
+              <h3>把目标收回一个可以交付的战斗成长循环。</h3>
+              <p>我参与取消 JSON / MIDI / 谱面与音乐时钟驱动，要求保留 Boss、HP、Ripple、共振和成长。通过独立出球继续推进，把时间集中到输入、判定和战斗反馈。</p>
+              <ul><li>先完成循环</li><li>再验证手感</li><li>集中剩余工期</li></ul>
+            </article>
+          </div>
+        </div>
+
+        <div class="decision-note">
+          <span>DECISION PRINCIPLE</span>
+          <p>先列出本轮必须试清的输入、判定与反馈，再决定哪些模块值得继续投入。</p>
+        </div>
+      </section>
+
+      <section class="riff-rebuild" id="rebuild" aria-labelledby="rebuild-title">
+        <header class="riff-section-heading">
+          <p><span>03</span> CUT / KEEP / REBUILD</p>
+          <h2 id="rebuild-title">取消音乐驱动依赖，<br>保留战斗与成长的验证目标。</h2>
+        </header>
+
+        <div class="rebuild-board">
+          <article class="rebuild-card is-cut">
+            <p>CUT / DECOUPLE</p>
+            <h3>解除高风险依赖</h3>
+            <ul>
+              <li>物理鼓机不再承担核心循环</li>
+              <li>MIDI / 谱面 / BPM / PPQ 不再驱动玩法</li>
+              <li>音乐时钟与战斗时钟解耦</li>
+            </ul>
+          </article>
+          <article class="rebuild-card is-keep">
+            <p>KEEP / REUSE</p>
+            <h3>保留战斗与成长</h3>
+            <ul>
+              <li>BGM 独立播放的方向</li>
+              <li>Boss、HP 与反馈框架</li>
+              <li>Ripple、共振、XP 与局内强化</li>
+            </ul>
+          </article>
+          <article class="rebuild-card is-build">
+            <p>REBUILD / VALIDATE</p>
+            <h3>收敛后的玩法</h3>
+            <ul>
+              <li>要求实现随机出球与时机判定</li>
+              <li>要求配置三档难度与固定随机种子</li>
+              <li>要求提供运行时参数控制；BGM 以独立播放为目标</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="rebuild-loop" aria-label="第二方向需求中的目标循环">
+          <span>随机出球</span><i aria-hidden="true">→</i>
+          <span>时机判定</span><i aria-hidden="true">→</i>
+          <span>Ripple / 伤害</span><i aria-hidden="true">→</i>
+          <span>XP / 强化选择</span><i aria-hidden="true">↺</i>
+        </div>
+
+        <figure class="riff-shot riff-bounce-shot" id="playable-evidence" data-riff-shot="bounce">
+          <img src="/assets/optimized-20260930/riff-bounce-wave-bounce-current-build.webp" alt="游戏画面右侧轨道出现白色弧形音波反弹特效，画面同时显示 EMPTY 与 NO DAMAGE 提示" width="1600" height="872" loading="lazy" decoding="async">
+          <figcaption>右侧轨道的音波反弹特效；同帧显示 EMPTY / NO DAMAGE，未命中、未造成伤害。</figcaption>
+        </figure>
+
+        </section>
+
+      <section class="riff-value" id="value" aria-labelledby="value-title">
+        <header class="riff-section-heading is-dark">
+          <p><span>04</span> RESULT / RETROSPECTIVE</p>
+          <h2 id="value-title">完成了转向，却没有完成最初计划的作品。</h2>
+        </header>
+
+        <aside class="result-card">
+          <div>
+            <p>PUBLIC RESULT</p>
+            <h3>第二方向<br>形成公开试玩。</h3>
+            <p>下落式时机判定与局内成长进入了活动交付。美术和音乐未及导入，判定容错、难度与平衡也没有完成充分打磨。</p>
+          </div>
+          <a href="https://www.taptap.cn/app/888534" target="_blank" rel="noopener noreferrer">打开 Riff Bounce 试玩页 <span aria-hidden="true">↗</span></a>
+        </aside>
+      <div class="value-grid"><article><span>01 / 失误</span><h3>让工具链先于核心乐趣扩张。</h3><p>复盘中，我把主要问题归结为：玩法还没试清，制谱、校准和编辑器已经成为新的交付对象。一次调整会牵动更多模块。</p></article><article><span>02 / 代价</span><h3>转向保住交付，也压缩了打磨时间。</h3><p>停止音乐驱动依赖后，仍需重建输入与战斗循环；活动版本留下了表现素材、手感和难度方面的不足。</p></article><article><span>03 / 下一次</span><h3>先限定本轮要回答的一个问题。</h3><p>先做最小的输入与反馈原型。只有它值得继续玩，才为它增加自动内容生产和编辑工具。</p></article><article><span>04 / 可迁移方法</span><h3>把转向写成取消、保留、重建。</h3><p>和程序讨论具体模块及依赖，再确定最低交付。方向变更需要落到任务清单，才能让团队继续行动。</p></article></div>
+
+        </section>
+
+      <section class="riff-origin case-appendix" id="contribution"><header class="riff-section-heading"><p>05 / CONTRIBUTION &amp; EVIDENCE</p><h2>协作与版本记录</h2></header><details class="case-support"><summary>展开个人职责、原型说明与同期记录</summary><div class="case-support-body"><p>我负责系统规则、音效、任务推进及取舍与最低交付判断；程序成员推进 TapMaker / AI 实现，团队共同完成活动交付。原型图根据本人回忆重构，准确联动与当时完成度未确认；旧原型与后续七键版本分别记录。</p><details class="session-timeline">
+          <summary><span>展开关键版本转向记录</span><small>来自现存 TapMaker Session；赛后小时数回忆不用于精确定位</small></summary>
+          <ol>
+            <li><time>本人回忆</time><p><strong>自动跑酷 × 物理鼓机</strong>尝试连接操作、碰撞鼓点与 MIDI 关卡生成；准确联动与当时完成度未知。</p></li>
+            <li><time>07-18 03:18</time><p><strong>七键 Boss 弹反原型</strong>新玩法被明确要求与旧物理鼓机、单绳跑酷等实现隔离。</p></li>
+            <li><time>07-18 12:35</time><p><strong>RiffBounce Prototype V0.1</strong>提出随机音乐段、Ripple 传播和 Survivors-like 局内成长的需求。</p></li>
+            <li><time>07-18 18:51</time><p><strong>彻底重划边界</strong>取消 JSON / MIDI / 谱面 / BPM / PPQ 驱动，音乐独立，转向随机出球和运行时调参。</p></li>
+          </ol>
+        </details>
+
+        <section class="review-decision-record" id="version-evidence" aria-labelledby="version-evidence-title">
+          <p class="review-evidence-label">同期记录摘述 · 2026-07-18 18:51</p>
+          <h3 id="version-evidence-title">取消、保留与重建的同期需求</h3>
+          <dl class="review-evidence-matrix">
+            <div><dt>暂停的工作</dt><dd>JSON / MIDI、三轨与七轨编辑器、独立教程的返工计划。</dd></div>
+            <div><dt>明确取消</dt><dd>JSON / MIDI / 谱面 / PPQ / BPM 驱动玩法；隐藏谱面编辑器入口。</dd></div>
+            <div><dt>要求保留</dt><dd>Boss、HP、Ripple、共振与 XP / 强化。</dd></div>
+            <div><dt>新验收对象</dt><dd>独立随机出球、三档难度、固定 seed 与白名单参数控制台。</dd></div>
+          </dl>
+          <p>该记录摘自归档的 TapMaker Session，记录方向变更与需求。独立 BGM、难度档位和参数控制属于当时要求，不能全部视为已进入公开版本；公开版说明仍记录美术和音乐未及导入。</p>
+          <a href="https://www.taptap.cn/app/888534" target="_blank" rel="noopener noreferrer">查看第二方向的公开试玩页 <span aria-hidden="true">↗</span></a>
+        </section>
+      </div></details></section><nav class="next-module" aria-label="继续浏览">
+        <div><span>BACK TO EVENT</span><strong>继续查看 Jam Bug 的三项 48H 作品</strong></div>
+        <a href="./projects.html#taptap-spotlight">返回项目组 <span aria-hidden="true">←</span></a>
+      </nav>
+    </main>
+
+    <footer class="site-footer"><p><a href="./index.html">DESIGN RIG</a> / RIFF BOUNCE CASE</p><p>48H 原型转向 · 系统裁剪与交付取舍</p></footer>
+  </body>
+</html>

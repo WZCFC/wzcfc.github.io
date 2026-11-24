@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="方寸棋间：面向小初学生与休闲策略玩家的益智棋游。从公益 GameJam 命题、首版开发，到结合真人试玩的设计判断与版本迭代。">
+  <title>方寸棋间｜简单的规则，不简单的决策。来一盘方寸棋。</title>
+  <script type="module" crossorigin src="/assets/fangcun-DGfzOnlK.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-P2Xu9kJm.js">
+  <link rel="modulepreload" crossorigin href="/assets/main-rbEPVOnq.js">
+  <link rel="stylesheet" crossorigin href="/assets/main-j8WO940M.css">
+  <link rel="stylesheet" crossorigin href="/assets/fangcun-CN4-A7rZ.css">
+  <link rel="stylesheet" crossorigin href="/assets/fangcun-YShIRrj5.css">
+<link rel="stylesheet" href="/assets/frontend-priority-20260930-images-89f08f79d51e.css">
+<script type="module" src="/assets/frontend-priority-20260930-images-82dfec270bfb.js"></script>
+  <link rel="stylesheet" href="/assets/fangcun-feedback-proof-20261013-08fb8e70394c.css">
+</head>
+<body class="module-body theme-blue project-notebook fangcun-page" data-page="fangcun" data-case-study="true">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" data-header>
+    <a class="site-brand" href="/" aria-label="返回作品集首页"><span class="bug-mark" aria-hidden="true"><i></i><i></i></span><span><strong>DESIGN RIG</strong><small>PROJECT LAB / 方寸棋间</small></span></a>
+    <nav class="site-nav" id="site-nav" aria-label="作品集模块"><a class="is-current" href="/projects.html">项目实验室</a><a href="/systems.html">项目研究 / 游戏经历</a><a href="/field.html">团队与现场</a><a href="/resume.html">简历档案</a></nav>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span aria-hidden="true">☰</span><span>模块</span></button>
+  </header>
+  <main id="main" class="module-main fc-main fc-reframe">
+    <article class="paper-sheet fc-story">
+<header class="story-opening">
+        <a class="back-link" href="/projects.html#fangcun">← 返回项目实验室</a>
+        <p class="story-kicker">方寸棋间 / 当前展示版本 v0.8</p>
+        <h1><span class="title-audience">面向小初学生与休闲策略爱好者的益智棋游</span>简单的规则，<br>不简单的决策。<br>来一盘方寸棋。</h1>
+        <p class="story-intro">在共享棋盘上，用有限预算接边扩张。占下这一块，也要想一想：给自己留下了什么，又改变了对手的哪条路？</p>
+        <p class="story-byline"><strong>我的职责</strong>除音乐外全栈 · 玩法设计、程序、美术、音效与协作推进</p>
+        <p class="story-download"><a class="story-download-link" href="https://pan.baidu.com/s/1nJG5OUljUMCZv6FE6nS6Iw?pwd=6324" target="_blank" rel="noopener noreferrer">下载最新版</a><span class="story-download-meta">Windows / 百度网盘 · 提取码 6324</span></p>
+        <p><a class="feedback-entry" href="#external-feedback">新进展：乡村学校拟试玩 / 商业发行方 Demo 反馈 ↓</a></p>
+        <figure class="story-figure story-cover">
+          <div class="midgame-frame"><button class="image-zoom" data-enlarge aria-label="放大 v0.8 实机中盘"><img src="/assets/fangcun/story/midgame-v08.png" width="1152" height="784" alt="v0.8 实机中盘：蓝橙双方已扩张，D3与E3之间及F2至F4仍有双方可争的空间"></button><span class="midgame-hotspot" aria-hidden="true"></span></div>
+          <figcaption><span>v0.8 实机中盘</span> 本机按真实规则连续落子所得。<span class="zoom-hint">点击图片放大 ↗</span></figcaption>
+        </figure>
+        <p class="midgame-reading"><strong>看标出的 D3–E3：</strong>蓝方能从左侧接入，橙方也能从右侧接入。蓝方若先竖放双格条，橙方就不能再用这个落点向左延伸。下方 F2–F4 也仍是双方都能接入的位置。</p>
+        <p class="story-caption-rule">选图形 → 旋转接边 → 争取落点。完成连线还能获得预算返还，让这一手影响接下来的选择。</p>
+      </header>
+      <section class="story-section story-context" id="project-context" aria-labelledby="context-title">
+        <div class="story-prose">
+          <p class="story-kicker">01 / 项目背景与产品定位</p>
+          <h2 id="context-title">从「数与形」出发，<br>让计算与空间判断成为一场对战。</h2>
+          <p>《方寸棋间》是我参加<strong>益智数游 × 冻土回声公益 GameJam</strong>的作品。活动以「数与形」为主题，面向课堂应用，安排作品由学生和老师分别体验与评分。</p>
+          <p>我把产品定位为一款益智休闲棋类小游戏：面向小学生、初中生，也面向喜欢休闲轻竞技与策略玩法的玩家。数量判断对应“手里的预算够做什么”，几何判断对应“图形转过来能放在哪里”。</p>
+        </div>
+        <figure class="story-figure context-theme"><button class="image-zoom" data-enlarge aria-label="放大公益 GameJam 主题资料"><img loading="lazy" src="/assets/fangcun/event/theme.png" alt="主办方活动主题：数与形"></button><figcaption><span>创作命题</span> 益智数游 × 冻土回声公益 GameJam。</figcaption></figure>
+        <div class="story-prose">
+          <h3>容易开始，也能逐渐发现下一步。</h3>
+          <p>课堂适配是这款产品的设计目标：让规则容易理解，让操作适合课堂设备，让玩家通过一次次选择认识代价与空间。实际开发中，我先把本地双人对局做完整，再扩展独自游玩时的电脑对手。</p>
+          <p class="story-transition">第一步不是增加更多规则，而是让两个人从开局到结算，真正完成一局。</p>
+        </div>
+        <details class="story-small-details event-reference"><summary>查看活动资料</summary><div class="event-images"><figure><button class="image-zoom" data-enlarge aria-label="放大活动规则"><img loading="lazy" src="/assets/fangcun/event/rules.png" alt="活动规则：主题、课堂设备、素材版权及内容要求"></button></figure><figure><button class="image-zoom" data-enlarge aria-label="放大活动日程"><img loading="lazy" src="/assets/fangcun/event/schedule.png" alt="主办方活动日程"></button></figure></div></details>
+      </section>
+      <section class="story-section" id="first-build" aria-labelledby="first-build-title">
+        <div class="story-prose">
+          <p class="story-kicker">02 / 第一版开发 · 早期原型 → v0.3</p>
+          <h2 id="first-build-title">先做出一局，<br>再让玩家看懂这一手。</h2>
+          <p>第一轮先回答一个问题：购买图形、轮流放置、比较面积，能不能组成完整对局？白盒让我把注意力放在操作与规则上，也把“只是能运行”和“玩家能自己玩下去”区分开。</p>
+        </div>
+        <figure class="story-figure"><button class="image-zoom" data-enlarge aria-label="放大早期白盒画面"><img loading="lazy" src="/assets/fangcun/v01-match.png" width="1152" height="784" alt="方寸棋间早期白盒留存画面"></button><figcaption><span>早期白盒</span> 先把预算、图形、棋盘和轮流行动放进一局。</figcaption></figure>
+        <div class="story-prose">
+          <h3>空间约束，要变成玩家能读懂的局面。</h3>
+          <p>自由散放缺少扩张方向。我选择围绕“从自己的地盘继续生长”组织玩法，让同一块图形的价值与位置有关。之后的试玩继续推动我检查：玩家是否理解连接，是否看得懂不能落子的原因。</p>
+          <h3 id="experience-title">让预算、动作与反馈说同一件事。</h3>
+          <p>我承担除音乐外的全栈工作。蜡笔与纸纹美术让作品靠近轻松的桌游感；绘画、旋转和敲碎音效对应玩家的动作，互动教学则让玩家先做一次，再把理解带进正式对局。</p>
+        </div>
+        <figure class="story-figure"><button class="image-zoom" data-enlarge aria-label="放大 v0.3 蜡笔对局"><img loading="lazy" src="/assets/fangcun/v03-match.png" alt="v0.3 蜡笔对局，预算与图形放置形成完整界面"></button><figcaption><span>v0.3 阶段成果</span> 双人对局、视听反馈与入门教学逐步成形。</figcaption></figure>
+        <details class="story-small-details early-reference"><summary>查看更多阶段画面</summary><figure class="story-figure"><button class="image-zoom" data-enlarge aria-label="放大 v0.2 过程画面"><img loading="lazy" src="/assets/fangcun/v02-match.png" alt="v0.2 中间过程画面"></button><figcaption>v0.2：规则与表现仍在逐步磨合。</figcaption></figure><figure class="story-figure"><button class="image-zoom" data-enlarge aria-label="放大 v0.8 开局界面"><img loading="lazy" src="/assets/fangcun/story/current-match.png" width="1152" height="784" alt="v0.8 开局界面留存"></button><figcaption>v0.8 开局界面：保留在版本资料中。</figcaption></figure></details>
+      </section>
+      <section class="story-section" id="design-evolution" aria-labelledby="evolution-title">
+        <div class="story-prose">
+          <p class="story-kicker">03 / 后续迭代 · 试玩、判断与取舍</p>
+          <h2 id="evolution-title">让反馈进入判断，<br>再把判断放回对局。</h2>
+          <p>后续版本中，我与社团成员互相进行 PVP 试玩；电脑对手接入后，也通过人机对战观察体验。<strong>v0.3、v0.4、v0.5、v0.5.1 和 v0.7 均有至少 5 人真实试玩</strong>，对应版本的设计判断与问题解决参考了真人 QA。</p>
+          <p>真人试玩帮助我发现理解与操作上的问题；对局记录与功能检查则用来复现问题、检查处理结果。它们分别回答不同的问题。</p>
+          <h3>先把图形画出来，再谈选择有什么不同。</h3>
+          <p>我比较的不只是图形数量。同样的空间，凸出的部分可能挡住落点，凹进去的部分也可能留下另一条路。下面是当时涉及的图形样例：</p>
+          <div class="shape-examples" aria-label="图形形状样例">
+            <figure><span class="shape-mini" data-shape="111010" aria-hidden="true"></span><figcaption><strong>T 形</strong>凸出的一格，让连接位置不同。</figcaption></figure>
+            <figure><span class="shape-mini" data-shape="101111" aria-hidden="true"></span><figcaption><strong>凹形</strong>留下凹口，也改变周围落点。</figcaption></figure>
+            <figure><span class="shape-mini" data-shape="011110" aria-hidden="true"></span><figcaption><strong>反 Z 形</strong>E 方案增加的错位形状。</figcaption></figure>
+          </div>
+          <article class="qa-case" id="human-qa" aria-labelledby="qa-title">
+            <p class="story-kicker">一次真实试玩，怎样进入我的选择 / v0.5</p>
+            <h3 id="qa-title">数据更接近的 D，为什么没有成为最终选择？</h3>
+            <p><strong>当时的分歧：</strong>对照实验中，D 的先后手胜率更接近，报告倾向推荐 D；我最终选择了 E。</p>
+            <p><strong>真人反馈：</strong>室友实际体验几版后，向我反馈 D 和 E 没有明显的体感差别，但 E 多一种图形。</p>
+            <p><strong>我的判断：</strong>在这次试玩没有感受到明显体验差异的情况下，我选择保留额外的图形，用 E 继续做后续版本。这是基于试玩反馈的取舍，不是因为 E 的胜率数据更好。</p>
+            <p><strong>接着要问：</strong>多一种图形，是否真的带来不同选择？后续又回到费用理解与落点价值的问题，继续用真人对战和对局记录检验。</p>
+          </article>
+          <h3>继续迭代：让差异来自选择，而不只是规则负担。</h3>
+          <p>费用与图形方案之后，我先处理“暂时没有合适图形，却被当作失败”的残局体验。v0.5.1 的真人试玩又暴露出更深的问题：胜负常受超值图形的出现次数左右。我比较了继续调整费用与刷新权重、改动致胜逻辑两条路线，最终选择让连线返费成为值得提前争取的目标。电脑对手和教学也要跟上新的对局重点。</p>
+          <p>v0.8 的关注点进一步落在奖励反馈与公平体验：玩家看到的成果，应当与实际收到的回报一致；发现先后手体验差异后，再进行平衡性调整与复查。</p>
+        </div>
+        <section class="endgame-demo" id="endgame-demo" aria-labelledby="demo-title">
+          <div class="demo-intro"><p class="story-kicker">构造残局 / 试两种选择</p><h3 id="demo-title">同一块双格条，先连自己的线，还是抢路口？</h3><p>你执蓝方。蓝橙各有一行只差右侧两格；同一块双格条，可以横放补线，也可以竖放占住双方的交界。选一个落点，再看橙方的一种回应。</p></div>
+          <div class="endgame-board-wrap"><div class="endgame-board" id="endgame-board" role="group" aria-label="残局棋盘：选择横放或竖放的位置"></div><p class="endgame-legend"><span class="blue-key">蓝 / 你</span><span class="orange-key">橙 / 对手</span><span>① 横放　② 竖放</span></p></div>
+          <div class="endgame-controls">
+            <p class="endgame-piece"><span class="domino-icon" aria-hidden="true"><i></i><i></i></span>这一手使用：双格条</p>
+            <dl class="endgame-stats"><div><dt>蓝方剩余预算</dt><dd id="blue-budget">5</dd></div><div><dt>橙方剩余预算</dt><dd id="orange-budget">5</dd></div></dl>
+            <div class="endgame-choices" role="group" aria-label="选择双格条落点"><button type="button" data-choice="line" aria-pressed="false"><strong>① 横放 · 补自己的线</strong><span>D6–D7</span></button><button type="button" data-choice="junction" aria-pressed="false"><strong>② 竖放 · 占交界位置</strong><span>D6–E6</span></button></div>
+            <button class="demo-place" id="endgame-confirm" type="button" disabled>先选一个落点</button>
+            <button class="demo-place" id="endgame-reply" type="button" hidden>看看橙方怎样回应</button>
+            <button class="demo-reset" id="endgame-reset" type="button" hidden>重置棋盘，试另一种选择 ↺</button>
+            <p class="endgame-status" id="endgame-status" role="status" aria-live="polite">点击棋盘上的 ① / ②，或选择旁边的落点。</p>
+          </div>
+          <div class="endgame-result" id="endgame-result" hidden><h4 id="endgame-result-title"></h4><p id="endgame-result-copy"></p></div>
+          <p class="endgame-scope">本例只比较这一轮的落点与回应，演示接边、占位与连线；不是完整对局，也不预设唯一最优解。</p>
+          <noscript><p>启用 JavaScript 后可以亲自选择落点。横放可补齐蓝方的横线；竖放则占住橙方补线所需的位置。</p></noscript>
+        </section>
+        <div class="story-prose supporting-intro"><h3 id="archive-title">判断也要落到玩家看得见的地方。</h3><p>让玩家能读懂消耗、收到反馈，并知道下一步可以做什么，是我在规则之外持续处理的另一条线。</p></div>
+        <details class="story-details"><summary><span>教学与操作反馈</span><small>在游戏中实际完成一次动作</small></summary><div class="details-body"><figure class="story-figure"><button class="image-zoom" data-enlarge aria-label="放大敲碎互动教学"><img loading="lazy" src="/assets/fangcun/story/hammer-lesson.png" width="1280" height="800" alt="通过实际操作学习敲碎与继续行动的教学画面"></button><figcaption><span>互动教学</span> 将说明转为玩家能完成的动作。</figcaption></figure><p>教学需要跟着规则一起维护。画面上的文字、操作结果与提示要一致，才能让玩家把一次练习带进正式对局。</p></div></details>
+      </section>
+
+      <section class="story-section story-chronicle" id="version-history" aria-labelledby="version-history-title">
+        <div class="story-prose"><p class="story-kicker">04 / 关键设计记录</p><h2 id="version-history-title">从早期原型到 v0.8，<br>留下关键的判断与回看。</h2><p>将原始开发记录合并为 12 个关键问题。每条保留问题与动机、设计判断、结果与解决，以及接着暴露的问题。</p></div>
+        <ol class="chronicle-timeline" aria-label="方寸棋间关键设计时间线">
+          <li class="chronicle-stage" id="history-v03">
+            <div class="chronicle-version"><span>早期原型 → v0.3</span><small>2026.09.17 · 阶段归档</small><p class="qa-tag">真人 QA · 至少 5 人试玩</p></div>
+            <div class="chronicle-content"><h3>先形成对局，再让玩家理解选择。</h3><p>从可玩白盒走向完整的双人体验，逐步建立扩张方向、视听反馈与入门教学。</p>
+              <details class="chronicle-details"><summary>查看这一阶段的判断<span>2 个问题</span></summary><div class="chronicle-records">
+                <article class="chronicle-entry" data-decision="1"><h4>自由摆放，为什么还需要扩张方向？</h4><p><strong>问题与动机：</strong>原型能够落子，但散放图形还不能形成明确的领地推进。</p><p><strong>设计判断：</strong>让下一块与已有地盘发生关系，使玩家开始考虑后续能怎样延伸。</p><p><strong>结果与解决：</strong>接边扩张成为贯穿对局的动作，棋盘位置进入选择。</p><p><strong>接着的问题：</strong>空间限制也会让人遇到放不下的情况，需要解释失败原因，并提供理解规则的入口。</p></article>
+                <article class="chronicle-entry" data-decision="2"><h4>能运行之后，玩家能不能自己玩下去？</h4><p><strong>问题与动机：</strong>预算、连接与操作只存在于规则说明里，还不够直观。</p><p><strong>设计判断：</strong>把教学做成实际操作，把消耗和动作放进统一的视听反馈。</p><p><strong>结果与解决：</strong>蜡笔界面、对应音效与互动教学形成完整的入门路径。</p><p><strong>接着的问题：</strong>规则继续迭代时，教学与美术上的说明也必须一起更新。</p></article>
+              </div></details>
+            </div>
+          </li>
+          <li class="chronicle-stage" id="history-v04">
+            <div class="chronicle-version"><span>v0.4 · 电脑接入</span><small>2026.09.18</small><p class="qa-tag">真人 QA · 至少 5 人试玩</p></div>
+            <div class="chronicle-content"><h3>没有第二个人，也能开始一局。</h3><p>在社团近 20 人的小范围试玩后，一个问题被摆到台前：没有在线联机时，一个人打开游戏怎么玩？于是我开始制作电脑玩家。</p>
+              <details class="chronicle-details"><summary>查看这一阶段的判断<span>1 个问题</span></summary><div class="chronicle-records">
+                <article class="chronicle-entry" data-decision="3"><h4>电脑对手，需要接住怎样的游玩需求？</h4><p><strong>问题与动机：</strong>只有本地双人时，玩家需要找到搭档才能继续体验。</p><p><strong>设计判断：</strong>保留双人对局，为独自游玩的玩家增加清楚的人机入口。</p><p><strong>结果与解决：</strong>《方寸棋间》开始支持电脑对战，试玩也从 PVP 扩展到人机体验。</p><p><strong>接着的问题：</strong>难度名称不能代替实际差别；电脑需要让玩家感受到不同的应对，而不只是完成合法行动。</p></article>
+              </div></details>
+            </div>
+          </li>
+          <li class="chronicle-stage" id="history-v05">
+            <div class="chronicle-version"><span>v0.5 · 图形选择</span><small>2026.09.18</small><p class="qa-tag">真人 QA · 至少 5 人试玩</p></div>
+            <div class="chronicle-content"><h3>在实验结果与实际体验之间做选择。</h3><p>室友体验后没有明显感受到两个候选组合的差别；我因此选择保留多一种图形的 E，进入后续验证。</p>
+              <details class="chronicle-details"><summary>查看这一阶段的判断<span>1 个问题</span></summary><div class="chronicle-records">
+                <article class="chronicle-entry" data-decision="4"><h4>为什么没有直接采用数据更接近的 D？</h4><p><strong>问题与动机：</strong>实验倾向 D，但还需要知道不同组合在真实游玩中有什么差别。</p><p><strong>设计判断：</strong>参考室友连续试玩的反馈：D 与 E 体感差异不明显，而 E 多一种图形。我选择用 E 保留这份形状选择。</p><p><strong>结果与解决：</strong>E 被实装并继续接受试玩；选择依据同时包含实验与真人体验，而不是只看一个胜率结果。</p><p><strong>接着的问题：</strong>更多图形是否真的增加策略，仍要从实际落点与选择中观察，不能只凭数量判断。</p></article>
+              </div></details>
+            </div>
+          </li>
+          <li class="chronicle-stage" id="history-v051">
+            <div class="chronicle-version"><span class="chronicle-alias" id="history-v05-rc1" aria-hidden="true"></span><span>v0.5.1 · RC1</span><small>2026.09.19 · 独立版本</small><p class="qa-tag">真人 QA · 至少 5 人试玩</p></div>
+            <div class="chronicle-content"><h3>把残局判清楚，设置回来接着下。</h3><p>处理残局中“还想继续，却不知道为什么结束”的问题，也检查对局外操作是否保留玩家进度。</p>
+              <details class="chronicle-details"><summary>查看这一阶段的判断<span>2 个问题</span></summary><div class="chronicle-records">
+                <article class="chronicle-entry" data-decision="5"><h4>暂时没有合适图形，就等于输了吗？</h4><p><strong>问题与动机：</strong>当前没有可用图形，不一定意味着棋盘上的空间已经被封住。</p><p><strong>设计判断：</strong>区分暂时受供给限制与真正无路可走，让失败对应可理解的原因。</p><p><strong>结果与解决：</strong>残局处理更明确，已发现的停滞和反复交回合问题得到修复。</p><p><strong>接着的问题：</strong>保障继续行动也会影响封锁策略，需要继续观察两者的取舍。</p></article>
+                <article class="chronicle-entry" data-decision="6"><h4>改完设置回来，为什么不在刚才那局？</h4><p><strong>问题与动机：</strong>对局中进入设置后，返回路径可能打断正在进行的游戏。</p><p><strong>设计判断：</strong>将“调整体验”与“重新开局”区分，让玩家能回到原来的任务。</p><p><strong>结果与解决：</strong>返回对局时保留棋盘与进度；菜单、提示与教学的阅读问题也持续整理。</p><p><strong>接着的问题：</strong>规则更新后，旧图片上的说明可能落后于实际操作，仍要同步维护。</p></article>
+              </div></details>
+            </div>
+          </li>
+          <li class="chronicle-stage" id="history-v06">
+            <div class="chronicle-version"><span class="chronicle-alias" id="history-v05-rules" aria-hidden="true"></span><span>v0.6 · 致胜逻辑</span><small>2026.09.19—20</small></div>
+            <div class="chronicle-content"><h3>把胜负从抽中超值图形，转向争取连线。</h3><p>v0.5.1 真人试玩后，电脑玩家的加入带来了可玩的单人对局，但胜负手仍常取决于谁拿到更多超值图形。我选择调整致胜点，让连线返费进入双方都能争夺的目标。</p>
+              <details class="chronicle-details"><summary>查看这一阶段的判断<span>2 个问题</span></summary><div class="chronicle-records">
+                <article class="chronicle-entry" data-decision="7"><h4>超值图形常决定胜负，该继续调费用，还是改致胜点？</h4><p><strong>问题与动机：</strong>v0.5.1 的真人试玩中，双方的胜负手常集中在谁拿到更多次超值图形，例如曾经能用 3 点预算占下 4 格的方块。落点判断的影响被抽到什么图形盖过了。</p><p><strong>设计判断：</strong>我摆出两条路：其一，继续平衡图形与费用，甚至让刷新权重随对局变化，但保留原有胜负逻辑；其二，改变致胜点，让连线返费成为值得提前布局的资源目标。我选择了第二条。</p><p><strong>结果与解决：</strong>图形费用回到更容易理解的一致关系，固定的超值图形不再直接带来额外面积优势；连线开始提供可争取的资源。</p><p><strong>接着的问题：</strong>玩家是否真的会为了连线改变落点，还需要从真人对局中继续观察。</p></article>
+                <article class="chronicle-entry" data-decision="8"><h4>连线怎样成为真正值得争夺的胜负手？</h4><p><strong>问题与动机：</strong>统一费用只移除了固定优惠；如果布局没有其他回报，玩家仍可能只比较当下占了多少格。</p><p><strong>设计判断：</strong>让完成连线带来预算返还，鼓励玩家提前铺路，也给对手留下占位、阻断与改线的应对空间。</p><p><strong>结果与解决：</strong>连线返费进入对局的资源循环，教学与界面开始呈现落点之后的回报。</p><p><strong>接着的问题：</strong>当一手同时完成多条线时，奖励结算和玩家看到的反馈必须一致；这成为下一版要解决的问题。</p></article>
+              </div></details>
+            </div>
+          </li>
+          <li class="chronicle-stage" id="history-v07">
+            <div class="chronicle-version"><span class="chronicle-alias" id="history-v05-ai" aria-hidden="true"></span><span>v0.7 · 电脑体验</span><small>2026.09.20</small><p class="qa-tag">真人 QA · 至少 5 人试玩</p></div>
+            <div class="chronicle-content"><h3>难度要体现在行为里。</h3><p>通过真人与电脑对战，继续检查空间争夺、行动价值，以及后续应对。</p>
+              <details class="chronicle-details"><summary>查看这一阶段的判断<span>2 个问题</span></summary><div class="chronicle-records">
+                <article class="chronicle-entry" data-decision="9"><h4>看起来更强的电脑，为什么还会帮到玩家？</h4><p><strong>问题与动机：</strong>试玩与记录中出现电脑争夺不积极、给对方留下明显有利机会的问题。</p><p><strong>设计判断：</strong>不只检查当前行动是否合法，也回看它给对手留下的下一步。</p><p><strong>结果与解决：</strong>针对已发现问题的局面复查中，明显送出机会的行为得到改善。</p><p><strong>接着的问题：</strong>更主动的行为也可能过早消耗关键资源，需要继续看整局而不是只看一手。</p></article>
+                <article class="chronicle-entry" data-decision="10"><h4>早早用完敲碎机会，后面还能怎样应对？</h4><p><strong>问题与动机：</strong>真人试玩反馈电脑在开局过早消耗敲碎机会，后续应对受到限制。</p><p><strong>设计判断：</strong>区分即时占便宜与为残局保留反制手段，不把每次可用都当成值得使用。</p><p><strong>结果与解决：</strong>已发现的无收益耗尽案例得到针对性修正。</p><p><strong>接着的问题：</strong>还需继续观察等待节奏、争胜意愿与不同玩家的对战体验。</p></article>
+              </div></details>
+            </div>
+          </li>
+          <li class="chronicle-stage is-latest" id="history-v08">
+            <div class="chronicle-version"><span class="chronicle-alias" id="history-v05-latest" aria-hidden="true"></span><span>v0.8 · 体验校准</span><small>2026.09.20 · 当前展示版本</small></div>
+            <div class="chronicle-content"><h3>让成果得到回应，再回看公平体验。</h3><p>围绕奖励反馈与先后手体验继续检查，区分已经修正的行为和还需要继续观察的效果。</p>
+              <details class="chronicle-details"><summary>查看这一阶段的判断<span>2 个问题</span></summary><div class="chronicle-records">
+                <article class="chronicle-entry" data-decision="11"><h4>玩家做到了，为什么没有得到相应回报？</h4><p><strong>问题与动机：</strong>一次完成多个连线目标时，实际回报与玩家看到的成果不一致。</p><p><strong>设计判断：</strong>让结算、到账提示和教学共同表达同一次行动的结果。</p><p><strong>结果与解决：</strong>相关结算与反馈问题得到修正，画面与实际结果保持一致。</p><p><strong>接着的问题：</strong>回报改变后，先前对局结果不再直接代表当前体验，需要重新观察。</p></article>
+                <article class="chronicle-entry" data-decision="12"><h4>感到先后手不对等，应该从哪里查？</h4><p><strong>问题与动机：</strong>先后手体验差异需要被定位，不能直接归结为某一方资源不够。</p><p><strong>设计判断：</strong>回到具体对局与选择机会，先寻找不对等发生在哪里，再进行平衡性调整。</p><p><strong>结果与解决：</strong>定位到开局体验中的不对等环节，并完成相应调整与功能复查。</p><p><strong>接着的问题：</strong>继续用真人试玩和对局记录观察调整效果，而不沿用旧版本结果。</p></article>
+              </div></details>
+            </div>
+          </li>
+        </ol>
+        <aside class="external-feedback" id="external-feedback" aria-labelledby="external-feedback-title">
+          <p class="story-kicker">外部反馈 / 从玩法原型走向真实使用场景</p>
+          <h3 id="external-feedback-title">同一个 Demo，两种不同的关注点。</h3>
+          <p>公益项目方关注教师能否带着学生开始玩；商业发行方关注内容量、产品完成度与获取玩家的路径。</p>
+          <div class="feedback-grid">
+            <article class="feedback-card">
+              <p class="feedback-label">01 / 公益项目审核 · 拟安排试玩</p>
+              <h4>准备把游戏带进乡村学校。</h4>
+              <p>公益项目方告知，《方寸棋间》已通过项目同事审核，准备提供给其支持的乡村学校试玩。</p>
+              <p>对方邀请我提供面向一线教师的 Word 说明，包含操作手册、简单的设计思路，以及想对乡村教师说的话，便于不同游戏经验的教师理解和使用。</p>
+              <figure class="story-figure feedback-proof"><button class="image-zoom" data-enlarge aria-label="放大公益项目审核与拟学校试玩反馈截图"><img loading="lazy" src="/assets/fangcun/feedback/school-review-20261013.jpg" width="1080" height="2400" alt="公益项目方聊天反馈：游戏经过同事审核，准备提供给乡村学校试玩，并邀请开发者提供教师操作与设计说明"></button><figcaption>公益项目方反馈原文 · 点击放大</figcaption></figure>
+              <p class="feedback-status"><strong>当前进展：</strong>审核通过，拟安排学校试玩；教师说明受邀提供。</p>
+            </article>
+            <article class="feedback-card feedback-publisher">
+              <p class="feedback-label">02 / 商业发行方试玩 · 2026.09.23</p>
+              <h4>创意得到回应，产品仍需补足。</h4>
+              <p>我主动联系商业发行方，发送 Demo 并介绍后续玩法设想。对方实际试玩后肯定了创意，同时指出当时可玩内容较少、完成度偏低，市场反馈仍未知。</p>
+              <p>交流进一步涉及对战产品的活跃用户规模、免费与内购、小程序买量成本。针对当时的完成度，对方建议优先在 Steam 发布以获取反馈。</p>
+              <p class="feedback-status"><strong>当时阶段：</strong>Demo 试玩评估与发行建议；尚未确定发行平台。</p>
+            </article>
+          </div>
+          <p class="feedback-takeaway"><strong>两次交流提出的下一步问题：</strong>怎样让教师看懂规则并组织试玩？怎样补足内容，并选择合适的渠道观察玩家反馈？</p>
+        </aside>
+        <aside class="product-next" id="product-next" aria-labelledby="product-next-title">
+          <p class="story-kicker">05 / 后续迭代探索方向</p>
+          <h3 id="product-next-title">把讨论拆成可验证的下一步。</h3>
+          <p class="product-next-status">讨论 / 待验证 · 并非 v0.8 功能，也未排期</p>
+          <p>这些是后续探索提案，先分开变量，再判断哪些值得继续。</p>
+          <ol class="product-next-list">
+            <li>
+              <span>01 / 独立原型</span>
+              <div class="product-next-copy">
+                <h4>把“看见供给”和“主动刷新”分开试。</h4>
+                <p>展示公共池下一张，并在同一原型中分别开关、分步试验主动刷新。拟议成本是每人首次免费、之后每次 1 Cost，以潜在占格机会换取供给控制；下一步对照正常补位与主动刷新，检验费用是否可负担、玩家是否愿意为控制供给付出这个代价。</p>
+              </div>
+            </li>
+            <li>
+              <span>02 / 独立规则假设</span>
+              <div class="product-next-copy">
+                <h4>区分暂时缺牌和确实无路可走。</h4>
+                <p>供给保障与“困毙胜利”各作独立假设，每轮只改一项，观察玩家能否区分“暂时缺牌”和“确实无路可走”、补牌是否仍可负担；不预设困毙胜利合理。固定 15 手结算另做一轮，只检验节奏压力，不同时改胜负规则。</p>
+              </div>
+            </li>
+            <li>
+              <span>03 / 并行体验路径</span>
+              <div class="product-next-copy">
+                <h4>从基础首局，走到资源决策与对战。</h4>
+                <p>休闲人机首盘教基础摆放、公共池与胜负；复玩局面再教抢中心、预算和锤子，之后进入人机与 PVP。这样逐层引入信息；下一步制作两段教学并找真人测试，观察玩家能否学会基础操作、再把复玩知识用进对局。</p>
+              </div>
+            </li>
+          </ol>
+          <p class="product-next-note"><strong>低优先备忘：</strong>休闲模式海克斯尚无具体规则，待核心体验方向明确后再补出可验证假设。</p>
+        </aside>
+        <div class="story-end"><p>让玩家每做一次选择，<br><strong>都能看懂它怎样改变下一步。</strong></p><a href="/projects.html#fangcun">返回项目实验室 ←</a><a href="/resume.html">查看我的简历 →</a></div>
+      </section>
+    </article>
+  </main>
+  <dialog id="image-dialog" class="story-image-dialog" aria-label="图片预览"><button type="button" id="close-image">关闭预览 ×</button><img id="dialog-image" alt=""></dialog>
+  <footer class="site-footer"><p>DESIGN RIG / 方寸棋间</p><a href="/projects.html">项目实验室</a></footer>
+</body>
+</html>

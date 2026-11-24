@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="项目研究 / 游戏经历：EVE 经济研究、MMO 舰队与社区经历，以及二次元、策略、射击和动作游戏履历。">
+    <title>项目研究 / 游戏经历｜DESIGN RIG</title>
+  <style>
+    #eve .feature-heading { display: block; padding-bottom: 1.3rem; margin-bottom: 1.6rem; }
+    #eve .feature-heading h2 { max-width: none; margin: 0; }
+    #eve .interface-actions.is-contained { display: block; margin: 0; }
+    #eve .eve-invitation {
+      display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem;
+      position: relative; isolation: isolate; overflow: hidden;
+      width: 100%; min-height: clamp(300px, 29vw, 420px); padding: clamp(1.5rem, 4vw, 3.5rem);
+      color: #f0f8ff; background: #06111f url('assets/eve/entry-megathron-v2.png') center / cover no-repeat; border: 2px solid #82d8f2; border-bottom-width: 6px;
+      box-shadow: 0 0 0 7px #00a7e812, 0 10px 35px #0009; text-decoration: none; cursor: pointer;
+      transition: transform 180ms ease, box-shadow 240ms ease, border-color 240ms ease;
+    }
+    #eve .eve-invitation::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #020914e8, #02091460 48%, #02091400 75%), linear-gradient(0deg, #02091490, transparent 55%); }
+    #eve .eve-invitation::after { content: ""; position: absolute; top: 10px; left: 10px; width: 34px; height: 14px; border-top: 2px solid #b4efff; border-left: 2px solid #b4efff; }
+    #eve .eve-invitation strong { display: block; font-size: clamp(1.8rem, 3.5vw, 3.5rem); line-height: 1.4; text-shadow: 0 2px 12px #000; }
+    #eve .invitation-action { display: flex; align-items: center; gap: 1rem; flex: 0 0 auto; padding: .8rem 1.25rem; background: #f1e6c4; color: #091a22; font-weight: 900; box-shadow: 4px 4px #0088ad; }
+    #eve .eve-invitation .invitation-arrow { display: inline-block; font-size: 1.8rem; line-height: 1; }
+    #eve .eve-invitation:hover { transform: translateY(-3px); border-color: #d4f7ff; box-shadow: 0 0 0 7px #00a7e82b, 0 0 30px #3bb6da44, 0 14px 30px #0009; }
+    #eve .eve-invitation:focus-visible { outline: 3px solid #f1e6c4; outline-offset: 5px; }
+    #eve .eve-invitation .invitation-arrow { transition: transform 220ms ease, background-color 220ms ease; }
+    #eve .eve-invitation .invitation-sweep { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(105deg, transparent 36%, #a6eaff22 49%, transparent 62%); transform: translateX(-120%); }
+    @keyframes eve-entry-sweep { to { transform: translateX(120%); } }
+    @media (hover: hover) {
+      #eve .eve-invitation:hover .invitation-sweep { animation: eve-entry-sweep 850ms ease-out; }
+      #eve .eve-invitation:hover .invitation-arrow { transform: translateX(4px); }
+    }
+    #eve .eve-invitation:focus-visible .invitation-sweep { animation: eve-entry-sweep 850ms ease-out; }
+    #eve .eve-invitation:active { transform: scale(.988); border-color: #e0faff; box-shadow: inset 0 0 25px #53bddd33; }
+    @media (max-width: 600px) {
+      #eve .eve-invitation { flex-direction: column; align-items: flex-start; justify-content: space-between; padding: 1.6rem 1.2rem; gap: 5rem; min-height: 350px; background-position: 65% center; }
+      #eve .eve-invitation::before { background: linear-gradient(180deg, #020914cc, #02091418 55%, #02091488); }
+      #eve .invitation-action { font-size: .95rem; padding: .7rem 1rem; }
+      #eve .feature-heading { margin-bottom: 1.3rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #eve .eve-invitation, #eve .eve-invitation .invitation-arrow { transition: none; transform: none; }
+      #eve .eve-invitation .invitation-sweep { animation: none !important; display: none; }
+      #eve .eve-invitation:hover .invitation-arrow { transform: none; }
+    }
+  </style>  <script type="module" src="/assets/main-BwU76wEF.js"></script>
+<script type="module" src="/assets/frontend-priority-20260930-experience-742252997344.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-P2Xu9kJm.js">
+  <link rel="modulepreload" crossorigin href="./assets/main-BwU76wEF.js">
+  <link rel="stylesheet" crossorigin href="./assets/main-DPMXdCQp.css">
+  <link rel="stylesheet" crossorigin href="./assets/systems-BxTUqGtk.css">
+  <link rel="stylesheet" crossorigin href="./assets/case-study-reframe-BokqmGb8.css">
+  <link rel="stylesheet" crossorigin href="./assets/eve-economy-DxajTXSI.css">
+<link rel="stylesheet" href="/assets/frontend-priority-20260930-images-89f08f79d51e.css">
+<script type="module" src="/assets/frontend-priority-20260930-images-82dfec270bfb.js"></script>
+<link rel="stylesheet" href="/assets/frontend-priority-20260930-experience-3f4c43e453f8.css">
+</head>
+  <body class="module-body theme-blue" data-page="systems" data-case-study="true">
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <header class="site-header" data-header>
+      <a class="site-brand" href="./index.html" aria-label="返回作品集首页">
+        <span class="bug-mark" aria-hidden="true"><i></i><i></i></span>
+        <span><strong>DESIGN RIG</strong><small>SYSTEMS / 02</small></span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="作品集模块">
+        <a href="./projects.html">项目实验室</a>
+        <a class="is-current" href="./systems.html" aria-current="page">项目研究 / 游戏经历</a>
+        <a href="./field.html">团队与现场</a>
+        <a href="./resume.html">简历档案</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span aria-hidden="true">☰</span><span>模块</span>
+      </button>
+    </header>
+
+    <main id="main" class="module-main">
+      <section class="module-hero module-hero-systems" aria-labelledby="module-title">
+        <div class="module-hero-art" aria-hidden="true"></div>
+        <div class="module-hero-copy">
+          <a class="back-link" href="./index.html">← 返回总览</a>
+          <p class="kicker"><span>MODULE 02</span> 项目研究 / 游戏经历</p>
+          <h1 id="module-title"><span>把长期游玩，</span><br><span>变成系统判断。</span></h1>
+          <nav class="local-nav" aria-label="项目研究 / 游戏经历页面目录">
+            <a href="#eve">EVE 研究</a>
+            <a href="#game-experience">游戏经历</a>
+            <a href="#mmo">MMO</a>
+            <a href="#anime-games">二次元</a>
+            <a href="#other-games">其他游戏</a>
+          </nav>
+        </div>
+      </section>
+
+      <section class="system-thesis" id="eve" aria-labelledby="eve-title">
+        <header class="feature-heading">
+          <h2 id="eve-title">EVE研究：从一艘船开始到整个经济循环</h2>
+        </header>
+        <div class="interface-actions is-contained"><a class="eve-invitation" href="./prototypes/eve-act1-v01/index.html"><strong>来，从买下<br>一艘船开始。</strong><span class="invitation-action">开始第一幕<span class="invitation-arrow" aria-hidden="true">→</span></span><i class="invitation-sweep" aria-hidden="true"></i></a></div>
+      </section>
+
+      <section class="game-experience" id="game-experience" aria-labelledby="experience-title">
+        <header class="experience-heading">
+          <div>
+            <p class="experience-label">PLAYER FILE</p>
+            <h2 id="experience-title"><span class="experience-heading-static">游戏经历</span><button class="experience-toggle" type="button" aria-expanded="false" aria-controls="experience-content" hidden><span class="experience-toggle-label">展开游戏经历</span><span class="experience-toggle-mark" aria-hidden="true"></span></button></h2>
+            <p class="experience-summary-copy">EVE 舰队指挥与带新 · Warframe 合作与构筑 · 策略、射击与二次元游戏</p>
+          </div>
+          <div class="experience-scope"><span>仅列出游玩时长 300 小时以上的游戏</span></div>
+        </header>
+
+        <div class="experience-content" id="experience-content">
+        <section class="experience-group" id="mmo" aria-labelledby="mmo-title">
+          <header class="experience-group-heading"><span>01 / MMO</span><h3 id="mmo-title">从参与战斗，到带队与带新</h3></header>
+          <article class="game-file game-file-eve" aria-labelledby="eve-experience-title">
+            <header class="game-file-heading"><div><p class="experience-label">EVE / 晨曦 · ECHOES</p><h4 id="eve-experience-title">EVE</h4></div><span class="game-spend">双端累计付费约 40,000 元</span></header>
+            <p class="game-highlight">PVE 仙人，也是国服会战的亲历者。</p>
+            <div class="eve-experience-columns">
+              <section aria-labelledby="morning-title"><h5 id="morning-title">晨曦 <span>18,000h+</span></h5>
+                <p class="game-highlight">火力舰成员 → 后勤舰队指挥</p>
+                <ul><li>49-U6U 会战：在 PIBC 一侧驾驶火力舰参战。</li><li>皮尔米特星城战、北方主权战：在 VVV 一侧担任后勤舰队指挥（FC）。</li><li>在 VVV 朔望琳军团、PIBC 阿尔法特勤局参与招新、带新、军团 B 站账号运营与直播教学。</li><li>深度体验日常活动、舰船购买与抽奖等付费活动。</li></ul>
+              </section>
+              <section aria-labelledby="echoes-title"><h5 id="echoes-title">Echoes <span>2,000h+</span></h5><p class="game-highlight">小队战指挥 / QQ 群带新</p><p>担任小队战指挥官，参与 QQ 群新人指导。</p></section>
+            </div>
+          </article>
+          <article class="game-file game-file-after" aria-labelledby="lifeafter-title"><div><p class="experience-label">2018 开服—约 2020</p><h4 id="lifeafter-title">明日之后</h4><p class="game-highlight">枪械工 · 曾处第一梯队</p><p>打造过大量具有 5% 移速属性的棒球棍。</p></div><dl class="game-facts"><div><dt>游玩时长</dt><dd>约 400h</dd></div><div><dt>累计付费</dt><dd>约 2,000 元</dd></div></dl></article>
+        </section>
+
+        <section class="experience-group" id="anime-games" aria-labelledby="anime-title">
+          <header class="experience-group-heading"><span>02 / 二次元</span><h3 id="anime-title">长期游玩的另一条主线</h3></header>
+          <div class="anime-game-grid">
+            <article class="game-file"><h4>原神</h4><p class="game-duration">开服持续游玩至今</p><p class="game-spend">累计付费约 10,000 元以上</p></article>
+            <article class="game-file"><h4>明日方舟</h4><p class="game-duration">约 2,000h</p><p class="game-spend">累计付费约 4,000 元</p></article>
+            <article class="game-file"><h4>崩坏：星穹铁道</h4><p class="game-duration">约 1,000h</p><p class="game-spend">累计付费约 2,500 元</p></article>
+            <article class="game-file"><h4>明日方舟：终末地</h4><p class="game-duration">开服持续游玩至今</p><p class="game-spend">累计付费约 1,700 元</p></article>
+          </div>
+        </section>
+
+        <section class="experience-group" id="other-games" aria-labelledby="other-games-title">
+          <header class="experience-group-heading"><span>03 / 更多游戏</span><h3 id="other-games-title">策略、射击与动作</h3></header>
+          <div class="game-ledger" role="table" aria-label="其他游戏履历">
+            <div class="game-ledger-head" role="row"><span role="columnheader">游戏</span><span role="columnheader">游玩时长</span><span role="columnheader">代表经历</span><span role="columnheader">付费 / 购买</span></div>
+            <div class="game-ledger-row" role="row"><h4 role="rowheader">星际争霸Ⅱ</h4><p role="cell" data-label="时长">3,000h+</p><p role="cell" data-label="经历">神族；国服关服前曾进入国服前 3,000</p><p role="cell" data-label="付费 / 购买">约 600 元</p></div>
+            <div class="game-ledger-row" role="row"><h4 role="rowheader">CS2</h4><p role="cell" data-label="时长">1,000h+</p><p role="cell" data-label="经历">完美世界对战平台最高 S；Rating 1.06</p><p role="cell" data-label="付费 / 购买">—</p></div>
+            <div class="game-ledger-row" role="row" id="warframe"><h4 role="rowheader" id="warframe-title">Warframe</h4><p role="cell" data-label="时长">2,000h+</p><p role="cell" data-label="经历">合作 PVE、刷宝成长、Build 构筑与玩家交易；关注裂罅卡与商人活动</p><p role="cell" data-label="付费 / 购买">约 800 元</p></div>
+            <div class="game-ledger-row" role="row"><h4 role="rowheader">永劫无间</h4><p role="cell" data-label="时长">360h</p><p role="cell" data-label="经历">预购豪华版</p><p role="cell" data-label="付费 / 购买">豪华版 398 元<br>另充值约 500 元</p></div>
+            <div class="game-ledger-row" role="row"><h4 role="rowheader">街头霸王6</h4><p role="cell" data-label="时长">约 300h</p><p role="cell" data-label="经历">桑吉尔夫 · 钻石 3</p><p role="cell" data-label="付费 / 购买">全 DLC</p></div>
+            <div class="game-ledger-row" role="row"><h4 role="rowheader">战地1 / 5 / 6</h4><p role="cell" data-label="时长">合计约 300h</p><p role="cell" data-label="经历">—</p><p role="cell" data-label="付费 / 购买">—</p></div>
+          </div>
+        </section>
+        </div>
+      </section>
+
+      <nav class="next-module" aria-label="继续浏览">
+        <div><span>NEXT MODULE</span><strong>看这些判断怎样进入协作现场</strong></div>
+        <a href="./field.html">团队与现场 <span aria-hidden="true">→</span></a>
+      </nav>
+    </main>
+
+    <footer class="site-footer"><p><a href="./index.html">DESIGN RIG</a> / SYSTEMS</p><p>从玩家选择，理解系统如何运转。</p></footer>
+  </body>
+</html>

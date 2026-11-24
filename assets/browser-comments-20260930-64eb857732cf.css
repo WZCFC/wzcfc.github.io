@@ -1,0 +1,109 @@
+/* Browser comments 20260930: local resume contact, heading, and Jam figure fixes. */
+
+body[data-page="resume"] .hero-copy {
+  grid-template-rows: auto minmax(2rem, 1fr) auto auto minmax(1.8rem, .7fr) auto minmax(1.8rem, .7fr) auto minmax(max-content, 1fr) auto;
+}
+
+body[data-page="resume"] .hero-copy > .resume-contact-list { grid-row: 9; }
+
+body[data-page="resume"] .resume-contact-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .3rem .8rem;
+  min-width: 0;
+  max-width: 100%;
+  margin-top: .25rem;
+  padding-left: .1rem;
+  font-size: clamp(.65rem, 1vw, .78rem);
+  line-height: 1.65;
+}
+
+body[data-page="resume"] .resume-contact-list a {
+  min-width: 0;
+  max-width: 100%;
+  color: #efe1bd;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-decoration-color: #72d900;
+  text-underline-offset: .22em;
+}
+
+body[data-page="resume"] .resume-contact-list a:focus-visible {
+  outline: 2px solid #72d900;
+  outline-offset: 3px;
+}
+
+body[data-page="resume"] .telemetry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .25rem .7rem;
+}
+
+body[data-page="resume"] .telemetry-head > span {
+  flex: 1 1 12rem;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+body[data-page="resume"] .telemetry-head strong {
+  flex: 0 1 auto;
+  max-width: 100%;
+  font-size: clamp(.7rem, 1vw, .82rem);
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+@media screen and (min-width: 761px) {
+  body[data-page="resume"] .jam-event-module .prototype-rack {
+    grid-template-rows: repeat(6, auto);
+    align-items: stretch;
+  }
+
+  body[data-page="resume"] .jam-event-module .prototype-rack article {
+    display: grid;
+    grid-row: span 6;
+    grid-template-rows: subgrid;
+    min-width: 0;
+  }
+
+  body[data-page="resume"] #resume-devil .gameplay-evidence { grid-row: 5; transform: translateY(1rem); }
+  body[data-page="resume"] #resume-devil .prototype-actions { grid-row: 6; }
+}
+
+body[data-page="resume"] #resume-devil .gameplay-evidence img {
+  object-fit: contain;
+  object-position: center;
+  background: #151917;
+}
+
+@media screen and (max-width: 760px) {
+  body[data-page="resume"] .jam-event-module .prototype-rack {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: none;
+  }
+
+  body[data-page="resume"] .jam-event-module .prototype-rack article {
+    display: flex;
+    grid-row: auto;
+    grid-template-rows: none;
+  }
+
+  body[data-page="resume"] #resume-devil .gameplay-evidence {
+    transform: none;
+    grid-row: auto;
+    margin-top: .85rem;
+  }
+
+  body[data-page="resume"] #resume-devil .prototype-actions { grid-row: auto; }
+
+}
+
+/* The project case uses a 16:10 frame; contain keeps the TapTap source whole. */
+body[data-page="projects"] #devil-billiards .project-runtime-shot img {
+  object-fit: contain;
+  background: #18221c;
+}
