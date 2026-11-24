@@ -1,0 +1,186 @@
+.linquan-home {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 2.5rem);
+  align-items: center;
+  margin: 0 0 clamp(1.25rem, 3vw, 2.5rem);
+  padding: clamp(1rem, 3vw, 2.25rem);
+  color: #263521;
+  background: #f2ebd6;
+  border: 1px solid #a49d77;
+  border-radius: 16px;
+}
+.linquan-home img,
+.linquan-paper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.linquan-home h3 {
+  margin: .35rem 0;
+  font-size: clamp(1.65rem, 4vw, 2.6rem);
+  line-height: 1.18;
+}
+.linquan-home p {
+  margin: .55rem 0 1rem;
+}
+.linquan-home .notebook-button {
+  display: inline-flex;
+  color: #fff8e0;
+  background: #3f5133;
+  padding: .65rem .95rem;
+  border-radius: 6px;
+}
+.linquan-paper {
+  padding: clamp(1.15rem, 3vw, 2.75rem);
+  color: #292d21;
+}
+.linquan-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 2.5rem);
+  align-items: center;
+}
+.linquan-hero .back-link {
+  margin-bottom: 0;
+  color: #4f593f;
+}
+.linquan-hero h1 {
+  margin: .3rem 0 .7rem;
+  font-size: clamp(2.25rem, 6vw, 4.25rem);
+  line-height: 1.08;
+  letter-spacing: -.025em;
+}
+.linquan-hero .notebook-label {
+  margin-top: 1.15rem;
+}
+.linquan-paper p,
+.linquan-paper dd {
+  line-height: 1.7;
+}
+.linquan-lead {
+  font-size: clamp(1.06rem, 2vw, 1.35rem);
+  font-weight: 700;
+}
+.linquan-paper figure {
+  margin: 0;
+}
+.linquan-paper figcaption {
+  margin-top: .5rem;
+  color: #565745;
+  font-size: .88rem;
+}
+.linquan-actions,
+.linquan-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem 1rem;
+  align-items: center;
+}
+.linquan-actions {
+  margin-top: 1rem;
+}
+.linquan-links {
+  margin: 1.8rem 0 0;
+  padding: .85rem 0;
+  border-block: 1px solid #b3aa87;
+}
+.linquan-links a,
+.linquan-actions .notebook-text-link {
+  color: #33492b;
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
+.linquan-section {
+  margin-top: 2rem;
+  scroll-margin-top: 6rem;
+}
+.linquan-section h2 {
+  font-size: clamp(1.35rem, 3vw, 2.2rem);
+  line-height: 1.22;
+}
+.linquan-cycle {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .8rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: linquan-step;
+}
+.linquan-cycle li {
+  counter-increment: linquan-step;
+  padding: .8rem;
+  border: 1px solid #b4a984;
+  border-radius: 7px;
+  background: #f3ebd4;
+}
+.linquan-cycle li::before {
+  content: counter(linquan-step, decimal-leading-zero);
+  display: block;
+  margin-bottom: .25rem;
+  color: #5c654b;
+  font-variant-numeric: tabular-nums;
+}
+.linquan-cycle span {
+  display: block;
+  margin-top: .25rem;
+  font-size: .9rem;
+}
+.linquan-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+}
+.linquan-table caption {
+  text-align: left;
+  padding: .4rem 0 .65rem;
+  font-size: .9rem;
+  color: #565745;
+}
+.linquan-table :is(th, td) {
+  padding: .55rem clamp(.3rem, 1.5vw, .9rem);
+  border: 1px solid #b7ae90;
+}
+.linquan-table thead {
+  background: #e7dfc4;
+}
+.linquan-table tbody tr:nth-child(2) {
+  background: #e2e8d2;
+}
+.linquan-river-grid,
+.linquan-verification {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(.8rem, 2vw, 1.6rem);
+}
+.linquan-verification div {
+  padding: .8rem;
+  border-left: 3px solid #788061;
+  background: #f3ebd4;
+}
+.linquan-verification dt {
+  font-weight: 700;
+}
+.linquan-verification dd {
+  margin: .25rem 0 0;
+}
+@media (max-width: 720px) {
+  .linquan-home,
+  .linquan-hero,
+  .linquan-verification {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .linquan-cycle {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 380px) {
+  .linquan-river-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .linquan-table {
+    font-size: .86rem;
+  }
+}
