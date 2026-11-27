@@ -50,7 +50,6 @@
 }
 .meteor:is(:hover,:focus-visible)::before { filter: brightness(1.32); scale: 1.16; }
 .meteor:focus-visible { outline: 2px solid white; outline-offset: -3px; }
-.meteor-hint { position: absolute; bottom: 5px; right: 2%; color: #f5f7ff; font: 600 12px/1.5 var(--sans); }
 @media (max-width:620px) {
   .plate-projects { height: clamp(230px, 60vw, 265px); }
 }
