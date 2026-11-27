@@ -1,52 +1,58 @@
 <!doctype html>
-<html lang="zh-CN" class="no-js">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <title>EVE Case · 损毁后如何恢复｜DESIGN RIG</title>
-  <script type="module" crossorigin src="../../assets/modulepreload-polyfill-P2Xu9kJm.js"></script>
-  <script type="module" crossorigin src="../../assets/prototype-R2pyQCOu.js?edition=article"></script>
   <link rel="stylesheet" crossorigin href="../../assets/prototype-nycLwMVI.css">
 <meta name="robots" content="noindex, nofollow">
 <link rel="stylesheet" href="/assets/atlas/site.css">
-<script defer src="/assets/atlas/transit.js"></script><link rel="stylesheet" href="/assets/atlas/research-reader.css"></head>
-<body data-case-page="recovery" class="research-reader">
+<script defer src="/assets/atlas/transit.js"></script><link rel="stylesheet" href="/assets/atlas/research-reader.css?rev=static"></head>
+<body class="research-reader recovery-reader">
   <header class="mast"><div class="wrap mast-inner"><a aria-label="DESIGN RIG 总览" class="brand" href="/index.html"><i aria-hidden="true" class="logomark"></i>DESIGN RIG</a><nav aria-label="作品集栏目" class="main-nav"><a href="/index.html">总览</a><a href="/projects.html">作品</a><a aria-current="location" href="/systems.html">研究</a><a href="/field.html">我带团队的经历</a></nav><a class="cv" href="/resume.html">简历档案 <span>↗</span></a></div></header>
   <header class="prototype-header">
     <a class="skip-link" href="#case-recovery">跳到恢复制度</a>
     <div class="case-location"><a href="../../systems.html#eve">← 项目研究 / 游戏经历</a><span aria-hidden="true">/</span><a href="index.html#scene-5">← 出航与选择</a></div>
-<nav class="progress" aria-label="第一幕场景">
-      <span id="scene-position">第一幕 · 1 / 5</span>
-      <button type="button" data-go="1" aria-label="场景 1" aria-current="step">1</button>
-      <button type="button" data-go="2" aria-label="场景 2，未解锁" disabled>2</button>
-      <button type="button" data-go="3" aria-label="场景 3，未解锁" disabled>3</button>
-      <button type="button" data-go="4" aria-label="场景 4，未解锁" disabled>4</button>
-      <button type="button" data-go="5" aria-label="场景 5，未解锁" disabled>5</button>
-    </nav>
-    <div id="interface-status-panel" class="interface-status-panel" hidden>
-      <p id="interface-status-message" role="status"></p>
-      <div><button class="text-action" id="interface-preview" data-go="9" type="button" hidden>查看章节说明 →</button><button class="text-action" id="close-interface-status" type="button">关闭提示</button></div>
-    </div>
+<nav class="recovery-nav" aria-label="本页目录"><a href="#recovery-comparison">三种恢复</a><a href="#scene-4">其他玩家</a><a href="#scene-3">永久损毁</a></nav>
   </header>
 
   <main id="case-recovery">
-    <noscript><p class="script-notice">请启用 JavaScript 后继续。<a href="index.html">返回出航与选择</a></p></noscript>
-<template id="scene-template-9">
-      <section class="scene recovery-comparison" id="recovery-comparison" data-scene="9" aria-labelledby="comparison-title">
-        <div class="act-two-heading"><p class="eyebrow">三制度 / 损毁后怎样恢复</p><h2 id="comparison-title">面对这次损失，系统能恢复什么？</h2><p class="lead">刚才观察的是永久损毁。换一种制度，战斗中失去舰船后的处理也会不同。</p></div>
-        <div class="policy-cards" role="group" aria-label="比较三种恢复方向">
-          <article><p class="event-label">晨曦 / 宁静</p><h3>恢复一部分价值</h3><p>传统 ISK 保险把补偿交到钱包，如何取得下一艘船仍由玩家决定。</p><button class="primary-action" data-policy="value" type="button" aria-pressed="false">看收到钱之后还缺什么 →</button><p class="evidence-state">宁静有官方说明；晨曦同期细则待核。</p></article>
-          <article><p class="event-label">新曙光 · 我的游玩经历</p><h3>让损毁消耗耐久，而非每次失去整艘船</h3><p>舰船可经历多次损毁，耐久归零后再面对替换；装备也有各自的耐久。</p><button class="primary-action" data-policy="durability" type="button" aria-pressed="false">看耐久怎样改变替换需求 →</button></article>
-          <article><p class="event-label">手游 / EVE Echoes · 我的游玩经历</p><h3>用保险点恢复舰船</h3><p>购买保险点，爆船后消耗点数恢复舰船，不需要自己重新买一艘替代船。</p><button class="primary-action" data-policy="recovery" type="button" aria-pressed="false">看保险点怎样恢复舰船 →</button></article>
+      <section class="scene recovery-comparison" id="recovery-comparison" aria-labelledby="comparison-title">
+        <div class="act-two-heading"><p class="eyebrow">三制度 / 损毁后怎样恢复</p><h1 id="comparison-title">面对这次损失，系统能恢复什么？</h1><p class="lead">刚才观察的是永久损毁。换一种制度，战斗中失去舰船后的处理也会不同。</p></div>
+        <div class="policy-cards">
+          <article>
+            <p class="event-label">晨曦 / 宁静</p>
+            <h3>恢复一部分价值</h3>
+            <dl>
+              <dt>损毁后拿回什么</dt><dd>传统保险把部分舰船价值以星币（ISK）赔到钱包里。</dd>
+              <dt>下次怎样出航</dt><dd>玩家决定是否补船。要继续出航，还得取得一艘可用的船并完成装配。</dd>
+              <dt>和市场有什么关系</dt><dd>补偿是否用来买船？如果补了船，玩家是从市场购入，还是用了自己的库存？</dd>
+            </dl>
+            <p class="evidence-state">宁静有官方说明，晨曦同期细则待核。</p>
+          </article>
+          <article>
+            <p class="event-label">新曙光 · 我的游玩经历</p>
+            <h3>损毁消耗耐久</h3>
+            <dl>
+              <dt>损毁后留下什么</dt><dd>按我的游玩经历，一艘船大约经历 3–5 次损毁后耐久归零。装备也有耐久，数值会有浮动。</dd>
+              <dt>下次怎样出航</dt><dd>先检查船体和装备的剩余耐久，处理维修和维护，再决定是否继续出航。</dd>
+              <dt>和市场有什么关系</dt><dd>两次换船之间会有维护需求。到耐久耗尽时，才需要再看替换舰船和装备的需求流向了谁。</dd>
+            </dl>
+          </article>
+          <article>
+            <p class="event-label">手游 / EVE Echoes · 我的游玩经历</p>
+            <h3>用保险点恢复舰船</h3>
+            <dl>
+              <dt>保险点怎样估算</dt><dd>按我的游玩经历，玩家用 PLEX 购买保险点。所需点数按吨位设基础值，再随市场或合同估价浮动。恢复船体和装配大约要用相当于估价 40% 的保险点。</dd>
+              <dt>下次怎样出航</dt><dd>爆船后扣除保险点，系统直接恢复舰船。玩家可以省去在市场上另买替代船这一步。</dd>
+              <dt>和市场有什么关系</dt><dd>玩家拿回了船，后台是否产生收购订单还要另看。有多少恢复需求最终由玩家制造的舰船承接？</dd>
+            </dl>
+          </article>
         </div>
-        <div class="policy-result" id="policy-result" hidden tabindex="-1"><h3 id="policy-result-title"></h3><dl><div><dt>恢复对象</dt><dd id="policy-restores"></dd></div><div><dt>之后仍要做什么</dt><dd id="policy-next"></dd></div><div><dt>转向其他玩家时要追问</dt><dd id="policy-demand"></dd></div></dl></div>
-        <div class="scene-footer"><button class="primary-action" data-next="4" type="button" hidden>这些恢复方式，会怎样影响造船、卖船的人？ ↓</button></div>
-        <details class="policy-sources"><summary>资料范围与待核实内容</summary><p>新曙光侧关注耐久归零与资产替换；Echoes 侧区分玩家直接恢复与后台保险收购订单。</p><p><a href="https://support.eveonline.com/hc/en-us/articles/212726885-Insurance" target="_blank" rel="noopener noreferrer">CCP：ISK 保险</a> · <a href="https://www.eveechoes.com/updata/20210201/33524_930082.html" target="_blank" rel="noopener noreferrer">Echoes：2021 保险公告</a> · <a href="https://www.eveechoes.com/m/updata/20250507/33524_1232717.html" target="_blank" rel="noopener noreferrer">Echoes：2025 保险调整</a></p><p>国际服公告不证明晨曦或国服手游同期规则。产业需求变化仍须结合恢复频率、取得渠道和实际成交观察。</p></details>
+        <aside class="policy-sources" aria-label="资料范围与待核实内容"><h3>资料范围与待核实内容</h3><p>新曙光侧关注耐久归零与资产替换；Echoes 侧区分玩家直接恢复与后台保险收购订单。</p><p><a href="https://support.eveonline.com/hc/en-us/articles/212726885-Insurance" target="_blank" rel="noopener noreferrer">CCP：ISK 保险</a> · <a href="https://www.eveechoes.com/updata/20210201/33524_930082.html" target="_blank" rel="noopener noreferrer">Echoes：2021 保险公告</a> · <a href="https://www.eveechoes.com/m/updata/20250507/33524_1232717.html" target="_blank" rel="noopener noreferrer">Echoes：2025 保险调整</a></p><p>国际服公告不证明晨曦或国服手游同期规则。产业需求变化仍须结合恢复频率、取得渠道和实际成交观察。</p></aside>
       </section>
-    </template>
-<template id="scene-template-4">
-    <section class="scene scene-reveal" id="scene-4" data-scene="4" aria-labelledby="scene-4-title">
+    <section class="scene scene-reveal" id="scene-4" aria-labelledby="scene-4-title">
       <div class="narrow-copy reveal-intro">
         <p class="eyebrow">三制度之后 / 交易的另一端</p>
         <h2 id="scene-4-title">那造船、卖船的人呢？</h2>
@@ -54,7 +60,7 @@
 
       </div>
 
-      <div class="reveal-panel" id="reveal-panel" hidden>
+      <div class="reveal-panel" id="reveal-panel">
         <div class="reveal-block" id="system-reveal" tabindex="-1">
           <span class="block-marker" aria-hidden="true">↳</span>
           <div>
@@ -71,21 +77,18 @@
           </div>
         </div>
       </div>
-      <div class="scene-footer"><button class="primary-action" id="reflection-continue" type="button">接着看：为什么允许永久损毁？ ↓</button></div>
     </section>
-    </template>
 
 
 
-<template id="scene-template-3">
-    <section class="scene scene-question" id="scene-3" data-scene="3" aria-labelledby="scene-3-title">
+    <section class="scene scene-question" id="scene-3" aria-labelledby="scene-3-title">
       <div class="narrow-copy">
         <p class="eyebrow">最后 / 回看永久损毁规则</p>
         <h2 id="scene-3-title">为什么游戏允许你永久失去这艘船？</h2>
         <p class="lead">看过恢复方式与其他玩家的订单，再回到最初的问题：如果当时那艘船一直能用呢？</p>
       </div>
 
-      <div class="counterfactual" data-counterfactual-state="unselected">
+      <div class="counterfactual">
 
         <div class="ship-comparison">
           <div class="comparison-lost">
@@ -95,7 +98,7 @@
             <p>原船无法继续使用。</p>
             <p class="next-flight"><strong>明天出航前</strong>先取得一艘可用的替代船。</p>
           </div>
-          <div class="comparison-kept"><p class="ship-context">假如舰船永久保留</p><h3>原船还在，你会怎么做？</h3><button type="button" class="primary-action" data-counterfactual="keep" aria-controls="purchase-thought">继续驾驶原船 →</button><div id="purchase-thought" hidden>
+          <div class="comparison-kept"><p class="ship-context">假如舰船永久保留</p><div id="purchase-thought">
 
             <svg viewBox="0 0 360 180" aria-hidden="true"><path class="comparison-hull" d="M43 98 154 49l151 42-78 19-45 35-42-35Z"/></svg>
             <h3>同一艘船仍可使用</h3>
@@ -104,15 +107,12 @@
           </div></div>
         </div>
       </div>
-      <p class="reflection-end" id="reflection-end" hidden>永久损毁不是唯一的购买理由。这里追问的是：减少这一次补船需要，会怎样改变不同玩家的目标？</p><div class="scene-footer"><button class="text-action" data-go="9" type="button">回看三种恢复方式 ↑</button><a class="primary-action design-next" href="design.html">下一页：从晨曦经典服出发，我会怎样设计？ →</a></div>
+      <p class="reflection-end" id="reflection-end">永久损毁不是唯一的购买理由。这里追问的是：减少这一次补船需要，会怎样改变不同玩家的目标？</p><div class="scene-footer"><a class="text-action" href="#recovery-comparison">回看三种恢复方式 ↑</a><a class="primary-action design-next" href="design.html">下一页：从晨曦经典服出发，我会怎样设计？ →</a></div>
     </section>
-    </template>
   </main>
   <footer class="reading-footer">
     <p class="prototype-label">DESIGN RIG · EVE 系统研究</p>
-    <details class="reading-settings"><summary>阅读记录</summary><p id="storage-status">正在载入阅读记录。</p><button class="text-action" id="reset-progress" type="button">重新开始首次阅读</button></details>
     <a href="../../systems.html#eve">返回项目研究 / 游戏经历</a>
   </footer>
-  <p class="visually-hidden" id="reading-status" role="status" aria-live="polite"></p>
 <div class="rig-pending" role="status" aria-live="polite" hidden></div></body>
 </html>

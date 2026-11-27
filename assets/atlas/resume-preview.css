@@ -17,19 +17,27 @@
 .resume-pdf-pages figcaption {margin:0 0 5px;font-size:13px;}
 @media print {.resume-pdf-preview{display:none!important;}}
 
-.chapter-visual.resume-emblem img {
-  width: min(83%, 325px);
-  height: clamp(195px, 22vw, 320px);
-  object-fit: contain;
-  filter: none;
+.chapter-visual.resume-emblem::before { content: none; }
+.resume-moon {
+  width: min(88%, clamp(166px, 27vw, 390px));
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--rig-action);
+  display: grid;
+  place-items: center;
+  justify-self: end;
+  margin-right: 3%;
 }
+.chapter-visual .resume-moon img { width: 94%; height: auto; filter: none; }
 .resume-rule .account-id { user-select: all; white-space: nowrap; }
 @media (prefers-reduced-motion: no-preference) {
-  .resume-emblem img { animation: resume-knot-float 12s ease-in-out infinite; }
+  .resume-moon img { animation: resume-knot-float 5.4s ease-in-out infinite; }
   @keyframes resume-knot-float {
-    0%, 100% { transform: translateY(3px); }
-    50% { transform: translateY(-3px); }
+    0%, 100% { transform: translateY(calc(-1 * var(--knot-travel, 11px))); }
+    50% { transform: translateY(var(--knot-travel, 11px)); }
   }
 }
-@media (max-width:540px) { .chapter-visual.resume-emblem img { width:100%; height:145px; } }
-@media print { .resume-emblem img { animation:none; } }
+@media (max-width: 540px) {
+  .resume-moon { width: min(90%, 156px); --knot-travel: 7px; }
+}
+@media print { .resume-moon img { animation: none; } }
