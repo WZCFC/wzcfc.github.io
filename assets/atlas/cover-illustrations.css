@@ -1,0 +1,56 @@
+.plate-field, .plate-projects {
+  display: grid;
+  place-items: center;
+  container-type: size;
+}
+.plate-field .smile-moon {
+  width: min(82cqw, 84cqh);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--lime);
+}
+.smile-moon img { display: block; width: 82%; height: auto; }
+.plate-projects .project-sky {
+  position: relative;
+  width: min(96cqw, 91cqh);
+  aspect-ratio: 1;
+  margin-bottom: 12px;
+}
+.cube-moon {
+  position: absolute;
+  inset: 12%;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--lime);
+}
+.cube-moon picture { display: block; width: 80%; height: 88%; }
+.cube-moon .cube-illustration { display: block; width: 100%; height: 100%; object-fit: contain; }
+.meteor {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  display: grid;
+  place-items: center;
+  translate: -50% -50%;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  pointer-events: auto;
+}
+.meteor::before {
+  content: "";
+  width: clamp(15px, calc(var(--size) * 1cqw), 28px);
+  aspect-ratio: 1.16;
+  transform: rotate(var(--angle));
+  background: conic-gradient(from 14deg at 41% 46%, #aab4c3 0 72deg, #5e7493 72deg 147deg, #293652 147deg 230deg, #7789a4 230deg 309deg, #cdd0c9 309deg);
+  clip-path: polygon(5% 33%, 38% 3%, 76% 14%, 100% 50%, 82% 86%, 48% 100%, 10% 74%);
+}
+.meteor:is(:hover,:focus-visible)::before { filter: brightness(1.32); scale: 1.16; }
+.meteor:focus-visible { outline: 2px solid white; outline-offset: -3px; }
+.meteor-hint { position: absolute; bottom: 5px; right: 2%; color: #f5f7ff; font: 600 12px/1.5 var(--sans); }
+@media (max-width:620px) {
+  .plate-projects { height: clamp(230px, 60vw, 265px); }
+}
