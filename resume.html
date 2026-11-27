@@ -8,8 +8,7 @@
 </script>
 <link rel="stylesheet" href="/assets/atlas/reading.css">
 <link rel="stylesheet" href="/assets/atlas/resume-preview.css">
-<script type="module" src="/assets/resume-wW1LFMn2.js">
-</script>
+
 </head>
 <body class="reading-page"><a class="rig-skip" href="#resume-main">跳到简历正文</a>
 <header class="mast">
@@ -168,4 +167,39 @@
 </footer>
 <div class="rig-pending" role="status" aria-live="polite" hidden>
 </div>
+<script>
+(() => {
+  const preview = document.getElementById('resume-pdf-preview');
+  const trigger = document.querySelector('[data-resume-preview]');
+  const pages = preview.querySelector('.resume-pdf-pages');
+  const zoom = preview.querySelector('[data-resume-zoom]');
+  trigger.addEventListener('click', event => {
+    if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey ||
+        event.altKey || event.shiftKey || typeof preview.showModal !== 'function') return;
+    event.preventDefault();
+    for (const image of pages.querySelectorAll('img[data-src]')) {
+      image.src = image.dataset.src;
+      image.removeAttribute('data-src');
+    }
+    preview.showModal();
+    document.body.classList.add('resume-preview-open');
+  });
+  preview.querySelector('[data-resume-close]').addEventListener('click', () => preview.close());
+  preview.addEventListener('click', event => {
+    if (event.target !== preview) return;
+    const box = preview.getBoundingClientRect();
+    if (event.clientX < box.left || event.clientX > box.right ||
+        event.clientY < box.top || event.clientY > box.bottom) preview.close();
+  });
+  preview.addEventListener('close', () => {
+    document.body.classList.remove('resume-preview-open');
+    trigger.focus({ preventScroll: true });
+  });
+  zoom.addEventListener('click', () => {
+    const enlarged = pages.classList.toggle('is-zoomed');
+    zoom.setAttribute('aria-pressed', String(enlarged));
+    zoom.textContent = enlarged ? '适应宽度' : '放大阅读';
+  });
+})();
+</script>
 </body></html>
