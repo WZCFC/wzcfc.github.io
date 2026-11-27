@@ -6,8 +6,8 @@
   --rig-rule: #c6cbc2;
   --rig-blue: #2639bc;
   --rig-action: #e8fa54;
-  /* The old page clears from right to left, revealing the blue end first. */
-  --rig-cut: linear-gradient(to left, #2639bc 0%, #496bdb 40%, #a1cdff 74%, #d5ee70 76%, #e8fa54 86%, #fff082 100%);
+  /* Match the cut edge, which shifts 25% of the viewport width over its height. */
+  --rig-cut: linear-gradient(calc(270deg + atan2(25vw, 100vh)), #2639bc 0%, #496bdb 40%, #a1cdff 74%, #d5ee70 76%, #e8fa54 86%, #fff082 100%);
   --rig-sans: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
   --rig-serif: "STSong", "Songti SC", "Noto Serif CJK SC", SimSun, serif;
 }
@@ -53,14 +53,14 @@ header.mast {
 @media (prefers-reduced-motion:no-preference) and (scripting:enabled) {
   @view-transition { navigation: auto; }
   ::view-transition { pointer-events: none; }
-  ::view-transition-group(root) { animation-duration: 360ms; }
+  ::view-transition-group(root) { animation-duration: 540ms; }
   ::view-transition-image-pair(root) {
     isolation: isolate;
     background: var(--rig-cut);
   }
   ::view-transition-old(root), ::view-transition-new(root) { mix-blend-mode: normal; }
-  ::view-transition-old(root) { animation: rig-depart 112ms steps(4,end) 32ms both; }
-  ::view-transition-new(root) { animation: rig-arrive 190ms steps(6,end) 170ms both; }
+  ::view-transition-old(root) { animation: rig-depart 176ms steps(4,end) 40ms both; }
+  ::view-transition-new(root) { animation: rig-arrive 240ms steps(6,end) 300ms both; }
   @keyframes rig-depart {
     from {clip-path:polygon(0 0,125% 0,100% 100%,0 100%);}
     to {clip-path:polygon(0 0,0 0,-25% 100%,0 100%);}
@@ -81,11 +81,17 @@ header.mast {
   .rig-entering::after {
     content:"";position:fixed;z-index:4999;inset:0;pointer-events:none;
     background: var(--rig-cut);
-    animation: rig-sweep 260ms steps(6,end) both;
+    animation: rig-sweep 540ms both;
   }
   @keyframes rig-sweep {
-    0% { clip-path: polygon(125% 0,125% 0,100% 100%,100% 100%); }
-    42%, 52% { clip-path: polygon(0 0,125% 0,100% 100%,-25% 100%); }
+    0% {
+      clip-path: polygon(125% 0,125% 0,100% 100%,100% 100%);
+      animation-timing-function: steps(4, end);
+    }
+    40%, 56% {
+      clip-path: polygon(0 0,125% 0,100% 100%,-25% 100%);
+      animation-timing-function: steps(6, end);
+    }
     100% { clip-path: polygon(0 0,0 0,-25% 100%,0 100%); }
   }
 }

@@ -9,15 +9,18 @@
   }
   window.addEventListener('pagehide', clear);
   window.addEventListener('pageshow', clear);
-  // Browsers without native cross-document snapshots still get a short arrival cue.
+  // Browsers without native cross-document snapshots get the same stepped color wipe.
   const timing = performance.getEntriesByType('navigation')[0];
   if (!('onpagereveal' in window) && timing?.type === 'navigate' &&
       document.referrer && new URL(document.referrer).origin === location.origin &&
       !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.documentElement.classList.add('rig-entering');
-    const finish = () => document.documentElement.classList.remove('rig-entering');
+    const root = document.documentElement;
+    const finish = () => root.classList.remove('rig-entering');
+    root.addEventListener('animationend', event => {
+      if (event.target === root && event.animationName === 'rig-sweep') finish();
+    });
     window.addEventListener('pagehide', finish, { once: true });
-    window.setTimeout(finish, 300);
+    root.classList.add('rig-entering');
   }
   const navigation = window.navigation;
   if (navigation) {
