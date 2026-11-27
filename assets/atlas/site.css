@@ -7,7 +7,7 @@
   --rig-blue: #2639bc;
   --rig-action: #e8fa54;
   /* Match the cut edge, which shifts 25% of the viewport width over its height. */
-  --rig-cut: linear-gradient(calc(270deg + atan2(25vw, 100vh)), #2639bc 0%, #496bdb 40%, #a1cdff 74%, #d5ee70 76%, #e8fa54 86%, #fff082 100%);
+  --rig-cut: linear-gradient(calc(270deg + atan2(25vw, 100vh)), #a1cdff 0%, #6486ee 48%, #2639bc 100%);
   --rig-sans: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
   --rig-serif: "STSong", "Songti SC", "Noto Serif CJK SC", SimSun, serif;
 }
