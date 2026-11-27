@@ -187,3 +187,6 @@ html:has(.section-rail){scroll-padding-top:58px}.main-nav a,.act{touch-action:ma
   }
 }
 @media print { .plate-index .floating-piece { animation: none; } }
+
+.skill-entry .skill-read { margin-top: .9rem; }
+.skill-read a { display: inline-block; color: var(--rig-blue); text-underline-offset: .24em; font-weight: 700; }

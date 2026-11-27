@@ -1,0 +1,2 @@
+# Keep downloadable Markdown identical to the published Skill files.
+*.md -text whitespace=cr-at-eol

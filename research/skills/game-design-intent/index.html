@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#2639bc"><title>设计意图与原理迁移｜DESIGN RIG</title>
+<link rel="stylesheet" href="/assets/atlas/site.css">
+<link rel="stylesheet" href="/assets/atlas/research-article.css">
+<script defer src="/assets/atlas/transit.js"></script>
+</head>
+<body><a class="skip-article" href="#main">跳到正文</a>
+<header class="mast"><div class="wrap mast-inner"><a aria-label="DESIGN RIG 总览" class="brand" href="/index.html"><i aria-hidden="true" class="logomark"></i>DESIGN RIG</a><nav aria-label="作品集栏目" class="main-nav"><a href="/index.html">总览</a><a href="/projects.html">作品</a><a aria-current="location" href="/systems.html">研究</a><a href="/field.html">我带团队的经历</a></nav><a class="cv" href="/resume.html">简历档案 <span>↗</span></a></div></header>
+<main id="main">
+<article>
+<header class="article-cover skill-cover"><div class="article-wrap">
+<a href="/systems.html#game-design-intent">← 返回设计意图与原理迁移</a>
+<h1>六级 · 设计意图建模、逆推与原理迁移</h1>
+<a class="download" href="./SKILL.md" download="game-design-intent-SKILL.md">下载 SKILL.md ↓</a>
+</div></header>
+<div class="skill-text">
+<p><strong>成稿格式。</strong> 用一张 Markdown 表或证据图对齐来源、已录事实、意图初判与待验观察。竞争解释同时写入同一对照。在成稿中实际给出图或表，哪怕只有两三行。正文解释图表能支持的取舍。</p>
+<p>写完整拆解案时，先交付「游戏概览与可比作品」，用一句话介绍品类和玩家目标，用短流程说明一次典型游玩，再用小表给出有依据的可比对象、共同点、关键差异及其与本案的关系，最后限定版本、样本与主问题。单局部或已有上下文的续拆只补会影响判断的背景。</p>
+<p>说明设计者在怎样的局面里倾向保住什么、愿付什么代价。可以从一项规则开始，也可以接着机制、系统联动和全局结构往下查。用原作的真实选择检验意图模型，用目标项目里的玩家选择检验原理能否迁移。</p>
+<h2>1. 还原实际决策</h2>
+<p>写清作品、版本、团队或个人、分析的决策范围。个人归因以明确的负责范围和记录为依据。找引发改动的局面、当时实际考虑的选项、已知约束、最终选择和付出的代价。优先查原型、评审、改版与有意维持的规则。把实际考虑过的方案和分析时提出的反事实分开记录。</p>
+<p>有相关取舍时，核对同一优先级是否在不同决策里重复出现。只有单次决策时，先交付该决策的局部解释。模型的适用范围随记录覆盖的团队、时期和决策类型而定。</p>
+<h2>2. 对齐明确目标、规则效果和玩家结果</h2>
+<ul>
+<li><strong>设计记录。</strong> 写清谁在何时说过什么，针对哪次决策。同期记录、后来的复盘和宣传表述按各自语境理解。主创已明确的目标直接记录。若仍有竞争解释，把问题落在尚有分歧的优先级、例外条件或实际效果上。</li>
+<li><strong>实际规则与变化。</strong> 对照版本和关键状态，说明实际改了什么、保住了什么、付出了什么。公式、源码和可复现结算支撑具体的规则结果。把多人反馈、实现成本、工期和技术要求中与决策有关的约束一并纳入。</li>
+<li><strong>玩家结果。</strong> 试玩、行为记录和自述分别核对玩家有没有读懂、是否改选、为何改选。要判断一项改动是否影响整体结果，优先找能隔离该变量的对照。</li>
+</ul>
+<p>让每项主要判断能对应到它的证据。同一访谈的摘引、截图和转载按同一来源。材料不足时，直接写「我的初判是……，依据是……，我会用……复核」。</p>
+<h2>可选方法 · TMV</h2>
+<p>要从已还原的机制推回目标并安排验证时，用 <strong>TMV（Target、Mechanics、Verification）</strong>。用户明确要求 TMV 时，用三列表呈现。</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Target · 目标</th>
+<th>Mechanics · 机制</th>
+<th>Verification · 验证</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>写清哪类玩家在什么处境下会改变哪项认知、行为或体验，标为设计者明示或分析者初判。</td>
+<td>写实际规则、触发条件和它改变的线索、成本或选项。</td>
+<td>将规则实测、玩家反馈和现有材料对应到具体判断。再给一个能区分竞争解释或促使改判的可观察结果。</td>
+</tr>
+</tbody>
+</table></div>
+<p>可以先从 M 还原规则，再提出 T，用 V 检查。用户同时要求 MDA 时，可用一张「T 目标｜M 规则｜D/A 行为与体验｜V 证据和验证」表，设计目标与观察到的体验分别标记。</p>
+<h2>3. 给竞争解释安排一次会分出结果的检验</h2>
+<p>将意图判断写成「在某类处境和约束下，团队倾向保住 X，也愿为此接受 Y」。选一个真正可能改变结论的竞争解释。说明两种解释对哪项具体选择给出不同预期，尽量对齐成本、时点和可用方案。</p>
+<ul>
+<li><strong>要查团队优先保什么。</strong> 先写两种解释各自预测团队会选什么，再查未用于建模的一次独立决策。已经知道结局时，写为回看对照。遇到反例先查时点、团队和约束，再更新判断或收窄范围。</li>
+<li><strong>要查玩家会怎么选。</strong> 明确同一个局面里固定什么、单独改什么、在哪一步观察。涉及对手干预、资源门槛或状态继承时，先按当前规则核对对照两侧的关键动作与后果。记录什么结果支持体验假设，什么结果会促使改提示、改规则或停掉这条方案。</li>
+</ul>
+<p>两种解释对新材料预期一致时，写清它们共同支持的结论和下一项更有区分力的观察。更新时保留原判、新证据和改判理由。</p>
+<h2>4. 判断原理能否迁移，再做最小对照</h2>
+<p>先把原理写成一条玩家决策链。「什么信息或约束 → 玩家在哪些选项之间权衡 → 选择带来的后果在哪一步兑现」。分出支撑这条链的必要条件、可以替换的实现，以及同时想保留的次要体验。逐项检查目标项目里的信息时点、决策周期、对手能否介入、后果是否保留和补救路径。</p>
+<p>条件齐全时，在目标项目用自己的规则实现同类取舍。缺少必要条件时，写清可以保住其中哪一层、哪一层要接受变化。如果可行的替代只能实现一部分目标，标成「部分迁移」，并把改变范围纳入验收。关键体验需要改动项目硬约束才能成立时，把该原理留作后续候选。</p>
+<p>选一个局面和两条真正可选的路线。先用相同条件核对规则结果，再让玩家选择，观察是否读懂、何时改选，以及能否解释理由。信息读不懂先调整呈现。信息清楚、路线可比仍始终选同一项时，检查优势是否压过其他考虑，重新评估迁移实现。分开记录拟定参数、规则试算和实际试玩。</p>
+<h2>交付</h2>
+<p>给一条有范围的意图判断，列直接依据和仍有分歧的优先级，并给一个能改判的核查。问原理迁移时，补源作条件、目标项目对应实现、保留与变化的决策、最小验收用例。</p>
+<p>整项目复现交给第七级 game-reproduction-planning。交接时提供优先保住的玩家取舍、对应来源和版本、必要条件、一个代表性局面、待核假设，以及移植时允许变化的范围。</p>
+<h2>图示与图表</h2>
+<p>用「来源 → 已录事实 → 意图初判」证据图或两种解释的对照表。把已知规则、设计者表述、推断和改判观察落到各自对应的行。涉及系统、玩法或设计判断的段落应配能说明关系的图或表。一个简单表或流程足以表达时直接用它。图示表达同一组证据和判断，推演与待验证的连接标明状态。</p>
+</div></article>
+</main>
+<footer class="article-end"><a href="/systems.html#game-design-intent">← 返回设计意图与原理迁移</a><a href="/systems.html#teardown-skills">全部拆解方法 ↑</a></footer>
+<div class="rig-pending" role="status" aria-live="polite" hidden></div>
+</body></html>

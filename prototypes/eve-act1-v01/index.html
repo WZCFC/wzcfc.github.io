@@ -1,123 +1,47 @@
 <!doctype html>
-<html lang="zh-CN" class="no-js">
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="dark">
-  <title>EVE Case · 第一幕｜DESIGN RIG</title>
-
-  <script type="module" crossorigin src="../../assets/modulepreload-polyfill-P2Xu9kJm.js"></script>
-  <script type="module" crossorigin src="../../assets/prototype-R2pyQCOu.js"></script>
-  <link rel="stylesheet" crossorigin href="../../assets/prototype-nycLwMVI.css">
-<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#2639bc"><title>购买与损毁 · EVE 系统研究｜DESIGN RIG</title>
 <link rel="stylesheet" href="/assets/atlas/site.css">
-<script defer src="/assets/atlas/transit.js"></script><link rel="stylesheet" href="/assets/atlas/research-reader.css"></head>
-<body data-case-page="departure" class="research-reader">
-  <header class="mast"><div class="wrap mast-inner"><a aria-label="DESIGN RIG 总览" class="brand" href="/index.html"><i aria-hidden="true" class="logomark"></i>DESIGN RIG</a><nav aria-label="作品集栏目" class="main-nav"><a href="/index.html">总览</a><a href="/projects.html">作品</a><a aria-current="location" href="/systems.html">研究</a><a href="/field.html">我带团队的经历</a></nav><a class="cv" href="/resume.html">简历档案 <span>↗</span></a></div></header>
-  <header class="prototype-header">
-    <a class="skip-link" href="#act-1">跳到第一幕</a>
-    <div class="case-location"><a href="../../systems.html#eve">← 项目研究 / 游戏经历</a><span aria-hidden="true">/</span><span>EVE</span></div>
-<nav class="progress" aria-label="第一幕场景">
-      <span id="scene-position">第一幕 · 1 / 5</span>
-      <button type="button" data-go="1" aria-label="场景 1" aria-current="step">1</button>
-      <button type="button" data-go="2" aria-label="场景 2，未解锁" disabled>2</button>
-      <button type="button" data-go="3" aria-label="场景 3，未解锁" disabled>3</button>
-      <button type="button" data-go="4" aria-label="场景 4，未解锁" disabled>4</button>
-      <button type="button" data-go="5" aria-label="场景 5，未解锁" disabled>5</button>
-    </nav>
-    <div id="interface-status-panel" class="interface-status-panel" hidden>
-      <p id="interface-status-message" role="status"></p>
-      <div><button class="text-action" id="interface-preview" data-go="9" type="button" hidden>查看章节说明 →</button><button class="text-action" id="close-interface-status" type="button">关闭提示</button></div>
-    </div>
-  </header>
-
-  <main id="act-1">
-    <noscript><p class="script-notice">第一幕通过操作逐步展开。请启用 JavaScript 后继续；当前只展示开场。<a href="../../systems.html">返回项目研究 / 游戏经历</a></p></noscript>
-    <section class="scene scene-purchase" id="scene-1" data-scene="1" aria-labelledby="scene-1-title">
-      <div class="scene-grid">
-        <div class="scene-copy">
-          <p class="eyebrow">一笔普通购买</p>
-          <h1 id="scene-1-title" tabindex="-1">你想买一艘船。</h1>
-          <p class="lead">在 <span class="eve-context" data-open="false"><button class="eve-trigger" id="eve-trigger" type="button" aria-describedby="eve-tooltip" aria-expanded="false">EVE Online</button><span class="eve-tooltip" id="eve-tooltip" role="tooltip">这是一款科幻多人在线游戏，大量舰船与装备由玩家采集、制造并进入玩家市场。</span></span> 的市场里，这看起来只是一笔普通的购买。</p>
-        </div>
-        <article class="market-card" aria-label="舰船购买">
-          <div class="market-ship" role="img" aria-label="市场舰船示意"></div>
-          <div class="market-order"><p class="eyebrow">玩家市场</p><h2>你选中的舰船</h2><p>由其他玩家制造、出售。</p><button type="button" class="primary-action" id="purchase-trigger">买下这艘船 →</button><p id="purchase-note" role="status">购买后，去空间站整装。</p></div>
-        </article>
-      </div>
-      <div class="supply-strip" aria-label="这艘船来到市场前的玩家关系">
-        <p>来到你面前之前，这艘船已经经过多位玩家的手。</p>
-        <ol><li><span aria-hidden="true">◇</span><strong>采集</strong><small>玩家获取资源</small></li><li><span aria-hidden="true">⌘</span><strong>制造</strong><small>玩家把资源做成舰船</small></li><li><span aria-hidden="true">⇄</span><strong>市场</strong><small>玩家出售产出</small></li><li class="supply-you"><span aria-hidden="true">↳</span><strong>你</strong><small id="buyer-state">准备买下它</small></li></ol>
-      </div>
-    </section>
-
-    <template id="scene-template-2">
-    <section class="scene scene-loss" id="scene-2" data-scene="2" aria-labelledby="scene-2-title">
-      <div class="departure-heading">
-        <p class="eyebrow">02 / 空间站</p>
-        <h2 id="scene-2-title">船买好了。准备出航。</h2>
-        <p class="lead">以一次使用弹药的任务出航为例，先按舰船会永久损毁的情境观察。装好装备，再带上物资。</p>
-      </div>
-      <div class="departure-layout">
-        <div class="ship-stage" id="ship-stage" data-ship-state="ready" aria-label="停在空间站的舰船">
-          <svg class="ship" viewBox="0 0 360 180" role="img" aria-label="同一艘舰船的线框示意">
-            <path class="ship-body" d="M43 98 154 49l151 42-78 19-45 35-42-35Z"/>
-            <path class="ship-detail" d="m154 49 28 96m-42-35 87 0M81 82l42 17-32 14m179-31-43 28"/>
-          </svg>
-          <div id="fitted-labels" hidden><span>武器与防护装备 · 已装上</span><span>本次所需弹药 · 已带好</span></div>
-          <div class="wreck-mark" aria-hidden="true"><span></span><span></span></div>
-          <p class="ship-status">舰船状态：<strong data-status>等待整装</strong></p>
-        </div>
-        <div class="departure-copy">
-          <div id="preparation">
-            <h3>先把船准备好。</h3>
-            <ul class="preparation-list"><li><strong>装上装备</strong><span>让这艘船能够执行本次战斗目标。</span></li><li><strong>带好弹药</strong><span>这次以使用弹药的武器为例。</span></li></ul>
-            <button class="primary-action" id="fit-trigger" type="button">装好装备，带上弹药 →</button>
-          </div>
-          <div id="departure-ready" hidden>
-            <h3>整装待发。</h3>
-            <p>现在，船、装备和物资一起随你出站。</p>
-            <button class="primary-action" id="depart-trigger" type="button">出站，执行这次战斗 →</button>
-          </div>
-        </div>
-      </div>
-      <div class="sortie-results" id="sortie-results" hidden aria-label="同一次任务出航的两种结果">
-        <article id="return-outcome" class="result-card result-return" hidden tabindex="-1">
-          <p class="event-label">结果 A / 完成任务并交付</p><h3>带船回来，拿到奖励。</h3>
-          <div class="result-ship" aria-label="这次返回的舰船仍可使用"><svg viewBox="0 0 360 180" aria-hidden="true"><path d="M43 98 154 49l151 42-78 19-45 35-42-35Z"/></svg><strong>舰船可继续使用</strong></div>
-          <dl class="result-ledger"><div><dt>保留</dt><dd>本次舰船、装上的装备和未用完的弹药随你返回。</dd></div><div><dt>损失 / 消耗</dt><dd>已发射的弹药、投入的时间；本例没有额外装备损失。</dd></div><div><dt>获得</dt><dd>完成并交付任务后的 ISK、LP 点数与对应声望奖励。</dd></div></dl>
-          <button class="primary-action" id="combat-trigger" type="button">对照另一种结果：船没能回来 →</button>
-        </article>
-        <article id="loss-outcome" class="result-card result-loss" hidden tabindex="-1">
-          <p class="event-label">结果 B / 舰船损毁，任务未交付</p><h3>船没了，这次失去了什么？</h3>
-          <div class="result-ship" aria-label="这次舰船永久损毁"><svg viewBox="0 0 360 180" aria-hidden="true"><path d="M43 98 154 49l151 42-78 19-45 35-42-35Z"/><path class="result-cross" d="m110 35 135 110m0-110L110 145"/></svg><strong>原舰船永久损毁</strong></div>
-          <dl class="result-ledger"><div><dt>保留</dt><dd>如有已经结算到钱包的收入，它不会随舰船一起消失。</dd></div><div><dt>损失 / 消耗</dt><dd>原舰船、已用弹药和投入的时间。装备与货舱物品可能被摧毁或掉入残骸；掉落不等于已经取回。</dd></div><div><dt>获得</dt><dd>爆船本身没有任务收益；本例未交付任务，完成奖励尚未获得。</dd></div></dl>
-        </article>
-      </div>
-      <div class="scene-footer"><button class="primary-action" data-next="5" type="button" hidden>船没了，你还想再买一艘吗？ ↓</button></div>
-      <button class="text-action" id="revisit-preparation" type="button" hidden>回看出航准备</button>
-    </section>
-    </template>
-
-    <template id="scene-template-5">
-    <section class="scene scene-close" id="scene-5" data-scene="5" aria-labelledby="scene-5-title">
-      <div class="closing-frame">
-        <h2 id="scene-5-title">你还想买下一艘吗？</h2>
-        <div class="answer-options" role="group" aria-label="此刻的补船意愿">
-          <button class="chip" type="button" data-answer="yes">我要买一条新的</button>
-          <button class="chip" type="button" data-answer="no">我不买了</button>
-          <button class="chip" type="button" data-answer="undecided">我还不知道我要不要买</button>
-        </div>
-      </div>
-    </section>
-    </template>
-
-  </main>
-  <footer class="reading-footer">
-    <p class="prototype-label">DESIGN RIG · EVE 系统研究</p>
-    <details class="reading-settings"><summary>阅读记录</summary><p id="storage-status">正在载入阅读记录。</p><button class="text-action" id="reset-progress" type="button">重新开始首次阅读</button></details>
-    <a href="../../systems.html#eve">返回项目研究 / 游戏经历</a>
-  </footer>
-  <p class="visually-hidden" id="reading-status" role="status" aria-live="polite"></p>
-<div class="rig-pending" role="status" aria-live="polite" hidden></div></body>
-</html>
+<link rel="stylesheet" href="/assets/atlas/research-article.css">
+<script defer src="/assets/atlas/transit.js"></script>
+</head>
+<body><a class="skip-article" href="#act-1">跳到正文</a>
+<header class="mast"><div class="wrap mast-inner"><a aria-label="DESIGN RIG 总览" class="brand" href="/index.html"><i aria-hidden="true" class="logomark"></i>DESIGN RIG</a><nav aria-label="作品集栏目" class="main-nav"><a href="/index.html">总览</a><a href="/projects.html">作品</a><a aria-current="location" href="/systems.html">研究</a><a href="/field.html">我带团队的经历</a></nav><a class="cv" href="/resume.html">简历档案 <span>↗</span></a></div></header>
+<main id="act-1">
+<article>
+<header class="article-cover eve-cover" id="scene-1"><div class="article-wrap">
+<a href="/systems.html#eve">← 系统研究 / EVE</a>
+<h1>从买下一艘船，到失去它</h1>
+<p>在 EVE Online，玩家从市场买到的船，可以在一次出航中永久损毁。我想知道，一次损失会在什么时候，变成造船人接到的下一笔订单。</p>
+</div></header>
+<div class="article-wrap article-content">
+<section aria-labelledby="purchase-title"><h2 id="purchase-title">这艘船从哪里来？</h2>
+<p>打开市场时，买家看到的是一艘待售的舰船。沿着这笔交易往前看，有人采集资源，有人用材料造出船体，再有人把成品挂到市场。买家付钱，拿到的才是一艘属于自己的船。</p>
+<ol class="market-trail" aria-label="本例舰船抵达买家的过程"><li>采集资源</li><li>制造船体</li><li>挂单出售</li><li>买家购入</li></ol></section>
+<section id="scene-2" aria-labelledby="fitting-title"><h2 id="fitting-title">在空间站，给这次任务配一艘船</h2>
+<p>假设这次要执行一项战斗任务，用的是消耗弹药的武器。出站前，玩家先装上武器和防护装备，再带够这次要用的弹药。离开空间站的那一刻，一起承担风险的有船体、装上的装备，还有货舱里的物资。</p>
+<figure class="fitting"><img src="/assets/eve/golem-station-fitting.webp" width="1920" height="1080" alt="吉他空间站内的 Golem 装配窗口。舰船位于中央，装备槽环绕船体，右侧显示舰船属性，空间站面板可见出站按钮。">
+<figcaption>吉他空间站内的 Golem。围着船体的一圈图标是装备槽，右侧列出这套装配的属性。实机截图出自 <a href="https://katoukitou.blog.fc2.com/blog-entry-233.html">加糖多幸《Golem 就航》</a>。</figcaption></figure></section>
+<section id="outcomes" aria-labelledby="outcome-title"><h2 id="outcome-title">同样的船和装备，两种出航结果</h2>
+<p>把出航前的准备固定下来，只改变这次战斗的结果，就能看清哪些东西会留下，哪些需要重新取得。</p>
+<div class="outcomes">
+<div><h3>船回来了，任务完成并交付</h3>
+<dl><dt>带回什么</dt><dd>原船、装上的装备和没用完的弹药。下一次任务还能开这艘船。</dd>
+<dt>花掉什么</dt><dd>战斗时间和打出去的弹药。本例没有额外的装备损失。</dd>
+<dt>拿到什么</dt><dd>交付任务后获得星币（ISK）、忠诚点数（LP）和对应的声望奖励。</dd></dl></div>
+<div><h3>船被击毁，任务尚未交付</h3>
+<dl><dt>带回什么</dt><dd>已经结算进钱包的收入会保留。残骸里可能有掉落物，还要有人取回才算收回。</dd>
+<dt>失去什么</dt><dd>原船永久损毁，时间和已发射的弹药也已消耗。装备和货物可能随船毁掉，也可能掉入残骸。</dd>
+<dt>拿到什么</dt><dd>爆船本身没有任务收益。这次尚未交付，任务完成奖励也尚未取得。</dd></dl></div>
+</div></section>
+<section id="scene-5" aria-labelledby="intent-title"><h2 id="intent-title">船没了，玩家还想买下一艘吗？</h2>
+<p>我在这里把“损失一艘船”和“市场多卖出一艘船”拆成两步。玩家想继续这项任务，手里又没有合适的备用船，才会开始考虑怎样补船。如果他用手头的星币去市场买，生产者就有机会接到下一单。</p>
+<p>玩家也可以决定暂时不买，这次损毁便没有立刻带来订单。还有一种回答是“我还没想好”。对这样的玩家，损失能拿回多少、重装一艘要花多少，都是决定要不要再出航的问题。</p>
+<p>所以我在下一篇继续追问，损毁之后，系统给玩家的是钱、还能修的船，还是一艘可以直接再开的船？这三种恢复方式，留给造船和卖船玩家的机会也不一样。</p>
+</section></div></article>
+</main>
+<footer class="article-end"><a href="/systems.html#eve">← 返回 EVE 研究</a><a href="./recovery.html#recovery-comparison">下一篇 · 损失之后 →</a></footer>
+<div class="rig-pending" role="status" aria-live="polite" hidden></div>
+</body></html>
