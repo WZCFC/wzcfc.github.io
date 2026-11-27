@@ -11,7 +11,7 @@ a:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
 .article-cover a { color: #fff; font-size: .875rem; }
 .article-cover h1 { margin-block: 1.3rem .7rem; font-size: clamp(32px, 4.8vw, 64px); letter-spacing: -.045em; line-height: 1.16; overflow-wrap: anywhere; }
 .article-cover p { max-width: 44em; color: #eff2ff; }
-.eve-cover { background: linear-gradient(90deg,#2335a9 12%,rgba(30,46,139,.94) 41%,rgba(15,28,63,.12) 86%),url('/assets/eve/entry-megathron-v2.png') 76% 48% / cover; }
+.eve-cover { background: linear-gradient(90deg,#2335a9 12%,rgba(30,46,139,.94) 41%,rgba(15,28,63,.12) 86%),url('/assets/eve/megathron-article.webp') 76% 48% / cover; }
 .eve-cover h1 { max-width: 13em; }
 .eve-cover p { max-width: 32em; }
 .article-content { padding-block: clamp(35px,5vw,66px); }
@@ -49,6 +49,6 @@ a:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
 .skill-text :is(th,td) { text-align: left; padding: .55em; vertical-align: top; border-bottom: 1px solid var(--rig-rule); }
 @media (max-width: 660px) {
   .outcomes { grid-template-columns: 1fr; row-gap: 20px; }
-  .eve-cover { background: linear-gradient(90deg,rgba(30,46,139,.94),rgba(20,35,95,.83)),url('/assets/eve/entry-megathron-v2.png') center / cover; }
+  .eve-cover { background: linear-gradient(90deg,rgba(30,46,139,.94),rgba(20,35,95,.83)),url('/assets/eve/megathron-article.webp') center / cover; }
   .market-trail li + li::before { padding-inline: .4em; }
 }
