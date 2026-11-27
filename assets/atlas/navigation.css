@@ -131,3 +131,59 @@ html:has(.section-rail){scroll-padding-top:58px}.main-nav a,.act{touch-action:ma
 .plate-field .registration {display:none;}
 .plate-systems .subject {mask-image:linear-gradient(90deg,transparent 0%,black 40%,black 89%,transparent);}
 @media(prefers-reduced-motion:no-preference){.main-nav [aria-current]::after{view-transition-name:none;}}
+
+/* Home emblem: two L-shaped pieces on separate planes. */
+.plate-index > * { pointer-events: none; }
+.plate-index .floating-piece {
+  display: block;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.plate-index .ink-piece, .plate-index .form-ink { transform-origin: 36% 54%; }
+.plate-index .chalk-piece, .plate-index .form-chalk { transform-origin: 68% 53%; }
+.plate-index .o1::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border: 1px solid transparent;
+  border-top-color: #e5eeff;
+  border-radius: 50%;
+  opacity: .42;
+  transform: rotate(21deg);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .plate-index .ink-piece { animation: ink-float 7.2s ease-in-out infinite; }
+  .plate-index .chalk-piece { animation: chalk-float 7.2s ease-in-out infinite; }
+  @keyframes ink-float {
+    0%, 100% { transform: translate(0,0) rotate(0); }
+    50% { transform: translate(-3px,-5px) rotate(-1.3deg); }
+  }
+  @keyframes chalk-float {
+    0%, 100% { transform: translate(0,0) rotate(0); }
+    50% { transform: translate(3px,5px) rotate(1.5deg); }
+  }
+  .plate-index .form {
+    translate: var(--piece-x, 0%) var(--piece-y, 0px);
+    rotate: var(--piece-angle, 0deg);
+    transition: translate 380ms cubic-bezier(.2,.75,.2,1), rotate 380ms cubic-bezier(.2,.75,.2,1);
+  }
+  .plate-index .o1::after { rotate: var(--rim-turn,0deg); transition: rotate 460ms ease-out; }
+  .plate-index .o2 { rotate: var(--line-turn,0deg); transition: rotate 380ms ease-out; }
+  .plate-index .ink-piece { --piece-x:var(--ink-x,0%); --piece-y:var(--ink-y,0px); --piece-angle:var(--ink-angle,0deg); }
+  .plate-index .chalk-piece { --piece-x:var(--chalk-x,0%); --piece-y:var(--chalk-y,0px); --piece-angle:var(--chalk-angle,0deg); }
+  .cover-index:has(.hero-actions a:focus-visible) .plate-index {
+    --ink-x: 2.4%; --ink-y: 3px; --ink-angle: 2deg;
+    --chalk-x: -2.4%; --chalk-y: -3px; --chalk-angle: -2deg;
+    --rim-turn: 12deg; --line-turn: 2deg;
+  }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  .plate-index { pointer-events: auto; }
+  .plate-index:hover {
+    --ink-x: 2.4%; --ink-y: 3px; --ink-angle: 2deg;
+    --chalk-x: -2.4%; --chalk-y: -3px; --chalk-angle: -2deg;
+    --rim-turn: 12deg; --line-turn: 2deg;
+  }
+}
+@media print { .plate-index .floating-piece { animation: none; } }
