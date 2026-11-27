@@ -51,10 +51,6 @@ footer{border-top:1px solid var(--line);background:#e8ebe2}.footing{min-height:8
 @media(max-width:880px){.wrap{width:92%}.mast-inner{gap:20px}.main-nav{gap:18px}.cover-inner{grid-template-columns:1fr 1fr;min-height:390px}.cover-index .cover-inner{min-height:435px}.cover-type{padding:30px 0}.deck br{display:none}.cover-type h1{font-size:63px}.cover-index .cover-type h1{font-size:74px}.plate-index .subject{inset:9% 0 10% 1%}.directory,.card-grid{gap:12px}.directory{gap:0}.dir+.dir{padding-left:16px}.dir{padding-right:14px}.dir-go{right:10px}.grouped{gap:30px}.highlights{gap:14px}.highlight>img{width:74px;height:62px}}
 @media(max-width:620px){.wrap{width:90%}.mast-inner{display:grid;grid-template-columns:1fr auto;gap:0;min-height:0}.brand{font-size:22px;height:46px}.logomark{width:17px;height:17px}.cv{grid-column:2;grid-row:1;min-height:33px;font-size:13px}.main-nav{grid-row:2;grid-column:1 / -1;width:100%;gap:0;justify-content:space-between}.main-nav a{min-height:41px;font-size:14px}.cover-inner,.cover-index .cover-inner{min-height:auto;grid-template-columns:1fr}.cover-type,.cover-index .cover-type{padding:25px 0 0}.cover-type h1,.cover-index .cover-type h1{font-size:clamp(48px,10.9vw,72px);line-height:1.05;padding:10px 0}.cover-index h1 br{display:none}.cover-index h1 em{color:inherit}.eyebrow{font-size:10px}.deck{font-size:15px;line-height:1.65;max-width:34em}.hero-actions{margin-top:13px;gap:18px}.act{min-height:42px}.plate{height:clamp(165px,45vw,225px)}.plate-index{height:clamp(190px,49vw,248px)}.plate-index .subject{inset:-2% 0 6% 9%}.plate-index .orbit{left:11%;width:82%;height:43%;top:36%}.plate-cap{bottom:6px;font-size:10px}.plate-cap:before{width:25px}.plate-projects .subject{inset:-21% -4% -13%}.plate-projects .o1{height:86%;left:39%}.plate-projects .o2{width:65%;left:23%}.plate-field .subject{inset:3% 15% 7% 22%}.plate-field .o1{left:40%}.shelf{padding:27px 0}.section-head{margin-bottom:15px}.directory,.card-grid,.highlights,.research-path,.grouped{grid-template-columns:1fr}.dir{padding:14px 35px 14px 0!important;display:grid;grid-template-columns:76px 1fr;align-items:baseline;gap:3px}.dir+.dir,.research-step+.research-step{border-left:0;border-top:1px solid var(--line)}.dir h3{font-size:19px;margin:0}.dir p{font-size:13px}.dir-go{right:2px;top:16px}.card-grid{gap:27px}.screen-link img{aspect-ratio:1.92}.highlights{gap:0}.grouped{gap:16px}.research-step,.research-step+.research-step{padding:16px 30px 16px 0}.research-step h3,.case-card h3,.body-copy h3,.project-row h3{font-size:20px}.footing{gap:12px;flex-wrap:wrap;padding:15px 0;min-height:60px}.footing .word{font-size:16px}.footing>a:not(.word){font-size:13px}.hero-actions a,.plain,.subtle,.small-link{min-height:44px}}
 @media(prefers-reduced-motion:no-preference){
- ::view-transition-old(root){animation:out-page .16s ease-out both}
- ::view-transition-new(root){animation:in-page .24s cubic-bezier(.2,.75,.2,1) both}
- @keyframes out-page{to{opacity:0}}
- @keyframes in-page{from{opacity:.45;clip-path:inset(0 3% 0 0)}to{opacity:1;clip-path:inset(0)}}
  .on-entry .layer-0{animation:band-a .68s cubic-bezier(.16,.8,.18,1) both}
  .on-entry .layer-1{animation:band-b .62s cubic-bezier(.16,.8,.18,1) both}
  .on-entry .layer-2{animation:band-c .72s cubic-bezier(.16,.8,.18,1) both}
@@ -194,27 +190,53 @@ html:has(.section-rail){scroll-padding-top:58px}.main-nav a,.act{touch-action:ma
   place-items: center;
   container-type: size;
 }
-.plate-research::before {
-  content: "";
-  position: absolute;
-  top: 51%;
-  left: 0;
-  width: 108%;
-  height: 1px;
-  background: #a5baff;
-  transform: rotate(-17deg);
-  z-index: -1;
+.plate-projects .o1 {
+  display: grid;
+  place-items: center;
+  z-index: 0;
 }
+.cube-illustration {
+  display: block;
+  width: 82%;
+  height: 87%;
+  object-fit: contain;
+}
+
 .research-moon {
-  width: min(75%, 360px);
-  width: min(83cqw, 86cqh);
+  width: min(70%, 360px);
+  width: min(73cqw, 86cqh);
   aspect-ratio: 1;
   position: relative;
-  border-radius: 50%;
+  isolation: isolate;
+}
+.moon-surface {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   background: var(--lime);
+  border-radius: 50%;
+}
+.research-moon::before,
+.research-moon::after {
+  content: "";
+  position: absolute;
+  left: -17%;
+  top: 38%;
+  width: 134%;
+  height: 24%;
+  box-sizing: border-box;
+  border: clamp(2px, .21vw, 3px) solid #94aecf;
+  border-radius: 50%;
+  transform: rotate(-17deg);
+}
+.research-moon::before { z-index: 0; }
+.research-moon::after {
+  z-index: 2;
+  clip-path: inset(50% 0 0);
 }
 .research-star {
   position: absolute;
+  z-index: 3;
   left: 16%;
   top: 30%;
   width: 54%;
@@ -223,6 +245,17 @@ html:has(.section-rail){scroll-padding-top:58px}.main-nav a,.act{touch-action:ma
   clip-path: polygon(50% 0, 55% 25%, 60% 37%, 67% 43%, 79% 47%, 100% 50%, 79% 53%, 67% 57%, 60% 63%, 55% 75%, 50% 100%, 45% 75%, 40% 63%, 33% 57%, 21% 53%, 0 50%, 21% 47%, 33% 43%, 40% 37%, 45% 25%);
 }
 .research-star.star-small { left: 65%; top: 23%; width: 13.5%; }
+@media (prefers-reduced-motion: no-preference) {
+  .research-star { animation: star-drift 9s ease-in-out -2s infinite alternate; }
+  .research-star.star-small { animation: star-drift 7s ease-in-out -5s infinite alternate-reverse; }
+}
+@keyframes star-drift {
+  from { transform: translateY(-3px) rotate(-3deg); }
+  to { transform: translateY(4px) rotate(3deg); }
+}
+.eve-feature:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.eve-feature .read-case { display: inline-block; margin-top: .8em; color: var(--lime); font: 650 14px/1.5 var(--sans); }
+.eve-feature:is(:hover,:focus-visible) .read-case { text-decoration: underline; text-underline-offset: .25em; }
 .eve-feature {
   position: relative;
   isolation: isolate;
@@ -253,7 +286,6 @@ html:has(.section-rail){scroll-padding-top:58px}.main-nav a,.act{touch-action:ma
 }
 .eve-feature p { margin-top: .5em; max-width: 26em; width: 47%; font-size: 15px; line-height: 1.65; color: #e8eef8; }
 @media(max-width:620px) {
-  .research-moon { width: min(52vw, 190px); width: min(83cqw, 86cqh); }
   .eve-feature { min-height: 145px; }
   .eve-feature p { width: 64%; font-size: 14px; }
   .eve-feature::before { background: linear-gradient(90deg, #111d32 25%, #111d32e0 46%, #111d3255 75%, transparent); }

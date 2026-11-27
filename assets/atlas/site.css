@@ -50,18 +50,15 @@ header.mast {
 }
 @media (prefers-reduced-motion:no-preference) and (scripting:enabled) {
   @view-transition { navigation: auto; }
-  /* The moon is the layer between two live page snapshots. Network navigation stays native. */
   ::view-transition { pointer-events: none; }
   ::view-transition-group(root) { animation-duration: 360ms; }
   ::view-transition-image-pair(root) {
     isolation: isolate;
-    background-color: var(--rig-blue);
-    background-image: radial-gradient(circle at 76% 46%, var(--rig-action) 0 min(17vh,13vw), transparent calc(min(17vh,13vw) + 1px)),
-      linear-gradient(158deg,transparent 50%,#788ee4 50% calc(50% + 1px),transparent calc(50% + 2px));
+    background: var(--rig-action);
   }
   ::view-transition-old(root), ::view-transition-new(root) { mix-blend-mode: normal; }
-  ::view-transition-old(root) { animation: rig-depart 170ms cubic-bezier(.52,0,.72,.51) both; }
-  ::view-transition-new(root) { animation: rig-arrive 225ms 135ms cubic-bezier(.22,.75,.25,1) both; }
+  ::view-transition-old(root) { animation: rig-depart 112ms steps(4,end) 32ms both; }
+  ::view-transition-new(root) { animation: rig-arrive 190ms steps(6,end) 170ms both; }
   @keyframes rig-depart {
     from {clip-path:polygon(0 0,125% 0,100% 100%,0 100%);}
     to {clip-path:polygon(0 0,0 0,-25% 100%,0 100%);}
@@ -81,8 +78,11 @@ header.mast {
 @media (prefers-reduced-motion:no-preference) {
   .rig-entering::after {
     content:"";position:fixed;z-index:4999;inset:0;pointer-events:none;
-    background:linear-gradient(117deg,transparent 31%,#2639bc 31% 42%,#e8fa54 42% 43%,transparent 43%);
-    animation:rig-sweep 260ms ease-out both;
+    background: var(--rig-action);
+    animation: rig-sweep 260ms steps(6,end) both;
   }
-  @keyframes rig-sweep {from{transform:translateX(-45%);}to{transform:translateX(110%);}}
+  @keyframes rig-sweep {
+    0%, 13% { clip-path: polygon(0 0,125% 0,100% 100%,0 100%); }
+    100% { clip-path: polygon(0 0,0 0,-25% 100%,0 100%); }
+  }
 }
