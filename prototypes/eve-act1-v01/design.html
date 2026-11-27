@@ -1,171 +1,75 @@
 <!doctype html>
-<html lang="zh-CN" class="no-js">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="dark">
-  <title>EVE Case · 我的设计：让补船接回经济循环｜DESIGN RIG</title>
-  <script type="module" crossorigin src="../../assets/modulepreload-polyfill-P2Xu9kJm.js"></script>
-  <script type="module" crossorigin src="../../assets/prototype-R2pyQCOu.js"></script>
-  <link rel="stylesheet" crossorigin href="../../assets/prototype-nycLwMVI.css">
-  <link rel="stylesheet" crossorigin href="../../assets/eveDesign-Ir3dQMml.css">
-<meta name="robots" content="noindex, nofollow">
-<link rel="stylesheet" href="/assets/atlas/site.css">
-<script defer src="/assets/atlas/transit.js"></script><link rel="stylesheet" href="/assets/atlas/research-reader.css"></head>
-<body data-case-page="design" class="research-reader">
-  <header class="mast"><div class="wrap mast-inner"><a aria-label="DESIGN RIG 总览" class="brand" href="/index.html"><i aria-hidden="true" class="logomark"></i>DESIGN RIG</a><nav aria-label="作品集栏目" class="main-nav"><a href="/index.html">总览</a><a href="/projects.html">作品</a><a aria-current="location" href="/systems.html">研究</a><a href="/field.html">我带团队的经历</a></nav><a class="cv" href="/resume.html">简历档案 <span>↗</span></a></div></header>
-  <header class="prototype-header">
-    <a class="skip-link" href="#design-intro">跳到我的设计</a>
-    <div class="case-location"><a href="../../systems.html#eve">← 项目研究 / 游戏经历</a><span aria-hidden="true">/</span><a href="recovery.html#scene-3">← 为什么允许永久损毁</a></div>
-<nav class="progress" aria-label="第一幕场景">
-      <span id="scene-position">第一幕 · 1 / 5</span>
-      <button type="button" data-go="1" aria-label="场景 1" aria-current="step">1</button>
-      <button type="button" data-go="2" aria-label="场景 2，未解锁" disabled>2</button>
-      <button type="button" data-go="3" aria-label="场景 3，未解锁" disabled>3</button>
-      <button type="button" data-go="4" aria-label="场景 4，未解锁" disabled>4</button>
-      <button type="button" data-go="5" aria-label="场景 5，未解锁" disabled>5</button>
-    </nav>
-    <div id="interface-status-panel" class="interface-status-panel" hidden>
-      <p id="interface-status-message" role="status"></p>
-      <div><button class="text-action" id="interface-preview" data-go="9" type="button" hidden>查看章节说明 →</button><button class="text-action" id="close-interface-status" type="button">关闭提示</button></div>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#2639bc">
+  <meta name="robots" content="noindex, nofollow">
+  <title>个人设计 · 爆船后的购回选择｜DESIGN RIG</title>
+  <link rel="stylesheet" href="/assets/atlas/site.css">
+  <link rel="stylesheet" href="/assets/atlas/research-article.css">
+  <script defer src="/assets/atlas/transit.js"></script>
+</head>
+<body>
+<a class="skip-article" href="#case-design">跳到正文</a>
+<header class="mast"><div class="wrap mast-inner"><a aria-label="DESIGN RIG 总览" class="brand" href="/index.html"><i aria-hidden="true" class="logomark"></i>DESIGN RIG</a><nav aria-label="作品集栏目" class="main-nav"><a href="/index.html">总览</a><a href="/projects.html">作品</a><a aria-current="location" href="/systems.html">研究</a><a href="/field.html">我带团队的经历</a></nav><a class="cv" href="/resume.html">简历档案 <span>↗</span></a></div></header>
+<main id="case-design">
+  <article>
+    <header class="article-cover eve-cover" id="design-intro">
+      <div class="article-wrap">
+        <a href="/systems.html#eve">← 系统研究 / EVE</a>
+        <h1 id="design-title">爆船后的折价购回设计</h1>
+        <p>基于我在晨曦经典服的游玩经历，我想在保险赔付后给玩家一个折价购回同类舰船的入口。原船仍会永久损毁。玩家有机会接着飞，造船的人也有机会接到下一笔订单。</p>
+      </div>
+    </header>
+    <div class="article-wrap article-content">
+      <section id="act-2" aria-labelledby="act-2-title">
+        <h2 id="act-2-title">补偿到账，先看钱包里多了什么</h2>
+        <p id="compensation-receipt">假设这次任务中舰船被击毁，保险赔付的星币（ISK）已经进了钱包。玩家拿到的是一笔可以自己支配的钱，原船仍然损毁，船库里也还没有替代船。</p>
+        <p>我把购回入口放在这笔到账记录旁边。玩家在决定要不要再飞时，就能看到自己可以补回哪种船，以及要付多少 ISK。</p>
+      </section>
+      <section id="act-2-choice" aria-labelledby="act-2-choice-title">
+        <h2 id="act-2-choice-title">要不要花这笔钱，购回一艘同类舰船？</h2>
+        <div class="outcomes" id="goal-window">
+          <div id="buy-confirmation">
+            <h3 id="window-title">想继续出航</h3>
+            <p>窗口列出购回对象和折价后的应付金额。玩家可以先看这艘船和价格，只有确认支付，钱包才会扣除购回费用。</p>
+          </div>
+          <div>
+            <h3>暂不购回</h3>
+            <p>玩家也可以收起窗口，把保险金留作别用。这次没有购回支出，船库里也不会增加舰船。之后是否补船，仍由玩家决定。</p>
+          </div>
+        </div>
+      </section>
+      <section id="act-2-complete" aria-labelledby="act-2-complete-title">
+        <h2 id="act-2-complete-title">确认购回后，船、钱和装配各是什么状态？</h2>
+        <p id="buy-already-complete">在我的方案里，玩家确认支付后，会看到两笔可以对上的记录。一笔是先前收到的保险赔款，一笔是这次支付的购回费用。船库里多了一艘同类舰船，这次购回至此完成。</p>
+        <p>买回船体只是出航前的一步。要执行什么任务、装上哪些装备、什么时候再出站，都留给玩家自己安排。</p>
+      </section>
+      <section id="goal-orders" aria-labelledby="orders-title">
+        <h2 id="orders-title">补回来的船，由谁来供货？</h2>
+        <p>如果只写到玩家重新有船，就漏掉了上一页追问的另一个问题。谁有机会卖出一艘船？我设想由舰船所属势力的 NPC 承接这次购回需求，去找已经挂单的卖家。</p>
+        <div class="outcomes" id="goal-faction">
+          <div>
+            <h3 id="faction-title">NPC 怎样报价</h3>
+            <p>从贸易中心和合同市场筛出单价最低的一批舰船卖单，再向卖家报出约为其挂单单价 <strong>90%–95%</strong> 的收购价。这个比例用来计算卖家收到的报价。</p>
+          </div>
+          <div>
+            <h3>卖家为什么愿意接受</h3>
+            <p>卖家可以决定是否接受报价。成交后，卖家获得 ISK、少量忠诚点数（LP）和一定的军团声望。这样，除了卖船的收入，供货本身也有一份势力奖励。</p>
+          </div>
+        </div>
+        <p><strong>适用范围</strong>　这套保险和购回方案只面向获准进入高安地区的舰船，排除旗舰和特别版舰船。</p>
+      </section>
+      <section id="goal-departure" aria-labelledby="departure-goal-title">
+        <h2 id="departure-goal-title">我希望这笔交易改变什么？</h2>
+        <p>在我玩晨曦经典服时，一些固定的 NPC 声望资源产出地长期由联盟控制。普通玩家很难进入这些地点。我想给他们另一条路。哪怕进不了产出地，也能通过给对应势力供船，取得一部分势力奖励。</p>
+        <p>对爆船的人，我希望一次损失之后还有一个能算清代价的选择。对造船的人，我希望有人愿意再出航时，这份需求还有机会变成自己的订单。玩家会不会因此更愿意补船、卖家愿不愿用一部分售价换取势力奖励，仍是这套设想要验证的两个问题。</p>
+      </section>
     </div>
-  </header>
-
-
-  <main id="case-design">
-    <section class="scene design-intro" id="design-intro" aria-labelledby="design-title">
-      <p class="eyebrow">我的设计设想 / 晨曦经典服</p>
-      <h1 id="design-title">让爆船之后，<br>还有下一次出航。</h1>
-      <p class="lead">站在晨曦经典服长期游玩的经验上，我想保留永久损毁带来的生产与交易需求，同时把“再买一艘”变成一个更具体、更容易作出决定的选择。</p>
-      <p class="design-thesis">不只让玩家补回一艘船，也让补船的需求继续流向生产者。</p>
-    </section>
-    <section class="scene design-goal" id="goal-window" aria-labelledby="window-title">
-      <p class="eyebrow">目标 01 / 玩家侧</p><h2 id="window-title">让回购有一个具体窗口，<br>也有明确的意愿引导。</h2>
-      <p class="lead">损失已经发生，玩家最先面对的是“我还想不想继续”。我的设计从这里介入：把是否回购、回购什么、接下来要做什么，放进同一个清楚的入口。</p>
-      <div class="design-pair"><article><h3>先承接意愿</h3><p>提供继续补船与暂不回购两种选择，让玩家知道下一步能做什么，也保留暂停的空间。</p></article><article><h3>再完成行动</h3><p>明确回购对象与确认步骤，把收到补偿、选择回购、完成回购区分开。点进窗口不等于已经下单。</p></article></div>
-    </section>
-    <section class="scene design-goal" id="goal-orders" aria-labelledby="orders-title">
-      <p class="eyebrow">目标 02 / 生产与交易侧</p><h2 id="orders-title">让船回到玩家手里，<br>也让订单继续存在。</h2>
-      <p class="lead">只解决玩家“重新有船”的问题还不够。我还要追问：这艘补回来的船从哪里来，原本可能发生的一笔生产或交易需求去了哪里？</p>
-      <div class="design-note"><h3>回购入口之后，还需要一条供给路径。</h3><p>我希望回购带来的需求能够继续连接玩家生产与交付，而不是让玩家拿到船以后，这笔需求就从经济循环里消失。</p></div>
-    </section>
-    <section class="scene design-goal" id="goal-faction" aria-labelledby="faction-title">
-      <p class="eyebrow">目标 03 / 势力 NPC 与资源渠道</p>
-      <div class="design-context"><p class="context-label">我观察到的国服环境</p><h3>固定的产出地，被联盟长期掌控。</h3><p>玩家组成的联盟势力长期掌控星图上固定的 NPC 声望资源产出地，形成垄断。普通玩家难以进入这些产出环节，也难以获取对应势力的奖励。</p><p>我想让声望资源的获取不只取决于能否进入这些地点，还能通过为对应势力提供舰船参与进来。</p></div>
-      <h2 id="faction-title">由舰船对应势力的 NPC 向卖家发出报价。</h2>
-      <p class="lead">在贸易中心和合同交易市场中寻找最低单价的一批舰船卖单，由对应势力 NPC 向卖家提出约为卖单单价 90%–95% 的收购报价（offer）。让补船需求落在玩家已有的供给上。</p>
-      <ol class="design-order-flow" aria-label="拟议的订单承接路径"><li><span>01 / 筛选</span><strong>找到最低单价的一批舰船卖单</strong></li><li><span>02 / 报价</span><strong>NPC 向卖家发出 90%–95% 的 offer</strong></li><li><span>03 / 交易</span><strong>卖家接受报价，继续完成交易</strong></li><li><span>04 / 结算</span><strong>向卖家发放 ISK、少量 LP 与军团声望</strong></li></ol>
-      <div class="design-note"><h3>用交易参与，拓宽势力奖励的获取渠道。</h3><p>整套交易完成后，NPC 向对应卖家支付 ISK，并发放少量 LP 点和一定的军团声望。卖家除了出售舰船，也能通过供货取得势力奖励；这或许能削弱固定产出地的长期垄断。</p></div>
-      <div class="design-scope"><h3>保险适用范围</h3><p>仅适用于准许进入高安地区的舰船；不包括旗舰和特别版舰船。</p></div>
-    </section>
-    <section class="scene design-goal" id="goal-departure" aria-labelledby="departure-goal-title">
-      <p class="eyebrow">目标 04 / 回到玩家与经济循环</p><h2 id="departure-goal-title">鼓励玩家别怕爆船，<br>让经济系统继续转下去。</h2>
-      <p class="lead">我希望降低的是玩家面对下一次损失时的退缩：让他知道损毁后还有明确的补船路径，也让愿意继续出航的人，把需求带回生产与交易。</p>
-      <p class="design-thesis">损失仍然有意义，但它不必成为退出的终点。</p>
-      <div class="design-summary"><span>更明确的回购选择</span><b>→</b><span>继续存在的订单</span><b>→</b><span>更多资源产出渠道</span><b>→</b><span>下一次出航</span></div>
-    </section>
-    <noscript><p class="script-notice">以上设计正文可直接阅读；下方窗口示意需要启用 JavaScript。</p></noscript>
-<template id="scene-template-6">
-      <section class="scene act-two" id="act-2" data-scene="6" aria-labelledby="act-2-title">
-        <div class="act-two-heading">
-          <p class="eyebrow">窗口示意 / 从价值补偿继续</p>
-          <h2 id="act-2-title">从补偿到回购，试一次具体选择。</h2>
-          <p class="lead" id="previous-intent"></p>
-        </div>
-        <div class="recovery-desk">
-          <div class="recovery-asset is-lost">
-            <p class="block-label">刚才的舰船</p>
-            <svg viewBox="0 0 360 180" aria-hidden="true"><path d="M43 98 154 49l151 42-78 19-45 35-42-35Z"/></svg>
-            <h3>永久损毁</h3>
-            <p>原来的船已经无法继续驾驶。</p>
-          </div>
-          <div class="recovery-action">
-            <p class="block-label">保险 · ISK 补偿</p>
-            <h3>先看看保险补偿。</h3>
-            <p>ISK 是游戏中的货币。收到补偿后，你可以决定怎样使用它。</p>
-            <button class="primary-action" id="compensation-trigger" type="button">查看补偿到账 →</button>
-            <div id="compensation-receipt" class="recovery-receipt" hidden tabindex="-1">
-              <p class="receipt-status">ISK 补偿已到账</p>
-              <p>你收到了一笔钱。原来的船没有因此回来。</p>
-            </div>
-          </div>
-        </div>
-        <div class="scene-footer"><button class="primary-action" id="open-buyback" type="button" aria-controls="act-2-choice" aria-expanded="false" hidden>展开回购与供货方案</button></div>
-      </section>
-    </template>
-<template id="scene-template-7">
-      <section class="scene act-two" id="act-2-choice" data-scene="7" aria-labelledby="act-2-choice-title">
-        <div class="act-two-heading">
-          <p class="eyebrow">我的设计 / 玩家侧</p>
-          <h2 id="act-2-choice-title">给“再买一艘”一个具体的入口。</h2>
-          <p class="lead">玩家选择补船后，由舰船对应势力的 NPC 对接现有卖单：从贸易中心和合同交易市场筛选最低单价的一批舰船，向卖家发出约为卖单单价 90%–95% 的收购 offer。</p>
-          <dl class="offer-rules"><div><dt>报价对象</dt><dd>舰船卖家；报价以该卖单的单价为基准。</dd></div><div><dt>成交结算</dt><dd>整套交易完成后，NPC 向卖家发放 ISK、少量 LP 点和一定的军团声望。</dd></div><div><dt>保险范围</dt><dd>仅适用于准许进入高安地区的舰船，不包括旗舰和特别版舰船。</dd></div></dl>
-        </div>
-        <div class="recovery-desk">
-          <div class="recovery-asset">
-            <p class="block-label">可折价购回</p>
-            <svg viewBox="0 0 360 180" aria-hidden="true"><path d="M43 98 154 49l151 42-78 19-45 35-42-35Z"/></svg>
-            <h3>一艘同类舰船</h3>
-            <p>等待你的决定 · 尚未购回</p>
-          </div>
-          <div class="recovery-action">
-            <p class="block-label">由你选择</p>
-            <h3>你现在想把船补回来吗？</h3>
-            <div class="recovery-options" role="group" aria-label="是否折价购回">
-              <button class="primary-action" data-buy-choice="buy" type="button" aria-pressed="false">选择折价购回</button>
-              <button class="text-action" data-buy-choice="later" type="button" aria-pressed="false">暂不购回</button>
-            </div>
-            <p id="buy-choice-note" class="choice-note" aria-live="polite">选择后，还需要确认支付才会完成购回。</p>
-            <div id="buy-confirmation" class="purchase-confirmation" hidden>
-              <h3>确认这次购回</h3>
-              <dl><div><dt>购回对象</dt><dd>一艘同类舰船</dd></div><div><dt>支付方式</dt><dd>支付折价购回所需的 ISK</dd></div></dl>
-              <button class="primary-action" id="confirm-replacement" type="button">确认支付，完成购回 →</button>
-              <p class="simulation-note">方案流程演示，不涉及真实支付或游戏资产。</p>
-            </div>
-            <div id="buy-already-complete" class="recovery-receipt" hidden>
-              <p class="receipt-status">这次购回已完成</p>
-              <p>可以回看购回结果。</p>
-              <button class="primary-action" data-go="8" type="button">查看已购回的舰船 →</button>
-            </div>
-          </div>
-        </div>
-        <button class="text-action" data-go="6" type="button">回看补偿</button><button class="text-action" id="skip-design" type="button">暂不购回，返回永久损毁研究</button>
-      </section>
-    </template>
-<template id="scene-template-8">
-      <section class="scene act-two" id="act-2-complete" data-scene="8" aria-labelledby="act-2-complete-title">
-        <div class="act-two-heading">
-          <p class="eyebrow">我的设计 / 折价购回完成</p>
-          <h2 id="act-2-complete-title">你又有一艘船了。</h2>
-          <p class="lead">这次，你已经完成支付，购回了一艘同类舰船。</p>
-        </div>
-        <div class="recovery-desk">
-          <div class="recovery-asset is-restored">
-            <p class="block-label">已购回的舰船</p>
-            <svg viewBox="0 0 360 180" aria-hidden="true"><path d="M43 98 154 49l151 42-78 19-45 35-42-35Z"/></svg>
-            <h3>一艘同类舰船</h3>
-            <p>购回已完成</p>
-          </div>
-          <div class="recovery-action">
-            <p class="block-label">这次的结果</p>
-            <dl class="replacement-ledger"><div><dt>保险补偿</dt><dd>ISK 已到账</dd></div><div><dt>购回支付</dt><dd>已确认支付</dd></div><div><dt>舰船购回</dt><dd>已完成</dd></div><div><dt>装配与再次出航</dt><dd>还要由你准备和决定</dd></div></dl>
-          </div>
-        </div>
-        <p class="act-two-end">这次购回已完成</p>
-        <button class="primary-action" data-next="3" type="button" hidden>回看永久损毁研究 ↑</button>
-        <div class="recovery-options">
-          <button class="text-action" data-go="7" type="button">回看刚才的选择</button>
-          <button class="text-action" data-go="6" type="button">回看补偿</button>
-          <button class="text-action" data-go="5" type="button">回看爆船后的决定</button>
-        </div>
-      </section>
-    </template>
-  </main>
-  <footer class="reading-footer">
-    <p class="prototype-label">DESIGN RIG · EVE 系统研究</p>
-    <details class="reading-settings"><summary>阅读记录</summary><p id="storage-status">正在载入阅读记录。</p><button class="text-action" id="reset-progress" type="button">重新开始首次阅读</button></details>
-    <a href="../../systems.html#eve">返回项目研究 / 游戏经历</a>
-  </footer>
-  <p class="visually-hidden" id="reading-status" role="status" aria-live="polite"></p>
-<div class="rig-pending" role="status" aria-live="polite" hidden></div></body>
+  </article>
+</main>
+<footer class="article-end"><a href="recovery.html#scene-3">← 上一篇 · 为什么允许永久损毁</a><a href="/systems.html#eve">返回 EVE 研究 ↑</a></footer>
+<div class="rig-pending" role="status" aria-live="polite" hidden></div>
+</body>
 </html>
