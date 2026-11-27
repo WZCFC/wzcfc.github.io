@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#2639bc">
   <meta name="robots" content="noindex, nofollow">
   <title>个人设计 · 爆船后的购回选择｜DESIGN RIG</title>
-  <link rel="stylesheet" href="/assets/atlas/site.css?v=20b9f8247da2">
+  <link rel="stylesheet" href="/assets/atlas/site.css?v=893d3f82a004">
   <link rel="stylesheet" href="/assets/atlas/research-article.css">
   <script defer src="/assets/atlas/transit.js"></script>
 </head>
@@ -18,53 +18,53 @@
     <header class="article-cover eve-cover" id="design-intro">
       <div class="article-wrap">
         <a href="/systems.html#eve">← 系统研究 / EVE</a>
-        <h1 id="design-title">爆船后的折价购回设计</h1>
-        <p>基于我在晨曦经典服的游玩经历，我想在保险赔付后给玩家一个折价购回同类舰船的入口。原船仍会永久损毁。玩家有机会接着飞，造船的人也有机会接到下一笔订单。</p>
+        <h1 id="design-title">我的设计：船炸了，给玩家一个折价买船的选择</h1>
+        <p>我玩晨曦经典服时一直在想：船已经炸了，保险钱也赔了，能不能让我马上看一眼，再飞一次要花多少钱？我设想加一个买船入口。另一头，我也想让造船的玩家有机会卖出他的船。</p>
       </div>
     </header>
     <div class="article-wrap article-content">
       <section id="act-2" aria-labelledby="act-2-title">
-        <h2 id="act-2-title">补偿到账，先看钱包里多了什么</h2>
-        <p id="compensation-receipt">假设这次任务中舰船被击毁，保险赔付的星币（ISK）已经进了钱包。玩家拿到的是一笔可以自己支配的钱，原船仍然损毁，船库里也还没有替代船。</p>
-        <p>我把购回入口放在这笔到账记录旁边。玩家在决定要不要再飞时，就能看到自己可以补回哪种船，以及要付多少 ISK。</p>
+        <h2 id="act-2-title">先看钱包：赔款到了，船还缺一艘</h2>
+        <p id="compensation-receipt">假设我的船在做任务时被击毁了。打开钱包，能看到保险赔来的星币（ISK，也就是游戏里的钱）。打开船库，原先停船的位置还是空的。</p>
+        <p>我会把买船入口放在这笔赔款旁边。点开就能看见两样东西：能买回哪种船，以及打折后要付多少钱。</p>
       </section>
       <section id="act-2-choice" aria-labelledby="act-2-choice-title">
-        <h2 id="act-2-choice-title">要不要花这笔钱，购回一艘同类舰船？</h2>
+        <h2 id="act-2-choice-title">这笔钱，我要现在花吗？</h2>
         <div class="outcomes" id="goal-window">
           <div id="buy-confirmation">
             <h3 id="window-title">想继续出航</h3>
-            <p>窗口列出购回对象和折价后的应付金额。玩家可以先看这艘船和价格，只有确认支付，钱包才会扣除购回费用。</p>
+            <p>我先看船和价格。只想查价，看看就好。只有确认支付，钱包才会扣掉买船的钱。</p>
           </div>
           <div>
             <h3>暂不购回</h3>
-            <p>玩家也可以收起窗口，把保险金留作别用。这次没有购回支出，船库里也不会增加舰船。之后是否补船，仍由玩家决定。</p>
+            <p>我也可以关掉窗口，把保险金留着。这次钱包没有扣钱，船库也没有添船。以后想飞了，再决定怎么买。</p>
           </div>
         </div>
       </section>
       <section id="act-2-complete" aria-labelledby="act-2-complete-title">
-        <h2 id="act-2-complete-title">确认购回后，船、钱和装配各是什么状态？</h2>
-        <p id="buy-already-complete">在我的方案里，玩家确认支付后，会看到两笔可以对上的记录。一笔是先前收到的保险赔款，一笔是这次支付的购回费用。船库里多了一艘同类舰船，这次购回至此完成。</p>
-        <p>买回船体只是出航前的一步。要执行什么任务、装上哪些装备、什么时候再出站，都留给玩家自己安排。</p>
+        <h2 id="act-2-complete-title">买完以后，我能马上去打仗吗？</h2>
+        <p id="buy-already-complete">买完我可以核对两处。钱包有两笔记录：先收到保险赔款，再付了买船的钱。船库里多了一艘同型号的船。</p>
+        <p>我买回的是船体。下一趟去打谁、装上哪些装备、要带多少弹药，还得由我决定。装好船，我才出站。</p>
       </section>
       <section id="goal-orders" aria-labelledby="orders-title">
         <h2 id="orders-title">补回来的船，由谁来供货？</h2>
-        <p>如果只写到玩家重新有船，就漏掉了上一页追问的另一个问题。谁有机会卖出一艘船？我设想由舰船所属势力的 NPC 承接这次购回需求，去找已经挂单的卖家。</p>
+        <p>买船的人省了一趟找船的工夫，那谁来卖这艘船？我的设想是让这个势力派一个游戏角色（NPC）当收购员，去问已经挂出卖单的玩家。</p>
         <div class="outcomes" id="goal-faction">
           <div>
-            <h3 id="faction-title">NPC 怎样报价</h3>
-            <p>从贸易中心和合同市场筛出单价最低的一批舰船卖单，再向卖家报出约为其挂单单价 <strong>90%–95%</strong> 的收购价。这个比例用来计算卖家收到的报价。</p>
+            <h3 id="faction-title">收购员出多少钱？</h3>
+            <p>收购员会在贸易中心和合同市场里，先找单价最低的那批船，再按卖家标价的 <strong>90%–95%</strong> 出价。举个整数例子：卖家标 100 星币，收购员就向他报 90 到 95 星币。这算的是卖家能收多少钱。</p>
           </div>
           <div>
             <h3>卖家为什么愿意接受</h3>
-            <p>卖家可以决定是否接受报价。成交后，卖家获得 ISK、少量忠诚点数（LP）和一定的军团声望。这样，除了卖船的收入，供货本身也有一份势力奖励。</p>
+            <p>卖家可以接单，也可以继续等人按原价买。接单成交，他能拿到卖船的钱、少量忠诚点数（LP），还能提高自己在这个军团的声望。</p>
           </div>
         </div>
-        <p><strong>适用范围</strong>　这套保险和购回方案只面向获准进入高安地区的舰船，排除旗舰和特别版舰船。</p>
+        <p><strong>哪些船能参加？</strong>　我只把允许进入高安全等级地区的船纳入这个方案。旗舰和特别版舰船都排除在外。</p>
       </section>
       <section id="goal-departure" aria-labelledby="departure-goal-title">
         <h2 id="departure-goal-title">我希望这笔交易改变什么？</h2>
-        <p>在我玩晨曦经典服时，一些固定的 NPC 声望资源产出地长期由联盟控制。普通玩家很难进入这些地点。我想给他们另一条路。哪怕进不了产出地，也能通过给对应势力供船，取得一部分势力奖励。</p>
-        <p>对爆船的人，我希望一次损失之后还有一个能算清代价的选择。对造船的人，我希望有人愿意再出航时，这份需求还有机会变成自己的订单。玩家会不会因此更愿意补船、卖家愿不愿用一部分售价换取势力奖励，仍是这套设想要验证的两个问题。</p>
+        <p>我玩晨曦经典服时，有些能赚声望的地方长期由大联盟把着，普通玩家很难进去。我想给这些玩家多一个选择：就算去不了那个地方，也能靠给这个势力供船赚一点声望。</p>
+        <p>这套设计能不能成立，我想看两件事。炸船的人看清价格以后，有多少人愿意再买一艘？卖船的人看到报价以后，有多少人愿意少拿一点星币，换点数和声望？两边都有人愿意，这笔生意才做得起来。</p>
       </section>
     </div>
   </article>

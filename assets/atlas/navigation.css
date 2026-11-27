@@ -246,12 +246,26 @@ html:has(.section-rail){scroll-padding-top:58px}.main-nav a,.act{touch-action:ma
 }
 .research-star.star-small { left: 65%; top: 23%; width: 13.5%; }
 @media (prefers-reduced-motion: no-preference) {
+  .research-star::after {
+    content: "";
+    position: absolute;
+    inset: -12%;
+    background: linear-gradient(45deg, transparent 36%, #fff9 46%, white 50%, #fff9 54%, transparent 64%);
+    animation: star-glint 8s linear both infinite;
+  }
+  .research-star.star-small::after { animation-delay: .54s; }
   .research-star { animation: star-drift 9s ease-in-out -2s infinite alternate; }
   .research-star.star-small { animation: star-drift 7s ease-in-out -5s infinite alternate-reverse; }
 }
+@keyframes star-glint {
+  0%, 78% { opacity: 0; transform: translate(-65%,65%); }
+  80% { opacity: .95; }
+  86% { opacity: .95; }
+  88%, 100% { opacity: 0; transform: translate(65%,-65%); }
+}
 @keyframes star-drift {
-  from { transform: translateY(-3px) rotate(-3deg); }
-  to { transform: translateY(4px) rotate(3deg); }
+  from { transform: translateY(-5px) rotate(-3deg); }
+  to { transform: translateY(6px) rotate(3deg); }
 }
 .eve-feature:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 .eve-feature .read-case { display: inline-block; margin-top: .8em; color: var(--lime); font: 650 14px/1.5 var(--sans); }
