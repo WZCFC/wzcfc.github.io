@@ -52,7 +52,6 @@ footer{border-top:1px solid var(--line);background:#e8ebe2}.footing{min-height:8
 @media(max-width:880px){.wrap{width:92%}.mast-inner{gap:20px}.main-nav{gap:18px}.cover-inner{grid-template-columns:1fr 1fr;min-height:390px}.cover-index .cover-inner{min-height:435px}.cover-type{padding:30px 0}.deck br{display:none}.cover-type h1{font-size:63px}.cover-index .cover-type h1{font-size:74px}.plate-index .subject{inset:9% 0 10% 1%}.directory,.card-grid{gap:12px}.directory{gap:0}.dir+.dir{padding-left:16px}.dir{padding-right:14px}.dir-go{right:10px}.grouped{gap:30px}.highlights{gap:14px}.highlight>img{width:74px;height:62px}}
 @media(max-width:620px){.wrap{width:90%}.mast-inner{display:grid;grid-template-columns:1fr auto;gap:0;min-height:0}.brand{font-size:22px;height:46px}.logomark{width:17px;height:17px}.cv{grid-column:2;grid-row:1;min-height:33px;font-size:13px}.main-nav{grid-row:2;grid-column:1 / -1;width:100%;gap:0;justify-content:space-between}.main-nav a{min-height:41px;font-size:14px}.cover-inner,.cover-index .cover-inner{min-height:auto;grid-template-columns:1fr}.cover-type,.cover-index .cover-type{padding:25px 0 0}.cover-type h1,.cover-index .cover-type h1{font-size:clamp(48px,10.9vw,72px);line-height:1.05;padding:10px 0}.cover-index h1 br{display:none}.cover-index h1 em{color:inherit}.eyebrow{font-size:10px}.deck{font-size:15px;line-height:1.65;max-width:34em}.hero-actions{margin-top:13px;gap:18px}.act{min-height:42px}.plate{height:clamp(165px,45vw,225px)}.plate-index{height:clamp(190px,49vw,248px)}.plate-index .subject{inset:-2% 0 6% 9%}.plate-index .orbit{left:11%;width:82%;height:43%;top:36%}.plate-cap{bottom:6px;font-size:10px}.plate-cap:before{width:25px}.plate-projects .subject{inset:-21% -4% -13%}.plate-projects .o1{height:86%;left:39%}.plate-projects .o2{width:65%;left:23%}.plate-systems .subject{inset:0 -6% 0;mask-image:linear-gradient(0deg,transparent,black 19%,black 75%,transparent)}.plate-field .subject{inset:3% 15% 7% 22%}.plate-field .o1{left:40%}.shelf{padding:27px 0}.section-head{margin-bottom:15px}.directory,.card-grid,.highlights,.research-path,.grouped{grid-template-columns:1fr}.dir{padding:14px 35px 14px 0!important;display:grid;grid-template-columns:76px 1fr;align-items:baseline;gap:3px}.dir+.dir,.research-step+.research-step{border-left:0;border-top:1px solid var(--line)}.dir h3{font-size:19px;margin:0}.dir p{font-size:13px}.dir-go{right:2px;top:16px}.card-grid{gap:27px}.screen-link img{aspect-ratio:1.92}.highlights{gap:0}.grouped{gap:16px}.research-step,.research-step+.research-step{padding:16px 30px 16px 0}.research-step h3,.case-card h3,.body-copy h3,.project-row h3{font-size:20px}.footing{gap:12px;flex-wrap:wrap;padding:15px 0;min-height:60px}.footing .word{font-size:16px}.footing>a:not(.word){font-size:13px}.hero-actions a,.plain,.subtle,.small-link{min-height:44px}}
 @media(prefers-reduced-motion:no-preference){
- @view-transition{navigation:auto}
  ::view-transition-old(root){animation:out-page .16s ease-out both}
  ::view-transition-new(root){animation:in-page .24s cubic-bezier(.2,.75,.2,1) both}
  @keyframes out-page{to{opacity:0}}
@@ -121,3 +120,14 @@ html:has(.section-rail){scroll-padding-top:58px}.main-nav a,.act{touch-action:ma
 }
 @media(max-width:620px){.cover-index h1{font-size:clamp(35px,10.5vw,62px);padding:12px 0}.plate-index .subject{inset:-28% -2% -19% 0}.plate-index .o1{height:89%;left:38%;top:7%}.plate-index .o2{width:72%;left:12%}.rail-inner{width:92%;gap:clamp(11px,3.6vw,22px);min-height:45px}.rail-label{display:none}.section-rail a{font-size:13px}}
 @media print{.section-rail{display:none}}
+
+/* The case-specific illustrations sit on the same chapter blue as the home cover. */
+.cover:is(.cover-field,.cover-systems) {background:#2639bc;color:#fff;border-bottom:1px solid #172981;}
+.cover:is(.cover-field,.cover-systems) :is(.eyebrow,.deck,.plate-cap) {color:#eff1ff;}
+.cover:is(.cover-field,.cover-systems) .primary {background:var(--lime);color:#172039;}
+.cover:is(.cover-field,.cover-systems) .primary:hover {background:#fff;}
+.plate-field .o1 {background:var(--lime);opacity:1;}
+.plate-field .o2 {border-color:#c9d5ff;}
+.plate-field .registration {display:none;}
+.plate-systems .subject {mask-image:linear-gradient(90deg,transparent 0%,black 40%,black 89%,transparent);}
+@media(prefers-reduced-motion:no-preference){.main-nav [aria-current]::after{view-transition-name:none;}}

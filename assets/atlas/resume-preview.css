@@ -1,0 +1,18 @@
+.resume-preview-open {overflow:hidden;}
+.resume-pdf-preview {box-sizing:border-box;width:min(960px,96vw);max-width:96vw;max-height:94dvh;padding:0;border:1px solid #72807c;color:var(--rig-ink);background:var(--rig-paper);font:15px/1.5 var(--rig-sans);}
+.resume-pdf-preview[open] {display:flex;flex-direction:column;}
+.resume-pdf-preview::backdrop {background:#0c1534bf;}
+.resume-pdf-toolbar {padding:14px clamp(12px,3vw,30px);border-bottom:1px solid var(--rig-rule);}
+.resume-pdf-heading,.resume-pdf-actions {display:flex;gap:8px 18px;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+.resume-pdf-heading p,.resume-pdf-hint {margin:0;color:var(--rig-muted);font-size:13px;}
+.resume-pdf-heading h2 {font:700 clamp(18px,3vw,24px)/1.4 var(--rig-sans);margin:2px 0 6px;}
+.resume-pdf-actions {justify-content:flex-start;}
+.resume-pdf-preview :is(a,button) {border:0;background:transparent;padding:5px 0;cursor:pointer;font:600 14px var(--rig-sans);color:var(--rig-blue);text-decoration:underline;text-underline-offset:3px;}
+.resume-pdf-preview :focus-visible {outline:2px solid var(--rig-blue);outline-offset:2px;}
+.resume-pdf-hint {margin-top:7px;}
+.resume-pdf-pages {overflow:auto;min-height:0;padding:12px;background:#dfe3db;}
+.resume-pdf-pages figure {margin:0 auto 18px;width:min(100%,740px);}
+.resume-pdf-pages.is-zoomed figure {width:1050px;}
+.resume-pdf-pages img {display:block;width:100%;height:auto;}
+.resume-pdf-pages figcaption {margin:0 0 5px;font-size:13px;}
+@media print {.resume-pdf-preview{display:none!important;}}

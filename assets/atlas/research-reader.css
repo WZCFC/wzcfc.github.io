@@ -1,0 +1,19 @@
+/* A consistent portfolio shell around the EVE reading rooms and their instruments. */
+html:has(.research-reader) {scroll-behavior:auto;scroll-padding-top:55px;}
+body.research-reader {--rail:0px;--paper:#101b3c;--paper-raised:#1b294b;--cyan:#b4cbff;--green:#e8fa54;--ink:#eff1ff;--muted:#bcc9da;--line:#52678a;padding:0;margin:0;background:#101b3c;color:var(--ink);font-family:var(--rig-sans);}
+.research-reader .prototype-header {margin:0;color:#18201f;background:#eff1e8;border-block:0 1px;border-color:var(--rig-rule);border-style:solid;padding:.65rem 5%;backdrop-filter:none;}
+.research-reader .case-location :is(a,span),.research-reader #scene-position {color:#2e405b;}
+.research-reader .progress button {border-color:#62758a;color:#26364b;background:transparent;}
+.research-reader .progress button:is([aria-current="step"],[aria-current="true"],.active) {background:var(--rig-blue);color:white;border-color:var(--rig-blue);}
+.research-reader .interface-status-panel {background:#152349;color:#fff;}
+.research-reader main {margin-inline:0;}
+.research-reader .scene {background-color:#122047;}
+.research-reader .scene:first-of-type,.research-reader .design-intro {background:linear-gradient(122deg,#2639bc 0%,#2238a3 60%,#101c43 100%);}
+.research-reader .scene :is(h1,h2) {font-family:var(--rig-sans);font-weight:800;letter-spacing:-.045em;}
+.research-reader .scene :is(.eyebrow,.block-label) {color:var(--green);}
+.research-reader .primary-action {background:var(--rig-action);border:1px solid var(--rig-action);color:#19211f;border-radius:0;}
+.research-reader .primary-action:disabled {background:#283750;border-color:#8490a2;color:#c3cdde;}
+.research-reader .reading-footer {background:#101b36;color:#dae4f5;}
+.research-reader :focus-visible {outline:3px solid #708cff;outline-offset:3px;}
+@media(max-width:620px){.research-reader .prototype-header{padding:.55rem 4%;}}
+@media(prefers-reduced-motion:reduce){.research-reader,.research-reader *{scroll-behavior:auto!important;}}

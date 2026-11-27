@@ -1,450 +1,400 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="《忍宗の战》48 小时玩法与系统策划案例：从基础弹射原型的 QA 和返工，扩展为可公开试玩的竖屏 Roguelike 循环。">
-    <title>忍宗の战｜48H 系统策划案例</title>  <script type="module" crossorigin src="./assets/modulepreload-polyfill-P2Xu9kJm.js"></script>
-  <script type="module" crossorigin src="./assets/main-rbEPVOnq.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/main-j8WO940M.css">
-  <link rel="stylesheet" crossorigin href="./assets/case-study-reframe-BohJq0cU.css">
-<meta name="robots" content="noindex, nofollow">
-<link rel="stylesheet" href="/assets/frontend-priority-20260930-images-89f08f79d51e.css">
-<script type="module" src="/assets/frontend-priority-20260930-images-82dfec270bfb.js"></script>
-</head>
-  <body class="module-body theme-green ninja-case-page" data-page="ninja-war" data-case-study="true">
-    <a class="skip-link" href="#main">跳到主要内容</a>
-    <header class="site-header" data-header>
-      <a class="site-brand" href="./projects.html#ninja" aria-label="返回项目实验室的忍宗の战摘要">
-        <span class="bug-mark" aria-hidden="true"><i></i><i></i></span>
-        <span><strong>DESIGN RIG</strong><small>CASE FILE / 01A</small></span>
-      </a>
-      <nav class="site-nav" id="site-nav" aria-label="作品集模块">
-        <a class="is-current" href="./projects.html" aria-current="page">项目实验室</a>
-        <a href="./systems.html">项目研究 / 游戏经历</a>
-        <a href="./field.html">团队与现场</a>
-        <a href="./resume.html">简历档案</a>
-      </nav>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span aria-hidden="true">☰</span><span>模块</span>
-      </button>
-    </header>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="《忍宗の战》48 小时玩法与系统策划案例：从基础弹射原型的 QA 和返工，扩展为可公开试玩的竖屏 Roguelike 循环。" name="description"/>
+<title>忍宗の战｜48H 系统策划案例</title> <script crossorigin="" src="./assets/modulepreload-polyfill-P2Xu9kJm.js" type="module"></script>
+<script crossorigin="" src="./assets/main-rbEPVOnq.js" type="module"></script>
 
-    <main id="main" class="ninja-case-main">
-      <section class="ninja-case-hero" aria-labelledby="ninja-title">
-        <div class="ninja-hero-arena" aria-hidden="true">
-          <div class="ninja-capsule-battle">
-            <span class="ninja-pixel-cloud cloud-a"></span>
-            <span class="ninja-pixel-cloud cloud-b"></span>
-            <span class="ninja-pixel-cloud cloud-c"></span>
-            <span class="ninja-enemy-ball enemy-left"><i><b></b></i></span>
-            <span class="ninja-enemy-ball enemy-target"><i><b></b></i></span>
-            <span class="ninja-enemy-ball enemy-right"><i><b></b></i></span>
-            <span class="ninja-aim-line"></span>
-            <span class="ninja-player-ball"></span>
-            <span class="ninja-impact-ring"></span>
-            <strong class="ninja-damage-number">−18</strong>
-            <small class="ninja-drag-cue">DRAG · RELEASE</small>
-          </div>
-        </div>
-        <div class="ninja-hero-copy">
-          <a class="back-link" href="./projects.html#ninja">← 返回 48H 项目组</a>
-          <p class="kicker"><span>CASE 01A</span> QA / SYSTEM DESIGN / DELIVERY</p>
-          <h1 id="ninja-title"><span>忍宗</span><br><mark>の战</mark></h1>
-          <p class="ninja-hero-lede">怎样让一次弹射，变成一整局的选择？在程序成员提供的基础原型上，我主导玩法与系统设计，把瞄准接进忍术组合、行动资源和 Roguelike 成长。</p>
-          <dl class="ninja-hero-meta"><div><dt>项目</dt><dd>48H · 弹射 × Roguelike · TapTap 制造周末</dd></div><div><dt>我的职责</dt><dd>玩法与系统设计 / 原型 QA 与迭代推进 / 音效采样</dd></div><div><dt>实际结果</dt><dd>形成 TapTap 公开试玩；活动版本的爽快视觉反馈未达预期。</dd></div></dl>
-          <div class="ninja-hero-actions">
-            <a href="#growth-example-title">先看断刀的选择代价 <span aria-hidden="true">↓</span></a>
-            <a href="https://www.taptap.cn/app/888530" target="_blank" rel="noopener noreferrer">打开 TapTap 试玩页 <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-        <aside class="ninja-hero-verdict" aria-label="案例结论">
-          <span>THE DESIGN MOVE</span>
-          <strong>一次弹射，<br>同时考虑组合<br>与资源代价。</strong>
-          <p>速度、击退、技能资源和路线，应该一起影响下一次选择。</p>
-        </aside>
-      </section>
 
-      <nav class="ninja-local-nav" aria-label="忍宗の战案例目录"><a href="#origin"><span>01</span>设计问题</a><a href="#system"><span>02</span>关键选择</a><a href="#iteration"><span>03</span>推进落地</a><a href="#result"><span>04</span>结果与复盘</a><a href="#ownership"><span>05</span>协作与资料</a></nav>
+<meta content="noindex, nofollow" name="robots"/>
 
-      <section class="ninja-origin" id="origin" aria-labelledby="ninja-origin-title">
-        <header class="ninja-section-heading">
-          <p><span>01</span> TAKE OVER THE PROTOTYPE</p>
-          <h2 id="ninja-origin-title">基础操作成立后，玩家为什么还要做下一次选择？</h2>
-        </header>
+<script src="/assets/frontend-priority-20260930-images-82dfec270bfb.js" type="module"></script>
+<style>@import url("./assets/main-j8WO940M.css") layer(archive);
+@import url("./assets/case-study-reframe-BohJq0cU.css") layer(archive);
+@import url("/assets/frontend-priority-20260930-images-89f08f79d51e.css") layer(archive);</style><link href="/assets/atlas/site.css" rel="stylesheet"/>
+<script defer="" src="/assets/atlas/transit.js"></script><link href="/assets/atlas/reading.css" rel="stylesheet"/></head>
+<body class="module-body theme-green ninja-case-page reading-page" data-case-study="true" data-page="ninja-war">
+<a class="rig-skip" href="#main">跳到主要内容</a>
+<header class="mast"><div class="wrap mast-inner"><a aria-label="DESIGN RIG 总览" class="brand" href="/index.html"><i aria-hidden="true" class="logomark"></i>DESIGN RIG</a><nav id="site-nav" aria-label="作品集栏目" class="main-nav"><a href="/index.html">总览</a><a aria-current="location" href="/projects.html">作品</a><a href="/systems.html">研究</a><a href="/field.html">现场</a></nav><a class="cv" href="/resume.html">简历档案 <span>↗</span></a></div></header>
+<main class="chapter-main" id="main"><section class="chapter-cover"><div class="chapter-wrap"><div class="chapter-copy"><a class="chapter-parent" href="/projects.html">游戏作品</a><h1 id="ninja-title">忍宗の战</h1><p>怎样让一次弹射，变成一整局的选择？</p><div class="chapter-actions"><a href="#system">看系统设计 ↓</a></div></div><div class="chapter-visual"><img alt="忍宗战斗实机" fetchpriority="high" src="/assets/optimized-20260930/ninja-battle-runtime-20260929.webp"/></div></div></section><div class="ninja-case-main reading">
+<section aria-labelledby="ninja-title" class="ninja-case-hero" data-intro="">
 
-        <div class="ninja-origin-grid">
-          <article class="origin-stage is-program">
-            <p>INPUT / PROGRAMMER</p>
-            <h3>拖拽、松手、碰撞</h3>
-            <p>基础原型提供了瞄准与碰撞反馈。接下来需要解决的，是如何让不同的发射和配置有不同的价值。</p>
-            <div class="mini-arena" aria-hidden="true"><i></i><b></b><span>DRAG → RELEASE</span></div>
-          </article>
-          <div class="origin-handoff" aria-hidden="true"><span>QA</span><i>→</i><span>REWORK</span></div>
-          <article class="origin-stage is-mine">
-            <p>MY FIRST OWNERSHIP</p>
-            <h3>把操作接进战前与战中的取舍</h3>
-            <p>我先做原型 QA 并推动返工，再把设计重点放到组合、资源和路线：一次操作的结果，要影响玩家下一步的选择。</p>
-            <ul><li>战前：根据角色与已有技能搭配</li><li>战中：在路径、忍术与资源间取舍</li><li>战后：用奖励与路线改变下一战</li></ul>
-          </article>
-        </div>
+<div class="ninja-hero-copy">
 
-      </section>
+<p class="kicker"><span>CASE 01A</span> QA / SYSTEM DESIGN / DELIVERY</p>
 
-      <section class="ninja-system" id="system" aria-labelledby="ninja-system-title">
-        <header class="ninja-section-heading is-dark">
-          <p><span>02</span> FROM SHOT TO RUN</p>
-          <h2 id="ninja-system-title">我主导的转向：<br>让一次弹射进入可重复的成长循环。</h2>
-        </header>
+<p class="ninja-hero-lede">怎样让一次弹射，变成一整局的选择？在程序成员提供的基础原型上，我主导玩法与系统设计，把瞄准接进忍术组合、行动资源和 Roguelike 成长。</p>
+<dl class="ninja-hero-meta"><div><dt>项目</dt><dd>48H · 弹射 × Roguelike · TapTap 制造周末</dd></div><div><dt>我的职责</dt><dd>玩法与系统设计 / 原型 QA 与迭代推进 / 音效采样</dd></div><div><dt>实际结果</dt><dd>形成 TapTap 公开试玩；活动版本的爽快视觉反馈未达预期。</dd></div></dl>
+<div class="ninja-hero-actions">
+<a href="#growth-example-title">先看断刀的选择代价 <span aria-hidden="true">↓</span></a>
+<a href="https://www.taptap.cn/app/888530" rel="noopener noreferrer" target="_blank">打开 TapTap 试玩页 <span aria-hidden="true">↗</span></a>
+</div>
+</div>
+<aside aria-label="案例结论" class="ninja-hero-verdict">
+<span>THE DESIGN MOVE</span>
+<strong>一次弹射，<br/>同时考虑组合<br/>与资源代价。</strong>
+<p>速度、击退、技能资源和路线，应该一起影响下一次选择。</p>
+</aside>
+</section>
+<nav aria-label="忍宗の战案例目录" class="ninja-local-nav"><a href="#origin"><span>01</span>设计问题</a><a href="#system"><span>02</span>关键选择</a><a href="#iteration"><span>03</span>推进落地</a><a href="#result"><span>04</span>结果与复盘</a><a href="#ownership"><span>05</span>协作与资料</a></nav>
+<section aria-labelledby="ninja-origin-title" class="ninja-origin" data-block="" id="origin">
+<header class="ninja-section-heading">
+<p><span>01</span> TAKE OVER THE PROTOTYPE</p>
+<h2 id="ninja-origin-title">基础操作成立后，玩家为什么还要做下一次选择？</h2>
+</header>
+<div class="ninja-origin-grid">
+<article class="origin-stage is-program">
+<p>INPUT / PROGRAMMER</p>
+<h3>拖拽、松手、碰撞</h3>
+<p>基础原型提供了瞄准与碰撞反馈。接下来需要解决的，是如何让不同的发射和配置有不同的价值。</p>
+<div aria-hidden="true" class="mini-arena" data-widget=""><i></i><b></b><span>DRAG → RELEASE</span></div>
+</article>
+<div aria-hidden="true" class="origin-handoff"><span>QA</span><i>→</i><span>REWORK</span></div>
+<article class="origin-stage is-mine">
+<p>MY FIRST OWNERSHIP</p>
+<h3>把操作接进战前与战中的取舍</h3>
+<p>我先做原型 QA 并推动返工，再把设计重点放到组合、资源和路线：一次操作的结果，要影响玩家下一步的选择。</p>
+<ul><li>战前：根据角色与已有技能搭配</li><li>战中：在路径、忍术与资源间取舍</li><li>战后：用奖励与路线改变下一战</li></ul>
+</article>
+</div>
+</section>
+<section aria-labelledby="ninja-system-title" class="ninja-system" data-block="" id="system">
+<header class="ninja-section-heading is-dark">
+<p><span>02</span> FROM SHOT TO RUN</p>
+<h2 id="ninja-system-title">我主导的转向：<br/>让一次弹射进入可重复的成长循环。</h2>
+</header>
+<div class="ninja-system-summary">
+<article>
+<p>CORE PIVOT</p>
+<h3>三个角色球 → 单角色＋忍术组合</h3>
+<p>从第一次关键转向开始，玩法结构由我设想，并与程序讨论后确定。通过忍术槽、行动资源和敌我回合，让弹射从操作反馈升级为战前与战中的组合判断。</p>
+</article>
+<article>
+<p>ROGUELIKE LAYER</p>
+<h3>战斗房间 → 一局可成长的路线</h3>
+<p>Roguelike 爬塔、多节点事件、多角色、金币商店、技能 Build、遗物与词缀等系统方向由我设计，再进入共同审阅和实现循环。</p>
+</article>
+</div>
+<div aria-label="忍宗の战核心系统循环" class="ninja-system-map">
+<article><span>01 / AIM</span><strong>拖拽瞄准</strong><small>决定力度与反弹路径</small></article>
+<i aria-hidden="true">→</i>
+<article><span>02 / BUILD</span><strong>选择忍术</strong><small>三个装备槽；单次最多组合两项</small></article>
+<i aria-hidden="true">→</i>
+<article><span>03 / COLLIDE</span><strong>碰撞与 Combo</strong><small>伤害、击退与二次碰撞</small></article>
+<i aria-hidden="true">→</i>
+<article><span>04 / RESOURCE</span><strong>蕾克拉取舍</strong><small>普通攻击恢复，忍术消耗</small></article>
+<i aria-hidden="true">→</i>
+<article><span>05 / RESPONSE</span><strong>敌方回合</strong><small>敌人同样通过弹射发动攻击</small></article>
+<i aria-hidden="true">→</i>
+<article><span>06 / RUN</span><strong>奖励与路线</strong><small>技能、遗物、商店与分支节点</small></article>
+<i aria-hidden="true" class="loop-back">↺</i>
+</div>
+<div class="ninja-rule-drills">
+<details open="">
+<summary><span>DESIGN / 01</span><strong>成长、奖励与地图关系</strong><i aria-hidden="true"></i></summary>
+<div class="ninja-rule-body ninja-growth">
+<header class="ninja-growth-intro">
+<span class="ninja-growth-label">DESIGN QUESTION</span>
+<h3 id="growth-question">这一战的收获，怎样改变下一战的打法？</h3>
+<p>我设计的不是彼此独立的奖励、遗物和地图，而是让战后选择回到弹射战斗：拿到什么、怎样搭配、走向哪里，都要产生下一次决策。</p>
+</header>
+<figure class="ninja-growth-model">
+<figcaption class="ninja-growth-label">SYSTEM MODEL <span>一局内的成长反馈</span></figcaption>
+<ol aria-label="成长与战斗的反馈循环">
+<li><span>01 / RESULT</span><strong>完成战斗</strong><small>形成本次结算</small></li>
+<li><span>02 / CHOOSE</span><strong>奖励取舍</strong><small>结合角色与已有组合</small></li>
+<li><span>03 / BUILD</span><strong>更新配置</strong><small>技能、遗物改变打法</small></li>
+<li><span>04 / ROUTE</span><strong>选择路线</strong><small>沿可达节点继续推进</small></li>
+<li><span>05 / RETURN</span><strong>进入下一战</strong><small>用新的配置面对敌人</small></li>
+</ol>
+<p>↳ 战斗暴露组合的需要，再影响下一次奖励和路线选择。</p>
+</figure>
+<div class="ninja-growth-grid">
+<section aria-labelledby="growth-rules-title" class="ninja-growth-rules">
+<h4 class="ninja-growth-label" id="growth-rules-title">RULE MATRIX <span>对象 → 约束 → 玩家判断</span></h4>
+<dl class="ninja-growth-matrix">
+<div><dt>技能 × 角色</dt><dd>技能类别与角色限制共同约束可用组合。<strong>先判断能否使用，再判断是否适合现有打法。</strong></dd></div>
+<div><dt>遗物 × 弹射</dt><dd>遗物不只增加数值，也会改变速度、撞击与击退表现。<strong>一次强化可能同时改变路径与碰撞收益。</strong></dd></div>
+<div><dt>资源 × 时机</dt><dd>普通攻击恢复蕾克拉，忍术消耗蕾克拉；金币用于商店选择。<strong>战斗内的释放时机，与商店中的购买取舍分开判断。</strong></dd></div>
+<div><dt>节点 × 路线</dt><dd>选择节点后锁定同层其他节点；出口必须指向真正可达的下一节点。<strong>选一条路，也意味着放弃同层其他机会。</strong></dd></div>
+</dl>
+</section>
+<aside aria-labelledby="growth-example-title" class="ninja-growth-example">
+<span class="ninja-growth-label">BUILD EXAMPLE / 图鉴中的实际规则</span>
+<h4 id="growth-example-title">断刀：更快的发射，<br/>更弱的击退。</h4>
+<div class="ninja-growth-tradeoff"><span>发射速度 ↑</span><span>撞击 / 击退力度 ↓</span></div>
+<p>这让遗物选择不只是“哪个数值更大”：我的组合更需要速度，还是需要把敌人推到下一次碰撞的位置？</p>
+<!-- ASSET_SLOT:ninja-rule-progression — authentic route and relic captures; no generated gameplay. -->
+<figure class="ninja-rule-media ninja-rule-media--runtime ninja-growth-captures" data-asset-slot="ninja-rule-progression">
+<div class="ninja-runtime-grid">
+<a aria-label="打开爬塔地图实际运行截图原图" class="ninja-runtime-shot" href="/assets/ninja-war/ninja-map-runtime.webp" rel="noopener noreferrer" target="_blank"><img alt="《忍宗の战》十八层爬塔路线实际运行画面" loading="lazy" src="/assets/ninja-war/ninja-map-runtime.webp"/><span>路线图 ↗</span></a>
+<a aria-label="打开遗物图鉴实际运行截图原图" class="ninja-runtime-shot" href="/assets/ninja-war/ninja-relic-gallery-runtime.webp" rel="noopener noreferrer" target="_blank"><img alt="《忍宗の战》遗物图鉴，断刀提高初始发射速度并降低撞击与击退力度" loading="lazy" src="/assets/ninja-war/ninja-relic-gallery-runtime.webp"/><span>遗物图鉴 ↗</span></a>
+</div>
+<figcaption><small>实际运行截图 · 点击查看原图</small></figcaption>
+</figure>
+</aside>
+</div>
+<div class="ninja-growth-notes">
+<section aria-labelledby="growth-qa-title" class="ninja-growth-qa">
+<span class="ninja-growth-label">DESIGN CHECK / 规则检查情境</span>
+<h4 id="growth-qa-title">一次胜利，不能变成多次收益。</h4>
+<p>检查路径：胜利 → 领奖 → 打开背包 → 返回。</p>
+<p><strong>应保持：</strong>已领取奖励仍为已领取；返回不能再次发奖，也不能解除已选路线对同层节点的锁定。</p>
+<p class="ninja-growth-risk">若返回就能重领，成长来自重复操作，而非战斗与选择，路线的取舍也会失效。</p>
+</section>
+<section aria-labelledby="growth-decision-title" class="ninja-growth-decision">
+<span class="ninja-growth-label">MY DECISION</span>
+<h4 id="growth-decision-title">把成长入口，连同退出条件一起定义。</h4>
+<p>我主导技能分类、角色限制、奖励、商店、遗物与路线约束；程序反馈 QA 问题，我修改规则，并与程序和 ChatGPT 商讨边界后继续迭代。</p>
+<p><strong>设计取舍：</strong>更多成长入口带来更多组合，也增加了结算与返回时需要保持一致的状态；收益、领取状态和路线进度必须一起考虑。</p>
+</section>
+</div>
+</div>
+</details>
+<details>
+<summary><span>DESIGN / 02</span><strong>碰撞、回合与状态边界</strong><i aria-hidden="true"></i></summary>
+<div class="ninja-rule-body ninja-growth ninja-combat">
+<header class="ninja-growth-intro">
+<span class="ninja-growth-label">DESIGN QUESTION</span>
+<h3 id="combat-question">一次碰撞之后，谁受影响，什么时候轮到下一步？</h3>
+<p>弹射加入忍术后，命中不再只意味着扣血。我把目标、资源、穿透、击退和限时状态拆开定义，让连续碰撞可以形成组合，又不把回合卡在中途。</p>
+</header>
+<figure class="ninja-growth-model">
+<figcaption class="ninja-growth-label">SYSTEM MODEL <span>从行动选择到回合收尾</span></figcaption>
+<ol aria-label="弹射战斗的规则链">
+<li><span>01 / PREPARE</span><strong>准备行动</strong><small>忍术条件与资源检查</small></li>
+<li><span>02 / LAUNCH</span><strong>拖拽发射</strong><small>确定力度与初始路径</small></li>
+<li><span>03 / CONTACT</span><strong>判定接触</strong><small>区分对象与技能状态</small></li>
+<li><span>04 / RESOLVE</span><strong>处理后续</strong><small>效果、二次碰撞与敌方行动</small></li>
+<li><span>05 / FINISH</span><strong>回合收尾</strong><small>处理到期状态，交还操作</small></li>
+</ol>
+<p>↳ 既要定义“触发什么”，也要定义“何时结束”；效果没有收尾，下一次选择就失去基础。</p>
+</figure>
+<div class="ninja-growth-grid">
+<section aria-labelledby="combat-rules-title" class="ninja-growth-rules">
+<h4 class="ninja-growth-label" id="combat-rules-title">RULE MATRIX <span>触发 → 约束 → 收尾</span></h4>
+<dl class="ninja-growth-matrix">
+<div><dt>忍术准备</dt><dd>选择技能时检查使用条件与资源；未满足条件，不能当作已生效。<strong>把“选中”与“实际触发”分开，避免无效选择改变战斗。</strong></dd></div>
+<div><dt>接触对象</dt><dd>撞墙、命中敌人、敌人之间的碰撞需要分别判断，不能套用同一种伤害。<strong>可形成连击，不等于允许错误的友军伤害。</strong></dd></div>
+<div><dt>特殊状态</dt><dd>穿透、击退与重新索敌会改变后续接触的含义；状态退出后应恢复对应判定。<strong>既考虑第一次命中，也考虑撞墙和二次碰撞。</strong></dd></div>
+<div><dt>回合结束</dt><dd>限时效果到期后结束；行动完成或无法执行，都要能进入后续流程。<strong>不能只在“正常命中”这一条路径上交还操作权。</strong></dd></div>
+</dl>
+</section>
+<aside aria-labelledby="combat-example-title" class="ninja-growth-example">
+<span class="ninja-growth-label">SKILL EXAMPLE / 技能库中的实际规则</span>
+<h4 id="combat-example-title">“握握手，握握双手”<br/>把命中变成一段状态。</h4>
+<div aria-label="抱起技能状态" class="ninja-rule-state-chain"><span>首次命中</span><b aria-hidden="true">→</b><span>抱起并带动</span><b aria-hidden="true">→</b><span>结束抱摔</span></div>
+<p>图鉴描述了首次命中后的抱起、继续瞄准、时间结束后的抱摔，以及范围伤害和眩晕。设计对象因此从一次伤害，变成进入、持续、退出都有条件的动作。</p>
+<!-- ASSET_SLOT:ninja-rule-collision — real skill text, not proof of live collision correctness. -->
+<figure class="ninja-rule-media ninja-rule-media--runtime ninja-rule-media--single ninja-growth-captures ninja-combat-capture" data-asset-slot="ninja-rule-collision">
+<div class="ninja-runtime-grid"><a aria-label="打开技能库实际运行截图原图" class="ninja-runtime-shot" href="/assets/ninja-war/ninja-skill-library-runtime.webp" rel="noopener noreferrer" target="_blank"><img alt="《忍宗の战》技能库，抱起、抱摔、范围伤害和眩晕的条件说明" loading="lazy" src="/assets/ninja-war/ninja-skill-library-runtime.webp"/><span>技能状态说明 ↗</span></a></div>
+<figcaption><small>实际运行截图 · 点击查看完整技能说明</small></figcaption>
+</figure>
+</aside>
+</div>
+<div class="ninja-growth-notes">
+<section aria-labelledby="combat-qa-title" class="ninja-growth-qa">
+<span class="ninja-growth-label">DESIGN CHECK / 规则检查情境</span>
+<h4 id="combat-qa-title">没有打中，也必须结束行动。</h4>
+<p><strong>异常条件：</strong>敌人没有可用攻击路径。如果只在命中后结束行动，回合可能一直等待。</p>
+<p><strong>规则要求：</strong>重选目标或跳过本次行动；两条分支都要释放行动占用，进入后续流程。</p>
+<p><strong>验收重点：</strong>目标不可达、路径失效与正常完成，都必须有结束出口；不能让一次行动阻塞整个回合。</p>
+</section>
+<section aria-labelledby="combat-decision-title" class="ninja-growth-decision">
+<span class="ninja-growth-label">MY DECISION</span>
+<h4 id="combat-decision-title">把“技能有效果”推进到“规则能闭合”。</h4>
+<p>我主导资源、触发对象、状态与例外规则的拆解，根据程序的 QA 反馈修改边界，再共同讨论并验证。</p>
+<p><strong>设计取舍：</strong>穿透、击退和连击带来组合空间，也扩大异常分支；增加一种效果，就要同时考虑它的冲突与结束条件。</p>
+</section>
+</div>
+</div>
+</details>
+<details>
+<summary><span>DESIGN / 03</span><strong>界面状态与返回路径</strong><i aria-hidden="true"></i></summary>
+<div class="ninja-rule-body ninja-growth ninja-navigation">
+<header class="ninja-growth-intro">
+<span class="ninja-growth-label">DESIGN QUESTION</span>
+<h3 id="navigation-question">离开一个界面后，玩家能回到原来的那一步吗？</h3>
+<p>暂停、设置、背包不应只是能打开的页面。它们需要记住玩家从哪里进入、哪些状态仍然保留，以及什么时候才真正恢复战斗或继续推进。</p>
+</header>
+<figure class="ninja-growth-model">
+<figcaption class="ninja-growth-label">SYSTEM MODEL <span>暂停与恢复的状态链</span></figcaption>
+<ol aria-label="暂停设置与恢复战斗的返回链">
+<li><span>01 / PLAY</span><strong>战斗中</strong><small>保留当前战斗上下文</small></li>
+<li><span>02 / PAUSE</span><strong>打开暂停</strong><small>菜单覆盖，战斗不推进</small></li>
+<li><span>03 / SETTINGS</span><strong>进入设置</strong><small>记住来自暂停界面</small></li>
+<li><span>04 / RETURN</span><strong>返回暂停</strong><small>不越级回到地图</small></li>
+<li><span>05 / RESUME</span><strong>继续战斗</strong><small>明确恢复，不重新开局</small></li>
+</ol>
+<p>另一条检查路径：战斗胜利 → 奖励 → 背包 / 配置 → 返回原领取流程；保留领取与路线状态。</p>
+</figure>
+<div class="ninja-growth-grid">
+<section aria-labelledby="navigation-rules-title" class="ninja-growth-rules">
+<h4 class="ninja-growth-label" id="navigation-rules-title">RULE MATRIX <span>入口 → 保留状态 → 返回目标</span></h4>
+<dl class="ninja-growth-matrix">
+<div><dt>暂停 × 战斗</dt><dd>打开覆盖层时保留战斗并停止推进；进入设置不意味着已经恢复战斗。<strong>关闭次级页面与“继续游戏”是不同动作。</strong></dd></div>
+<div><dt>设置 × 来源</dt><dd>设置页可以由不同入口打开，返回目标应跟随来源，不能固定指向地图或标题。<strong>复用页面，不能丢掉玩家进入它之前的上下文。</strong></dd></div>
+<div><dt>背包 × 奖励</dt><dd>从奖励进入背包后，返回需要接回原流程；配置变化与领取状态分别保留。<strong>离开领奖界面，不等于重新开始一次结算。</strong></dd></div>
+<div><dt>触控 × 确认</dt><dd>手机没有 ESC，需要可见的暂停入口；小屏奖励卡采用安全区内的单卡聚焦交互。<strong>滑动查看与确认选择分开，避免误领或看不到按钮。</strong></dd></div>
+</dl>
+</section>
+<aside aria-labelledby="navigation-example-title" class="ninja-growth-example">
+<span class="ninja-growth-label">RETURN CONTRACT / 相同页面，不同来路</span>
+<h4 id="navigation-example-title">“返回”应当接回玩家，<br/>而不只是关掉窗口。</h4>
+<dl class="ninja-return-map" data-widget="">
+<div><dt>从标题进入设置</dt><dd>设置 → 标题</dd></div>
+<div><dt>从暂停进入设置</dt><dd>设置 → 暂停 → 继续游戏</dd></div>
+</dl>
+<p>暂停返回链更长，但保留了明确的恢复入口；少一次点击，不应以意外恢复战斗为代价。</p>
+<!-- ASSET_SLOT:ninja-rule-ui-flow — real pause and title screens; return contract is a design explanation. -->
+<figure class="ninja-rule-media ninja-rule-media--runtime ninja-growth-captures ninja-navigation-captures" data-asset-slot="ninja-rule-ui-flow">
+<div class="ninja-runtime-grid">
+<a aria-label="打开暂停界面实际运行截图原图" class="ninja-runtime-shot" href="/assets/ninja-war/ninja-pause-runtime.webp" rel="noopener noreferrer" target="_blank"><img alt="《忍宗の战》手机端暂停界面，包含返回游戏、设置、收藏馆与返回标题" loading="lazy" src="/assets/ninja-war/ninja-pause-runtime.webp"/><span>暂停界面 ↗</span></a>
+<a aria-label="打开主菜单实际运行截图原图" class="ninja-runtime-shot" href="/assets/ninja-war/ninja-menu-runtime.webp" rel="noopener noreferrer" target="_blank"><img alt="《忍宗の战》手机端主菜单，包含开始游戏与游戏设置入口" loading="lazy" src="/assets/ninja-war/ninja-menu-runtime.webp"/><span>主菜单 ↗</span></a>
+</div>
+<figcaption><small>实际运行截图 · 点击查看界面原图</small></figcaption>
+</figure>
+</aside>
+</div>
+<div class="ninja-growth-notes">
+<section aria-labelledby="navigation-qa-title" class="ninja-growth-qa">
+<span class="ninja-growth-label">DESIGN CHECK / 规则检查情境</span>
+<h4 id="navigation-qa-title">返回时，接回原来的那一步。</h4>
+<p>重点检查：暂停进入设置后能否返回暂停；奖励进入背包后能否接回领取流程；手机战斗中能否找到暂停入口。</p>
+<p><strong>验收边界：</strong>不越级跳页，不在菜单中偷偷推进战斗；轮播手势不触发确认，小屏不裁掉关键按钮。</p>
+</section>
+<section aria-labelledby="navigation-decision-title" class="ninja-growth-decision">
+<span class="ninja-growth-label">MY DECISION</span>
+<h4 id="navigation-decision-title">先定义流程，再一起补全状态。</h4>
+<p>这部分由我和程序共同完成：我给出界面与流程大纲，程序追问实现边界，双方补齐返回路径、暂停与移动端交互。</p>
+<p><strong>设计取舍：</strong>复用设置、背包等页面可以减少重复界面，但需要保留来源和当前进度；方便开发不能替代正确的玩家路径。</p>
+</section>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section aria-labelledby="ninja-iteration-title" class="ninja-iteration" data-block="" id="iteration">
+<header class="ninja-section-heading">
+<p><span>03</span> HUMAN × AI ITERATION</p>
+<h2 id="ninja-iteration-title">我把规则变成具体任务，跟着运行反馈继续修改。</h2>
+</header>
+<ol aria-label="人机协作与 QA 迭代流程" class="ninja-pipeline"><li><span>01</span><strong>定义选择与状态</strong><p>写清触发对象、资源消耗、效果冲突和结束条件。</p></li><li><span>02</span><strong>与程序对齐任务</strong><p>讨论可行性，把问题转成可执行的修改要求。</p></li><li><span>03</span><strong>推进实现</strong><p>协商范围，决定优先级，再由工具执行代码与构建。</p></li><li><span>04</span><strong>带着反馈返工</strong><p>从运行报错、手机操作和现场表现回到规则修改。</p></li></ol>
+<div class="ninja-qa-board">
+<article><span>LOGIC</span><h3>为特殊效果补齐收尾</h3><p>穿透、敌方行动与地图连通涉及不同状态；我根据 QA 反馈继续拆解触发、冲突与退出条件。</p></article>
+<article><span>RUNTIME</span><h3>处理运行时限制</h3><p>数组越界、nil 错误与 Lua 局部变量上限持续占用返工时间，系统扩张也提高了实现成本。</p></article>
+<article><span>MOBILE</span><h3>把操作放到手机上</h3><p>继续修正横竖屏、角色尺寸、暂停入口与旧二维码 manifest 失效问题。</p></article>
+<article><span>VISUAL</span><h3>视觉反馈没有追上系统扩张</h3><p>现场玩家对特效爽快感有明确期待；工期和技术限制下，活动版本没有充分补齐这部分体验。</p></article>
+</div>
+<div class="audio-workbench">
+<div>
+<p>AUDIO WORKBENCH</p>
+<h3>让声音对应玩家动作。</h3>
+<p>角色与技能配音由我和程序两人真人实录；碰撞音效由我采样。我根据角色选择、技能点击、弹珠碰撞和撞墙等行为定义触发位置，并完成最终听感验收。</p>
+</div>
+</div>
+</section>
+<section aria-labelledby="ninja-result-title" class="ninja-result" data-block="" id="result">
+<header class="ninja-section-heading">
+<p><span>04</span> RESULT / RETROSPECTIVE</p>
+<h2 id="ninja-result-title">48 小时交出试玩，也留下了范围失控的代价。</h2>
+</header>
+<div class="ninja-result-grid">
+<article class="result-signal">
+<span>PUBLIC RESULT</span>
+<strong>48H<br/>可试玩</strong>
+<p>《忍宗の战》最终进入 TapTap 公开试玩。从基础弹射到技能、资源和路线，团队完成了活动版本的交付。</p>
+<a href="https://www.taptap.cn/app/888530" rel="noopener noreferrer" target="_blank">打开《忍宗の战》试玩页 <span aria-hidden="true">↗</span></a>
+</article>
+<article class="result-copy is-warning">
+<p>WHAT REMAINS</p>
+<h3>范围增长速度超过了验证速度。</h3>
+<p>三章地图、多角色、技能、遗物、词缀、商店与评分系统在 48 小时内快速叠加，带来状态复杂度、单文件局部变量上限和反复返工。活动版本同时没有充分补齐玩家期待的爽快视觉反馈。</p>
+<blockquote>复盘建议：核心循环成立后冻结主系统，用剩余时间强化一个角色、一章内容、少量可组合技能的手感与稳定性。</blockquote>
+</article>
+<article class="result-copy">
+<p>TAKEAWAY / 可迁移的方法</p>
+<h3>新增一个效果，同时定义它何时结束。</h3>
+<ul><li><strong>拆规则：</strong>把玩家选择写成条件、状态变化与收尾。</li><li><strong>控范围：</strong>核心循环成立后冻结主系统，为手感和稳定性留时间。</li><li><strong>推交付：</strong>把程序与真机反馈转成下一项明确修改。</li></ul>
+</article>
+</div>
+</section>
+<section aria-labelledby="ninja-ownership-title" class="ninja-ownership" data-block="" id="ownership">
+<header class="ninja-section-heading is-dark">
+<p><span>05</span> CONTRIBUTION &amp; EVIDENCE</p>
+<h2 id="ninja-ownership-title">协作分工与补充材料</h2>
+</header>
+<details class="case-support"><summary>展开详细职责、AI 协作与材料说明</summary><div class="case-support-body"><div class="ownership-matrix">
+<article class="is-mine">
+<p>MY OWNERSHIP</p>
+<h3>本人主导</h3>
+<ul>
+<li>基础原型 QA 与第一次返工</li>
+<li>关键转向后的玩法与系统设计</li>
+<li>规则、状态、触发与例外条件拆解</li>
+<li>根据 QA 反馈修改边界并推动下一轮</li>
+<li>Prompt 审阅与最终拍板</li>
+<li>音效采样、音频触发与最终听感验收</li>
+</ul>
+</article>
+<article class="is-joint">
+<p>JOINT DECISIONS</p>
+<h3>我与程序共同完成</h3>
+<ul>
+<li>玩法方向的讨论与可行性判断</li>
+<li>界面流大纲、追问与状态补全</li>
+<li>Codex 生成 Prompt 的共同审阅</li>
+<li>预览、真机与运行问题的交叉 QA</li>
+<li>角色与技能配音真人实录</li>
+</ul>
+</article>
+<article class="is-program">
+<p>PROGRAMMER / TOOL SIDE</p>
+<h3>程序成员与 AI 工具</h3>
+<ul>
+<li>程序成员提出并提供基础弹射原型</li>
+<li>程序成员反馈实现问题并辅助 QA</li>
+<li>AI 工具将确认方案整理成执行需求</li>
+<li>TapMaker 执行代码修改、构建与发布流程</li>
+</ul>
+</article>
+</div>
+<ol aria-label="人机协作与 QA 迭代流程" class="ninja-pipeline">
+<li><span>01</span><strong>我提出系统与玩法</strong><p>形成规则目标、功能边界和修改方向。</p></li>
+<li><span>02</span><strong>与程序讨论</strong><p>评估可行性、暴露实现问题，双方形成共同认可的方案。</p></li>
+<li><span>03</span><strong>工具整理执行需求</strong><p>把已确认方案整理成包含条件、例外与返回行为的执行说明。</p></li>
+<li><span>04</span><strong>共同审阅，我最终拍板</strong><p>我和程序检查 Prompt 是否忠于设计，由我决定是否交给 TapMaker。</p></li>
+<li><span>05</span><strong>TapMaker 执行</strong><p>AI 工具依据审阅后的需求修改代码并构建，程序协助检查实现问题。</p></li>
+<li><span>06</span><strong>QA → 反馈 → 再迭代</strong><p>程序反馈问题，我修改规则并再次协商边界，回到下一轮实现和 QA。</p></li>
+</ol>
+<dl>
+<div><dt>VOICE</dt><dd>两人真人录制角色与技能台词</dd></div>
+<div><dt>SFX</dt><dd>本人采样碰撞音效，并设置至少 0.1 秒触发间隔</dd></div>
+<div><dt>MIX</dt><dd>末轮将 BGM 调至原音量 80%，音效与配音调至 120%</dd></div>
+</dl>
+<p>基础弹射原型由程序成员提供；我从 QA、返工与后续系统设计进入项目。方案与程序共同讨论，AI 工具负责代码与构建执行。</p><p>页面图片是技能库、遗物、路线和暂停等运行画面。规则检查情境用于解释设计要求；完整战斗衔接、奖励返回链与平衡仍需连续试玩复测。</p></div></details></section>
+<section aria-label="试玩《忍宗の战》" class="ninja-try-cta" data-block="">
+<span aria-hidden="true" class="ninja-try-scribble" data-hidden-art="">DRAG!　RELEASE!　BONK!</span>
+<div>
+<p>READING COMPLETE / PLAYABLE DEMO</p>
+<h2>要不，<mark>试一把？</mark></h2>
+<small>从案例拆解回到真正的拖拽、碰撞和忍术组合。</small>
+</div>
+<i aria-hidden="true" class="ninja-try-arrow" data-hidden-art="">↘</i>
+<a href="https://www.taptap.cn/app/888530" rel="noopener noreferrer" target="_blank">
+<span>PLAY ON TAPTAP</span>
+<strong>打开《忍宗の战》试玩页</strong>
+<b aria-hidden="true">↗</b>
+</a>
+</section>
+<nav aria-label="继续浏览" class="next-module">
+<div><span>NEXT CASE</span><strong>继续查看同一场 48H 中的原型转向</strong></div>
+<a href="./riff-bounce.html">进入 Riff Bounce <span aria-hidden="true">→</span></a>
+</nav>
+</div></main>
 
-        <div class="ninja-system-summary">
-          <article>
-            <p>CORE PIVOT</p>
-            <h3>三个角色球 → 单角色＋忍术组合</h3>
-            <p>从第一次关键转向开始，玩法结构由我设想，并与程序讨论后确定。通过忍术槽、行动资源和敌我回合，让弹射从操作反馈升级为战前与战中的组合判断。</p>
-          </article>
-          <article>
-            <p>ROGUELIKE LAYER</p>
-            <h3>战斗房间 → 一局可成长的路线</h3>
-            <p>Roguelike 爬塔、多节点事件、多角色、金币商店、技能 Build、遗物与词缀等系统方向由我设计，再进入共同审阅和实现循环。</p>
-          </article>
-        </div>
-
-        <div class="ninja-system-map" aria-label="忍宗の战核心系统循环">
-          <article><span>01 / AIM</span><strong>拖拽瞄准</strong><small>决定力度与反弹路径</small></article>
-          <i aria-hidden="true">→</i>
-          <article><span>02 / BUILD</span><strong>选择忍术</strong><small>三个装备槽；单次最多组合两项</small></article>
-          <i aria-hidden="true">→</i>
-          <article><span>03 / COLLIDE</span><strong>碰撞与 Combo</strong><small>伤害、击退与二次碰撞</small></article>
-          <i aria-hidden="true">→</i>
-          <article><span>04 / RESOURCE</span><strong>蕾克拉取舍</strong><small>普通攻击恢复，忍术消耗</small></article>
-          <i aria-hidden="true">→</i>
-          <article><span>05 / RESPONSE</span><strong>敌方回合</strong><small>敌人同样通过弹射发动攻击</small></article>
-          <i aria-hidden="true">→</i>
-          <article><span>06 / RUN</span><strong>奖励与路线</strong><small>技能、遗物、商店与分支节点</small></article>
-          <i class="loop-back" aria-hidden="true">↺</i>
-        </div>
-
-        <div class="ninja-rule-drills">
-          <details open="">
-            <summary><span>DESIGN / 01</span><strong>成长、奖励与地图关系</strong><i aria-hidden="true"></i></summary>
-            <div class="ninja-rule-body ninja-growth">
-              <header class="ninja-growth-intro">
-                <span class="ninja-growth-label">DESIGN QUESTION</span>
-                <h3 id="growth-question">这一战的收获，怎样改变下一战的打法？</h3>
-                <p>我设计的不是彼此独立的奖励、遗物和地图，而是让战后选择回到弹射战斗：拿到什么、怎样搭配、走向哪里，都要产生下一次决策。</p>
-              </header>
-
-              <figure class="ninja-growth-model">
-                <figcaption class="ninja-growth-label">SYSTEM MODEL <span>一局内的成长反馈</span></figcaption>
-                <ol aria-label="成长与战斗的反馈循环">
-                  <li><span>01 / RESULT</span><strong>完成战斗</strong><small>形成本次结算</small></li>
-                  <li><span>02 / CHOOSE</span><strong>奖励取舍</strong><small>结合角色与已有组合</small></li>
-                  <li><span>03 / BUILD</span><strong>更新配置</strong><small>技能、遗物改变打法</small></li>
-                  <li><span>04 / ROUTE</span><strong>选择路线</strong><small>沿可达节点继续推进</small></li>
-                  <li><span>05 / RETURN</span><strong>进入下一战</strong><small>用新的配置面对敌人</small></li>
-                </ol>
-                <p>↳ 战斗暴露组合的需要，再影响下一次奖励和路线选择。</p>
-              </figure>
-
-              <div class="ninja-growth-grid">
-                <section class="ninja-growth-rules" aria-labelledby="growth-rules-title">
-                  <h4 class="ninja-growth-label" id="growth-rules-title">RULE MATRIX <span>对象 → 约束 → 玩家判断</span></h4>
-                  <dl class="ninja-growth-matrix">
-                    <div><dt>技能 × 角色</dt><dd>技能类别与角色限制共同约束可用组合。<strong>先判断能否使用，再判断是否适合现有打法。</strong></dd></div>
-                    <div><dt>遗物 × 弹射</dt><dd>遗物不只增加数值，也会改变速度、撞击与击退表现。<strong>一次强化可能同时改变路径与碰撞收益。</strong></dd></div>
-                    <div><dt>资源 × 时机</dt><dd>普通攻击恢复蕾克拉，忍术消耗蕾克拉；金币用于商店选择。<strong>战斗内的释放时机，与商店中的购买取舍分开判断。</strong></dd></div>
-                    <div><dt>节点 × 路线</dt><dd>选择节点后锁定同层其他节点；出口必须指向真正可达的下一节点。<strong>选一条路，也意味着放弃同层其他机会。</strong></dd></div>
-                  </dl>
-                </section>
-
-                <aside class="ninja-growth-example" aria-labelledby="growth-example-title">
-                  <span class="ninja-growth-label">BUILD EXAMPLE / 图鉴中的实际规则</span>
-                  <h4 id="growth-example-title">断刀：更快的发射，<br>更弱的击退。</h4>
-                  <div class="ninja-growth-tradeoff"><span>发射速度 ↑</span><span>撞击 / 击退力度 ↓</span></div>
-                  <p>这让遗物选择不只是“哪个数值更大”：我的组合更需要速度，还是需要把敌人推到下一次碰撞的位置？</p>
-                  <!-- ASSET_SLOT:ninja-rule-progression — authentic route and relic captures; no generated gameplay. -->
-                  <figure class="ninja-rule-media ninja-rule-media--runtime ninja-growth-captures" data-asset-slot="ninja-rule-progression">
-                    <div class="ninja-runtime-grid">
-                      <a class="ninja-runtime-shot" href="/assets/ninja-war/ninja-map-runtime.webp" target="_blank" rel="noopener noreferrer" aria-label="打开爬塔地图实际运行截图原图"><img src="/assets/ninja-war/ninja-map-runtime.webp" alt="《忍宗の战》十八层爬塔路线实际运行画面" loading="lazy"><span>路线图 ↗</span></a>
-                      <a class="ninja-runtime-shot" href="/assets/ninja-war/ninja-relic-gallery-runtime.webp" target="_blank" rel="noopener noreferrer" aria-label="打开遗物图鉴实际运行截图原图"><img src="/assets/ninja-war/ninja-relic-gallery-runtime.webp" alt="《忍宗の战》遗物图鉴，断刀提高初始发射速度并降低撞击与击退力度" loading="lazy"><span>遗物图鉴 ↗</span></a>
-                    </div>
-                    <figcaption><small>实际运行截图 · 点击查看原图</small></figcaption>
-                  </figure>
-                </aside>
-              </div>
-
-              <div class="ninja-growth-notes">
-                <section class="ninja-growth-qa" aria-labelledby="growth-qa-title">
-                  <span class="ninja-growth-label">DESIGN CHECK / 规则检查情境</span>
-                  <h4 id="growth-qa-title">一次胜利，不能变成多次收益。</h4>
-                  <p>检查路径：胜利 → 领奖 → 打开背包 → 返回。</p>
-                  <p><strong>应保持：</strong>已领取奖励仍为已领取；返回不能再次发奖，也不能解除已选路线对同层节点的锁定。</p>
-                  <p class="ninja-growth-risk">若返回就能重领，成长来自重复操作，而非战斗与选择，路线的取舍也会失效。</p>
-                </section>
-                <section class="ninja-growth-decision" aria-labelledby="growth-decision-title">
-                  <span class="ninja-growth-label">MY DECISION</span>
-                  <h4 id="growth-decision-title">把成长入口，连同退出条件一起定义。</h4>
-                  <p>我主导技能分类、角色限制、奖励、商店、遗物与路线约束；程序反馈 QA 问题，我修改规则，并与程序和 ChatGPT 商讨边界后继续迭代。</p>
-                  <p><strong>设计取舍：</strong>更多成长入口带来更多组合，也增加了结算与返回时需要保持一致的状态；收益、领取状态和路线进度必须一起考虑。</p>
-                </section>
-              </div>
-              </div>
-          </details>
-          <details>
-            <summary><span>DESIGN / 02</span><strong>碰撞、回合与状态边界</strong><i aria-hidden="true"></i></summary>
-            <div class="ninja-rule-body ninja-growth ninja-combat">
-              <header class="ninja-growth-intro">
-                <span class="ninja-growth-label">DESIGN QUESTION</span>
-                <h3 id="combat-question">一次碰撞之后，谁受影响，什么时候轮到下一步？</h3>
-                <p>弹射加入忍术后，命中不再只意味着扣血。我把目标、资源、穿透、击退和限时状态拆开定义，让连续碰撞可以形成组合，又不把回合卡在中途。</p>
-              </header>
-              <figure class="ninja-growth-model">
-                <figcaption class="ninja-growth-label">SYSTEM MODEL <span>从行动选择到回合收尾</span></figcaption>
-                <ol aria-label="弹射战斗的规则链">
-                  <li><span>01 / PREPARE</span><strong>准备行动</strong><small>忍术条件与资源检查</small></li>
-                  <li><span>02 / LAUNCH</span><strong>拖拽发射</strong><small>确定力度与初始路径</small></li>
-                  <li><span>03 / CONTACT</span><strong>判定接触</strong><small>区分对象与技能状态</small></li>
-                  <li><span>04 / RESOLVE</span><strong>处理后续</strong><small>效果、二次碰撞与敌方行动</small></li>
-                  <li><span>05 / FINISH</span><strong>回合收尾</strong><small>处理到期状态，交还操作</small></li>
-                </ol>
-                <p>↳ 既要定义“触发什么”，也要定义“何时结束”；效果没有收尾，下一次选择就失去基础。</p>
-              </figure>
-              <div class="ninja-growth-grid">
-                <section class="ninja-growth-rules" aria-labelledby="combat-rules-title">
-                  <h4 class="ninja-growth-label" id="combat-rules-title">RULE MATRIX <span>触发 → 约束 → 收尾</span></h4>
-                  <dl class="ninja-growth-matrix">
-                    <div><dt>忍术准备</dt><dd>选择技能时检查使用条件与资源；未满足条件，不能当作已生效。<strong>把“选中”与“实际触发”分开，避免无效选择改变战斗。</strong></dd></div>
-                    <div><dt>接触对象</dt><dd>撞墙、命中敌人、敌人之间的碰撞需要分别判断，不能套用同一种伤害。<strong>可形成连击，不等于允许错误的友军伤害。</strong></dd></div>
-                    <div><dt>特殊状态</dt><dd>穿透、击退与重新索敌会改变后续接触的含义；状态退出后应恢复对应判定。<strong>既考虑第一次命中，也考虑撞墙和二次碰撞。</strong></dd></div>
-                    <div><dt>回合结束</dt><dd>限时效果到期后结束；行动完成或无法执行，都要能进入后续流程。<strong>不能只在“正常命中”这一条路径上交还操作权。</strong></dd></div>
-                  </dl>
-                </section>
-                <aside class="ninja-growth-example" aria-labelledby="combat-example-title">
-                  <span class="ninja-growth-label">SKILL EXAMPLE / 技能库中的实际规则</span>
-                  <h4 id="combat-example-title">“握握手，握握双手”<br>把命中变成一段状态。</h4>
-                  <div class="ninja-rule-state-chain" aria-label="抱起技能状态"><span>首次命中</span><b aria-hidden="true">→</b><span>抱起并带动</span><b aria-hidden="true">→</b><span>结束抱摔</span></div>
-                  <p>图鉴描述了首次命中后的抱起、继续瞄准、时间结束后的抱摔，以及范围伤害和眩晕。设计对象因此从一次伤害，变成进入、持续、退出都有条件的动作。</p>
-                  <!-- ASSET_SLOT:ninja-rule-collision — real skill text, not proof of live collision correctness. -->
-                  <figure class="ninja-rule-media ninja-rule-media--runtime ninja-rule-media--single ninja-growth-captures ninja-combat-capture" data-asset-slot="ninja-rule-collision">
-                    <div class="ninja-runtime-grid"><a class="ninja-runtime-shot" href="/assets/ninja-war/ninja-skill-library-runtime.webp" target="_blank" rel="noopener noreferrer" aria-label="打开技能库实际运行截图原图"><img src="/assets/ninja-war/ninja-skill-library-runtime.webp" alt="《忍宗の战》技能库，抱起、抱摔、范围伤害和眩晕的条件说明" loading="lazy"><span>技能状态说明 ↗</span></a></div>
-                    <figcaption><small>实际运行截图 · 点击查看完整技能说明</small></figcaption>
-                  </figure>
-                </aside>
-              </div>
-              <div class="ninja-growth-notes">
-                <section class="ninja-growth-qa" aria-labelledby="combat-qa-title">
-                  <span class="ninja-growth-label">DESIGN CHECK / 规则检查情境</span>
-                  <h4 id="combat-qa-title">没有打中，也必须结束行动。</h4>
-                  <p><strong>异常条件：</strong>敌人没有可用攻击路径。如果只在命中后结束行动，回合可能一直等待。</p>
-                  <p><strong>规则要求：</strong>重选目标或跳过本次行动；两条分支都要释放行动占用，进入后续流程。</p>
-                  <p><strong>验收重点：</strong>目标不可达、路径失效与正常完成，都必须有结束出口；不能让一次行动阻塞整个回合。</p>
-                  </section>
-                <section class="ninja-growth-decision" aria-labelledby="combat-decision-title">
-                  <span class="ninja-growth-label">MY DECISION</span>
-                  <h4 id="combat-decision-title">把“技能有效果”推进到“规则能闭合”。</h4>
-                  <p>我主导资源、触发对象、状态与例外规则的拆解，根据程序的 QA 反馈修改边界，再共同讨论并验证。</p>
-                  <p><strong>设计取舍：</strong>穿透、击退和连击带来组合空间，也扩大异常分支；增加一种效果，就要同时考虑它的冲突与结束条件。</p>
-                </section>
-              </div>
-              </div>
-          </details>
-          <details>
-            <summary><span>DESIGN / 03</span><strong>界面状态与返回路径</strong><i aria-hidden="true"></i></summary>
-            <div class="ninja-rule-body ninja-growth ninja-navigation">
-              <header class="ninja-growth-intro">
-                <span class="ninja-growth-label">DESIGN QUESTION</span>
-                <h3 id="navigation-question">离开一个界面后，玩家能回到原来的那一步吗？</h3>
-                <p>暂停、设置、背包不应只是能打开的页面。它们需要记住玩家从哪里进入、哪些状态仍然保留，以及什么时候才真正恢复战斗或继续推进。</p>
-              </header>
-              <figure class="ninja-growth-model">
-                <figcaption class="ninja-growth-label">SYSTEM MODEL <span>暂停与恢复的状态链</span></figcaption>
-                <ol aria-label="暂停设置与恢复战斗的返回链">
-                  <li><span>01 / PLAY</span><strong>战斗中</strong><small>保留当前战斗上下文</small></li>
-                  <li><span>02 / PAUSE</span><strong>打开暂停</strong><small>菜单覆盖，战斗不推进</small></li>
-                  <li><span>03 / SETTINGS</span><strong>进入设置</strong><small>记住来自暂停界面</small></li>
-                  <li><span>04 / RETURN</span><strong>返回暂停</strong><small>不越级回到地图</small></li>
-                  <li><span>05 / RESUME</span><strong>继续战斗</strong><small>明确恢复，不重新开局</small></li>
-                </ol>
-                <p>另一条检查路径：战斗胜利 → 奖励 → 背包 / 配置 → 返回原领取流程；保留领取与路线状态。</p>
-              </figure>
-              <div class="ninja-growth-grid">
-                <section class="ninja-growth-rules" aria-labelledby="navigation-rules-title">
-                  <h4 class="ninja-growth-label" id="navigation-rules-title">RULE MATRIX <span>入口 → 保留状态 → 返回目标</span></h4>
-                  <dl class="ninja-growth-matrix">
-                    <div><dt>暂停 × 战斗</dt><dd>打开覆盖层时保留战斗并停止推进；进入设置不意味着已经恢复战斗。<strong>关闭次级页面与“继续游戏”是不同动作。</strong></dd></div>
-                    <div><dt>设置 × 来源</dt><dd>设置页可以由不同入口打开，返回目标应跟随来源，不能固定指向地图或标题。<strong>复用页面，不能丢掉玩家进入它之前的上下文。</strong></dd></div>
-                    <div><dt>背包 × 奖励</dt><dd>从奖励进入背包后，返回需要接回原流程；配置变化与领取状态分别保留。<strong>离开领奖界面，不等于重新开始一次结算。</strong></dd></div>
-                    <div><dt>触控 × 确认</dt><dd>手机没有 ESC，需要可见的暂停入口；小屏奖励卡采用安全区内的单卡聚焦交互。<strong>滑动查看与确认选择分开，避免误领或看不到按钮。</strong></dd></div>
-                  </dl>
-                </section>
-                <aside class="ninja-growth-example" aria-labelledby="navigation-example-title">
-                  <span class="ninja-growth-label">RETURN CONTRACT / 相同页面，不同来路</span>
-                  <h4 id="navigation-example-title">“返回”应当接回玩家，<br>而不只是关掉窗口。</h4>
-                  <dl class="ninja-return-map">
-                    <div><dt>从标题进入设置</dt><dd>设置 → 标题</dd></div>
-                    <div><dt>从暂停进入设置</dt><dd>设置 → 暂停 → 继续游戏</dd></div>
-                  </dl>
-                  <p>暂停返回链更长，但保留了明确的恢复入口；少一次点击，不应以意外恢复战斗为代价。</p>
-                  <!-- ASSET_SLOT:ninja-rule-ui-flow — real pause and title screens; return contract is a design explanation. -->
-                  <figure class="ninja-rule-media ninja-rule-media--runtime ninja-growth-captures ninja-navigation-captures" data-asset-slot="ninja-rule-ui-flow">
-                    <div class="ninja-runtime-grid">
-                      <a class="ninja-runtime-shot" href="/assets/ninja-war/ninja-pause-runtime.webp" target="_blank" rel="noopener noreferrer" aria-label="打开暂停界面实际运行截图原图"><img src="/assets/ninja-war/ninja-pause-runtime.webp" alt="《忍宗の战》手机端暂停界面，包含返回游戏、设置、收藏馆与返回标题" loading="lazy"><span>暂停界面 ↗</span></a>
-                      <a class="ninja-runtime-shot" href="/assets/ninja-war/ninja-menu-runtime.webp" target="_blank" rel="noopener noreferrer" aria-label="打开主菜单实际运行截图原图"><img src="/assets/ninja-war/ninja-menu-runtime.webp" alt="《忍宗の战》手机端主菜单，包含开始游戏与游戏设置入口" loading="lazy"><span>主菜单 ↗</span></a>
-                    </div>
-                    <figcaption><small>实际运行截图 · 点击查看界面原图</small></figcaption>
-                  </figure>
-                </aside>
-              </div>
-              <div class="ninja-growth-notes">
-                <section class="ninja-growth-qa" aria-labelledby="navigation-qa-title">
-                  <span class="ninja-growth-label">DESIGN CHECK / 规则检查情境</span>
-                  <h4 id="navigation-qa-title">返回时，接回原来的那一步。</h4>
-                  <p>重点检查：暂停进入设置后能否返回暂停；奖励进入背包后能否接回领取流程；手机战斗中能否找到暂停入口。</p>
-                  <p><strong>验收边界：</strong>不越级跳页，不在菜单中偷偷推进战斗；轮播手势不触发确认，小屏不裁掉关键按钮。</p>
-                </section>
-                <section class="ninja-growth-decision" aria-labelledby="navigation-decision-title">
-                  <span class="ninja-growth-label">MY DECISION</span>
-                  <h4 id="navigation-decision-title">先定义流程，再一起补全状态。</h4>
-                  <p>这部分由我和程序共同完成：我给出界面与流程大纲，程序追问实现边界，双方补齐返回路径、暂停与移动端交互。</p>
-                  <p><strong>设计取舍：</strong>复用设置、背包等页面可以减少重复界面，但需要保留来源和当前进度；方便开发不能替代正确的玩家路径。</p>
-                </section>
-              </div>
-              </div>
-          </details>
-        </div>
-      </section>
-
-      <section class="ninja-iteration" id="iteration" aria-labelledby="ninja-iteration-title">
-        <header class="ninja-section-heading">
-          <p><span>03</span> HUMAN × AI ITERATION</p>
-          <h2 id="ninja-iteration-title">我把规则变成具体任务，跟着运行反馈继续修改。</h2>
-        </header>
-
-        <ol class="ninja-pipeline" aria-label="人机协作与 QA 迭代流程"><li><span>01</span><strong>定义选择与状态</strong><p>写清触发对象、资源消耗、效果冲突和结束条件。</p></li><li><span>02</span><strong>与程序对齐任务</strong><p>讨论可行性，把问题转成可执行的修改要求。</p></li><li><span>03</span><strong>推进实现</strong><p>协商范围，决定优先级，再由工具执行代码与构建。</p></li><li><span>04</span><strong>带着反馈返工</strong><p>从运行报错、手机操作和现场表现回到规则修改。</p></li></ol>
-
-        <div class="ninja-qa-board">
-          <article><span>LOGIC</span><h3>为特殊效果补齐收尾</h3><p>穿透、敌方行动与地图连通涉及不同状态；我根据 QA 反馈继续拆解触发、冲突与退出条件。</p></article>
-          <article><span>RUNTIME</span><h3>处理运行时限制</h3><p>数组越界、nil 错误与 Lua 局部变量上限持续占用返工时间，系统扩张也提高了实现成本。</p></article>
-          <article><span>MOBILE</span><h3>把操作放到手机上</h3><p>继续修正横竖屏、角色尺寸、暂停入口与旧二维码 manifest 失效问题。</p></article>
-          <article><span>VISUAL</span><h3>视觉反馈没有追上系统扩张</h3><p>现场玩家对特效爽快感有明确期待；工期和技术限制下，活动版本没有充分补齐这部分体验。</p></article>
-        </div>
-
-        <div class="audio-workbench">
-          <div>
-            <p>AUDIO WORKBENCH</p>
-            <h3>让声音对应玩家动作。</h3>
-            <p>角色与技能配音由我和程序两人真人实录；碰撞音效由我采样。我根据角色选择、技能点击、弹珠碰撞和撞墙等行为定义触发位置，并完成最终听感验收。</p>
-          </div>
-          </div>
-      </section>
-
-      <section class="ninja-result" id="result" aria-labelledby="ninja-result-title">
-        <header class="ninja-section-heading">
-          <p><span>04</span> RESULT / RETROSPECTIVE</p>
-          <h2 id="ninja-result-title">48 小时交出试玩，也留下了范围失控的代价。</h2>
-        </header>
-
-        <div class="ninja-result-grid">
-          <article class="result-signal">
-            <span>PUBLIC RESULT</span>
-            <strong>48H<br>可试玩</strong>
-            <p>《忍宗の战》最终进入 TapTap 公开试玩。从基础弹射到技能、资源和路线，团队完成了活动版本的交付。</p>
-            <a href="https://www.taptap.cn/app/888530" target="_blank" rel="noopener noreferrer">打开《忍宗の战》试玩页 <span aria-hidden="true">↗</span></a>
-          </article>
-          <article class="result-copy is-warning">
-            <p>WHAT REMAINS</p>
-            <h3>范围增长速度超过了验证速度。</h3>
-            <p>三章地图、多角色、技能、遗物、词缀、商店与评分系统在 48 小时内快速叠加，带来状态复杂度、单文件局部变量上限和反复返工。活动版本同时没有充分补齐玩家期待的爽快视觉反馈。</p>
-            <blockquote>复盘建议：核心循环成立后冻结主系统，用剩余时间强化一个角色、一章内容、少量可组合技能的手感与稳定性。</blockquote>
-          </article>
-        <article class="result-copy">
-            <p>TAKEAWAY / 可迁移的方法</p>
-            <h3>新增一个效果，同时定义它何时结束。</h3>
-            <ul><li><strong>拆规则：</strong>把玩家选择写成条件、状态变化与收尾。</li><li><strong>控范围：</strong>核心循环成立后冻结主系统，为手感和稳定性留时间。</li><li><strong>推交付：</strong>把程序与真机反馈转成下一项明确修改。</li></ul>
-          </article>
-          </div>
-      </section>
-
-      <section class="ninja-ownership" id="ownership" aria-labelledby="ninja-ownership-title">
-        <header class="ninja-section-heading is-dark">
-          <p><span>05</span> CONTRIBUTION &amp; EVIDENCE</p>
-          <h2 id="ninja-ownership-title">协作分工与补充材料</h2>
-        </header>
-
-        <details class="case-support"><summary>展开详细职责、AI 协作与材料说明</summary><div class="case-support-body"><div class="ownership-matrix">
-          <article class="is-mine">
-            <p>MY OWNERSHIP</p>
-            <h3>本人主导</h3>
-            <ul>
-              <li>基础原型 QA 与第一次返工</li>
-              <li>关键转向后的玩法与系统设计</li>
-              <li>规则、状态、触发与例外条件拆解</li>
-              <li>根据 QA 反馈修改边界并推动下一轮</li>
-              <li>Prompt 审阅与最终拍板</li>
-              <li>音效采样、音频触发与最终听感验收</li>
-            </ul>
-          </article>
-          <article class="is-joint">
-            <p>JOINT DECISIONS</p>
-            <h3>我与程序共同完成</h3>
-            <ul>
-              <li>玩法方向的讨论与可行性判断</li>
-              <li>界面流大纲、追问与状态补全</li>
-              <li>Codex 生成 Prompt 的共同审阅</li>
-              <li>预览、真机与运行问题的交叉 QA</li>
-              <li>角色与技能配音真人实录</li>
-            </ul>
-          </article>
-          <article class="is-program">
-            <p>PROGRAMMER / TOOL SIDE</p>
-            <h3>程序成员与 AI 工具</h3>
-            <ul>
-              <li>程序成员提出并提供基础弹射原型</li>
-              <li>程序成员反馈实现问题并辅助 QA</li>
-              <li>AI 工具将确认方案整理成执行需求</li>
-              <li>TapMaker 执行代码修改、构建与发布流程</li>
-            </ul>
-          </article>
-        </div>
-
-        <ol class="ninja-pipeline" aria-label="人机协作与 QA 迭代流程">
-          <li><span>01</span><strong>我提出系统与玩法</strong><p>形成规则目标、功能边界和修改方向。</p></li>
-          <li><span>02</span><strong>与程序讨论</strong><p>评估可行性、暴露实现问题，双方形成共同认可的方案。</p></li>
-          <li><span>03</span><strong>工具整理执行需求</strong><p>把已确认方案整理成包含条件、例外与返回行为的执行说明。</p></li>
-          <li><span>04</span><strong>共同审阅，我最终拍板</strong><p>我和程序检查 Prompt 是否忠于设计，由我决定是否交给 TapMaker。</p></li>
-          <li><span>05</span><strong>TapMaker 执行</strong><p>AI 工具依据审阅后的需求修改代码并构建，程序协助检查实现问题。</p></li>
-          <li><span>06</span><strong>QA → 反馈 → 再迭代</strong><p>程序反馈问题，我修改规则并再次协商边界，回到下一轮实现和 QA。</p></li>
-        </ol>
-
-        <dl>
-            <div><dt>VOICE</dt><dd>两人真人录制角色与技能台词</dd></div>
-            <div><dt>SFX</dt><dd>本人采样碰撞音效，并设置至少 0.1 秒触发间隔</dd></div>
-            <div><dt>MIX</dt><dd>末轮将 BGM 调至原音量 80%，音效与配音调至 120%</dd></div>
-          </dl>
-        <p>基础弹射原型由程序成员提供；我从 QA、返工与后续系统设计进入项目。方案与程序共同讨论，AI 工具负责代码与构建执行。</p><p>页面图片是技能库、遗物、路线和暂停等运行画面。规则检查情境用于解释设计要求；完整战斗衔接、奖励返回链与平衡仍需连续试玩复测。</p></div></details></section>
-
-      <section class="ninja-try-cta" aria-label="试玩《忍宗の战》">
-        <span class="ninja-try-scribble" aria-hidden="true">DRAG!　RELEASE!　BONK!</span>
-        <div>
-          <p>READING COMPLETE / PLAYABLE DEMO</p>
-          <h2>要不，<mark>试一把？</mark></h2>
-          <small>从案例拆解回到真正的拖拽、碰撞和忍术组合。</small>
-        </div>
-        <i class="ninja-try-arrow" aria-hidden="true">↘</i>
-        <a href="https://www.taptap.cn/app/888530" target="_blank" rel="noopener noreferrer">
-          <span>PLAY ON TAPTAP</span>
-          <strong>打开《忍宗の战》试玩页</strong>
-          <b aria-hidden="true">↗</b>
-        </a>
-      </section>
-
-      <nav class="next-module" aria-label="继续浏览">
-        <div><span>NEXT CASE</span><strong>继续查看同一场 48H 中的原型转向</strong></div>
-        <a href="./riff-bounce.html">进入 Riff Bounce <span aria-hidden="true">→</span></a>
-      </nav>
-    </main>
-
-    <footer class="site-footer"><p><a href="./index.html">DESIGN RIG</a> / NINJA WAR CASE</p><p>弹射 × Roguelike · 玩法与系统策划案例</p></footer>
-  </body>
+<footer class="rig-foot"><div><a href="/">DESIGN RIG</a><a href="/projects.html">游戏作品</a><a href="/resume.html">简历档案 ↗</a></div></footer><div aria-live="polite" class="rig-pending" hidden="" role="status"></div></body>
 </html>
