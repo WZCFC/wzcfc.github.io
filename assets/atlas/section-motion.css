@@ -1,0 +1,80 @@
+/* Keep each decorative playback area as small as its artwork. */
+.motion-art { display: block; object-fit: contain; pointer-events: none; }
+.motion-footer-mark { margin-right: auto; padding-block: 8px; }
+.footing .motion-footer-mark .word { display: block; margin: 0; }
+.motion-footer-mark .motion-arc { display: block; width: 73px; height: 14px; margin: 3px 0 0; opacity: .6; }
+.motion-assembly-trigger {
+  display: block;
+  margin: 10px 0 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.motion-assembly-trigger:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.motion-assembly { opacity: .8; }
+
+#teardown-skills .skill-entry { position: relative; padding-inline-start: 18px; }
+#teardown-skills .skill-entry::before {
+  position: absolute;
+  inset: -1px auto -1px 6px;
+  content: "";
+  width: 1px;
+  background: #bcc9de;
+  opacity: 0;
+  pointer-events: none;
+}
+#teardown-skills .skill-entry:first-child::before { inset-block-start: 24px; }
+#teardown-skills .skill-entry:is([open],:has(~ .skill-entry[open]))::before { opacity: 1; }
+#teardown-skills .skill-entry[open]:not(:has(~ .skill-entry[open]))::before {
+  background: linear-gradient(#8fa6d1, #bcc9de 78%, transparent);
+}
+#teardown-skills .skill-entry > summary { position: relative; }
+#teardown-skills .skill-entry > summary::before {
+  position: absolute;
+  top: 50%;
+  left: -15px;
+  width: 7px;
+  height: 7px;
+  border: 1px solid #a0b3d3;
+  border-radius: 50%;
+  background: var(--paper);
+  transform: translateY(-50%);
+  content: "";
+  pointer-events: none;
+}
+#teardown-skills .skill-entry[open] > summary::before { background: #708dc4; border-color: #708dc4; }
+#teardown-skills .skill-marker { position: absolute; top: 50%; left: -12px; transform: translate(-50%,-50%); }
+#teardown-skills .skill-entry:not([open]) .skill-marker { visibility: hidden; }
+
+@media (max-width: 620px) {
+  .motion-assembly { width: 74px; }
+  .motion-assembly-trigger { margin-top: 6px; }
+}
+@media print {
+  .motion-art, .motion-assembly-trigger, #teardown-skills .skill-entry::before, #teardown-skills summary::before { display: none; }
+}
+
+#teardown-skills > aside,
+#game-experience > aside { display: flex; flex-direction: column; }
+.sidebar-stars { margin-top: auto; padding-top: 24px; pointer-events: none; }
+.sidebar-stars-art { display: block; position: relative; width: 90px; height: 74px; }
+.sidebar-stars .research-star { animation: none; }
+.sidebar-stars .research-star::after { content: none; animation: none; }
+.sidebar-stars .sidebar-star-large { width: 60px; left: 0; bottom: 0; }
+.sidebar-stars .sidebar-star-small { width: 20px; right: 6px; top: 0; }
+@media (max-width: 620px) {
+  .sidebar-stars { padding-top: 12px; }
+  .sidebar-stars-art { width: 60px; height: 49px; }
+  .sidebar-stars .sidebar-star-large { width: 40px; }
+  .sidebar-stars .sidebar-star-small { width: 13px; right: 4px; }
+}
+@media print { .sidebar-stars { display: none; } }
+
+.cover-systems .cover-type { padding-top: clamp(46px, 7vw, 88px); }
+@media (max-width:620px) {
+  .cover-systems .cover-type { padding-top: 39px; }
+}
+@media print {
+  .cover-systems .cover-type { padding-top: 12px; }
+}
